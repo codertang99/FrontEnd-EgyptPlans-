@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const sy = Symbol("1")
+    const sb = Symbol("2")
+    var a = {
+      name: "t",
+      age: 10,
+      friends: {
+        name: "lucy", 
+        age: 19, 
+        hhh: {name: "lily"},
+        [sb]: sy
+      },
+      c:[1, 2],
+      [sb]: sy,
+      f: function() { console.log(123123) },
+      set: new Set(["1", "2"]),
+      map: new Map([["@34", "343"], ["rrr", "435"]])
+    }
+    a.__proto__.ni = '123213'
+    function Person(p) {
+      this.a = p
+    }
+
+    var p = new Person("tang")
+
+    // var curr = new Object()
+    // curr.__proto__ = p   // 把当前proto指向目标对象的
+    // // var curr = Object.create(p)  // 更加优雅的写法
+    // curr.a = "o"
+    // console.log(curr.a)
+
+    // 拷贝继承
+    // var p1 = Object.create(p.__proto__)
+    // for(var i in p) {
+    //   if(p.hasOwnProperty(i))
+    //     p1[i] = p[i]
+    // }
+
+    // 深拷贝
+    function deepCopy(a) {
+      var curr = Object.create(a.__proto__)
+      if(typeof a === "symbol") {
+        return Symbol(a.description)
+      }
+      for(var i in a) {
+        // 判断对象是否包含特定的自身（非继承）属性
+        if(a.hasOwnProperty(i)) {
+          if(!(a[i] instanceof Object)) {
+            curr[i] = a[i]
+          } else {
+            curr[i] = deepCopy(a[i])
+            
+            if(a[i] instanceof Array) {
+              curr[i].length = a[i].length
+            }
+
+            if(typeof a[i] === "function") {
+              curr[i] = a[i]
+            }
+
+            if(a[i] instanceof Set) {
+              curr[i] = new Set([...a[i]])
+            }
+
+            if(a[i] instanceof Map) {
+              curr[i] = new Map([...a[i]])
+            }
+            
+            
+          }
+        }
+      }
+
+      var symbols = Object.getOwnPropertySymbols(a)
+      for(let s of symbols) {
+        curr[s] = deepCopy(a[s])
+      }
+
+      return curr
+    }
+
+    var pp = deepCopy(a)
+    console.log(pp)
+    console.log(pp.f)
+  </script>
+</body>
+</html>

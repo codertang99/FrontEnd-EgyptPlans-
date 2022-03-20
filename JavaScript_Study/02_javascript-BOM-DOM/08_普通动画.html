@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      margin-top: 50px;
+    }
+
+    #div1 {
+      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: #f00;
+      position: absolute;
+    }
+
+  </style>
+</head>
+<body>
+  <input id="inputValue" type="text" placeholder="请输入移动值" value="">
+  <input id="button" type="button" value="移动">
+  <div id="div1">
+  </div>
+  <script>
+
+    function animation(element, target, duration, interval) {
+      var value = target;
+      var STEPTEMP = (value - element.offsetLeft) / (duration / interval)
+      var STEP = Math.floor(STEPTEMP);
+      if(STEP === 0) {
+        STEP = STEPTEMP > 0 ? STEP = 1 : STEP = -1;
+      }
+
+      element.timer && clearInterval(element.timer)
+
+      element.timer = setInterval(() => {
+        // if( STEP * (value - div.offsetLeft) > 0) {
+
+        if(Math.abs(value - element.offsetLeft) <= Math.abs(STEP)) {
+          element.style.left = value + "px";
+          clearInterval(element.timer)
+        } else {
+          element.style.left = element.offsetLeft + STEP + "px"
+        }
+          
+        // }
+        
+      }, interval);
+    }
+
+    var btn = document.querySelector("#button");
+    var timer = null;
+    var DURANTION = 3000;
+    var INTERVAL = 50;
+    btn.addEventListener("click", function() {
+      animation(document.querySelector("#div1"), parseInt(document.querySelector("#inputValue").value), DURANTION, INTERVAL)
+    })
+  </script>
+</body>
+</html>

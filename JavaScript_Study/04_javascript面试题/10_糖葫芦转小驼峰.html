@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str = "background-color"
+    String.prototype.convertHump = function() {
+      var tem = ""
+      for(var i=0; i<str.length; i++) {
+        if(str.charAt(i) === "-") {
+          i++
+          tem += str.charAt(i).toLocaleUpperCase()
+          continue;
+        }
+        tem += str.charAt(i)
+      }
+
+      return tem
+    }
+
+
+    String.prototype.convertHump2 = function() {
+      
+
+
+      return this.replace(/-(\w)/g, function(match, f1) {
+        return f1.toLocaleUpperCase()
+      })
+    }
+
+    console.log(str.convertHump())
+    console.log(str.convertHump2())
+
+  </script>
+</body>
+</html>

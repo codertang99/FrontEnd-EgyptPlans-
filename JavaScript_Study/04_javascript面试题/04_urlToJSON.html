@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str = "http://www.baidu.com?name=tang&age=22&c=&e&fi=ccc";
+
+    function url2JSON(str) {
+      if(typeof str !== "string" && !(str instanceof String)) {
+        return "";
+      }
+      var json = {};
+      var temArr = str.split("?")
+
+      if(temArr.length === 2) {
+        json["address"] = temArr[0]
+        var otherParams = temArr[1]
+
+        otherParams = otherParams.split("&")
+
+        for(var i=0; i<otherParams.length; i++) {
+          var temp = otherParams[i].split("=")
+          if(temp.length === 2) {
+            json[temp[0]] = temp[1]
+          } else if(temp.length === 1) {
+            json[temp[0]] = undefined
+          }
+        }
+
+      } else if(temArr.length === 1) {
+        json["address"] = temArr[0]
+      }
+
+      return json
+
+    }
+
+    console.log(url2JSON(str))
+
+  </script>
+</body>
+</html>

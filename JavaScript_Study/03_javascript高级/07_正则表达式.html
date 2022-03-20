@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var regExp = new RegExp("[\\d]+", "g"); // 使用RegExp类 参数一: 字符串表达式, 参数二: 
+    var str = "123123123123..."
+    console.log(str.match(regExp))
+
+    // 负向类, [^], 表示排除, 方括号中任意字符都不能出现
+    console.log(str.match(/[^\d]+/g))  // 直接量
+
+    /**
+     * 预定义类, 通配符
+     * \d -> [\d] 表示数字
+     * \D -> [^\d] 表示非数字
+     * \w -> [a-zA-Z_0-9] 表示字母数字下划线, 通常用于表示变量名
+     * \W -> [^a-zA-Z_0-9] 表示非字母数字下划线
+     * \s -> [\t\r\n\f\v] 表示所有的空格空白
+     * \S -> [^\t\r\n\f\v] 表示非所有的空格空白
+     * . -> [^\n\r] 表示除回车以外的所有字符
+     * 位置, 不含字符
+     * \b -> 表示边界, 介于\w 和 \W 之间的字符
+     * \B -> 表示不是边界, 不是\w 就是\W
+     * ^ 表示开始位置
+     * $ 表示结束位置
+     * **/
+
+    var houses = ["123", "345", "802", "421", "555", "302", "705", "5584"]
+    // 把三个数字的门牌号提取出来
+    for(var i in houses) {
+      var reg = /^\d\d\d$/g;
+      if(reg.test(houses[i])) {
+        console.log(houses[i])
+      }
+    }
+
+    console.log("-----------------")
+
+    for(var i in houses) {
+      var reg = /^\d\d[13579]$/g;
+      if(reg.test(houses[i])) {
+        console.log(houses[i])
+      }
+    }
+
+    /**
+     *  量词: 所匹配的字符出现的次数
+     *  {m, n} 最少出现m次最多出现n次
+     *  {m, } 至少出现m次, 最多无限制
+     *  {m} 出现m次
+     *  ? 0次或1次
+     *  + 1次或无限制
+     *  * 0次或无限制
+     * 贪婪量词: ? + * 独立使用找到最大匹配
+     * 惰性量词: *? +? 找到即停止
+     * **/  
+    var str2 = "aaaabbbsbdbbbbbadbbbbbb";
+    console.log(str2.match(/.*bbb/g))
+    console.log(str2.match(/.*?bbb/g))
+
+    /**
+     * 分组: 不仅可以对整个字符串进行匹配还可以对括号子串进行匹配
+     * (pattern), 对括号中pattern所匹配的进行分组
+     * 在正则中\1进行反向引用, 在RegExp.$1进行反向引用
+     * lastMatch表示匹配到的子串
+     * 如果在正则中设定了name, 则可以使用\k<name>引用
+     * (?:正则), 如果有?: 则捕获不提取分组
+     * 使用分组带全局匹配则返回所有匹配, 反之返回第一个找到的详尽的值
+     * **/
+    
+     var str3 = "aaa mm ccc";
+     console.log(str3.match(/aaa (?<myWords>mm ccc)?/)) // 对(?<name>)进行分组可以通过在()中?<name>设置名字并groups展现
+     console.log(RegExp.$1);
+
+     console.log("--------------------------")
+     var str4 = "aaa ccc ccc bbb ddd ddd"
+     console.log(str4.match(/(?<overlap>[a-zA-Z]+)\s+\k<overlap>/g));
+
+    /**
+     * 断言 定语
+     * 先行断言 (?=word)
+     * 后行断言 (?<=word)
+     * 先行负向断言 (?<!word)
+     * 后行负向断言 (?!word)
+     * **/
+
+      var str4 = "aaa; asdfad; adfads; 23e;"
+      console.log(str4.match(/[a-zA-Z\d]{3}(?=;)/g));
+      console.log(str4.match(/(?<=a)[a-zA-Z\d]{3}/g));
+
+      var variable = "var abdl;"
+      var fun = "function f() {}";
+
+      console.log(variable.match(/^var\s+[a-zA-Z_]\w*;?/g))
+      console.log(fun.match(/^function\s+(?<funName>[a-zA-Z_]\w*)\(\)\s*\{\}/));
+  </script>
+</body>
+</html>

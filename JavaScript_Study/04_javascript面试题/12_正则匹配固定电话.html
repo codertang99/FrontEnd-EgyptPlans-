@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var phone = "0234-23423666"
+    var phone2 = "0234-23423666-234"
+    var phone3 = "023-7777777-4444"
+
+    // 注意这里的个数{2,3}, 逗号后面不可以加空格, 不然容易踩坑
+    var reg = /^0\d{2,3}-\d{7,8}(?:-\d{3,4})?$/;
+    console.log(reg)
+    console.log(phone.match(reg))
+    console.log(phone2.match(reg))
+    console.log(phone3.match(reg))
+
+  </script>
+</body>
+</html>

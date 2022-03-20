@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * webworker, HTML5中一种多线程处理, 通常用作大量计算或者后台交互方面(websocket)
+     * 因为JavaScript是单线程的, 所以通常在处理执行方面都是在主线程执行或者通过异步方式
+     * HTML5可以通过创建多个worker, 来多线程运行
+     * worker不能操作: 不能访问DOM、不能跨域访问js文件、不支持IE、加载数据方面没有AJAX和JSONP效率高
+     * **/
+    var worker = new Worker("./worker.js")
+    worker.onmessage = function(e) {
+      console.log(e)
+    }
+
+    worker.postMessage("111")
+    console.log("this is main thread")
+  </script>
+</body>
+</html>

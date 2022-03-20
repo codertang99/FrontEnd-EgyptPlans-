@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" value="读取">
+  <img src="" alt="">
+  <script>
+    var file = document.querySelector("input[type=file]")
+    file.onchange = function() {
+      var data = this.files[0]
+      console.log(data)
+      var fileReader = new FileReader()
+      fileReader.readAsDataURL(data)
+      fileReader.onload = function() {
+        console.log(this)
+        document.querySelector("img").src = this.result
+      }
+    }
+  </script>
+</body>
+</html>

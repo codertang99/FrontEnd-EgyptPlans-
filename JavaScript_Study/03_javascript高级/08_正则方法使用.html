@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // String中的方法
+    var str = "i words first and is rally and";
+    // string.match()
+    //    有g参数, 表示全局匹配返回所匹配的最大子串, 反之找到即停止带有input, index等参数
+    console.log(str.match(/a/))
+    // string.search()  返回一个整数, 从匹配的字符串开始的位置, 没有返回-1, 注意正则中g参数无效
+    console.log(str.search(/\bwords\b/))
+    console.log(RegExp.lastMatch) // 获取匹配的串
+    // string.replace(), repalce(string|regExp, string|function), 返回替换后的字符串
+    console.log(str.replace("and", "helloya"))  // 只能替换第一个找到的值
+
+    console.log(str.replace(/\band\b/g, "myands")) // 正则中带上g全局参数, 可以依次替换
+
+    /**
+     * Reg.$1 - Reg.$99 表示分组, Reg.$&匹配的字符串, $`左侧 $'右侧
+     * */
+    var str1 = "aaa-cccc www-ejrkejrkej"
+    console.log(str1.replace(/([a-z]+)-([a-z]+)/g, "$2-$1"))
+
+    console.log(str1.replace(/([a-z]+)-([a-z]+)/g, convertCode))
+    function convertCode(match, f1, f2, offset, input) {
+
+      var str1 = "";
+      for(var i in f1) {
+        str1 += String.fromCharCode((f1.charCodeAt(i) + 1))
+      }
+
+      var str2 = "";
+      for(var j in f2) {
+        str2 += String.fromCharCode((f2.charCodeAt(j) + 1))
+      }
+
+      return str2 + "-" + str1
+    }
+
+  </script>
+</body>
+</html>

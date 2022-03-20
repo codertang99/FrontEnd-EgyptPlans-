@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // IP定位, 通过navigator对象获取geolocation对象
+    if(navigator.geolocation) {
+      console.log("支持定位...")
+
+      navigator.geolocation.getCurrentPosition(function(result) {
+        var longitude = result.coords.longitude
+        var latitude = result.coords.latitude
+        var accuracy = result.coords.accuracy
+        console.log(longitude) // 经度
+        console.log(latitude) // 维度
+        console.log(accuracy) // 精度偏差
+      }, function(fail) {
+        // 无法获取
+        console.log(fail)
+        /**
+         *  1 -> 用户拒绝获取位置
+         *  2 -> 无法获取
+         *  3 -> 获取位置信息超时
+         * **/
+      }, {
+        maximumAge: 2 * 60 * 1000,  // 缓存更新时间
+        timeout: 4000
+      })
+
+    } else {
+      console.log("不支持定位")
+    }
+
+    var watchPosition = navigator.geolocation.watchPosition(function(success) {
+      console.log(success)
+    }, function(fail) {
+      console.log(fail)
+    })
+
+    setTimeout(() => {
+      navigator.geolocation.clearWatch(watchPosition)
+    }, 5000);
+
+  </script>
+</body>
+</html>

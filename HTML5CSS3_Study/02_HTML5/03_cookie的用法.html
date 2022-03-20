@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(document.cookie)
+
+    document.cookie = "key=value" // 通过key和value的方式进行设置
+    document.cookie = "key2 = value2; width = height" // 不可以连续设置, 连续设置第一个有效, 后面无效
+
+    console.log(document.cookie)
+    document.cookie = "key=value; expires=0; max-age=0";
+
+    setTimeout(() => {
+      console.log(document.cookie)
+    }, 2000);
+  </script>
+</body>
+</html>

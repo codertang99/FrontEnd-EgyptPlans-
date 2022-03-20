@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <input type="text" value="1">
+  <input type="text" value="2">
+  <input type="text" value="3">
+  <input type="text" value="4">
+  <input type="text" value="5">
+  <input type="text" value="6">
+  <input type="button" id="btn" value="清空">
+  <script>
+    var inputs = document.getElementsByTagName("input")
+    var button = document.getElementById("btn")
+    button.onclick = function() {
+      for(var i=0; i< inputs.length; i++) {
+        if(inputs[i].getAttribute("type") === "text") {
+          inputs[i].value = ""
+          // inputs[i].setAttribute("value", "")  // 注意不可以使用这种方式, 因为setattribute这种是在标签定义那一刻决定的
+        }
+      }
+    }
+    var inputs2 = document.querySelectorAll("input[type=text]")
+    button.onclick = function() {
+      for(var j=0; j<inputs2.length; j++) {
+        inputs2[j].value = ""
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./animation.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      margin: 50px auto;
+      padding: 10px;
+      border: 5px solid #ccc;
+      width: 520px;
+    }
+
+    #inner-box {
+      position: relative;
+      width: 520px;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    #inner-box > ul {
+      overflow: hidden;
+      position: absolute;
+      width: 500%;
+    }
+    #inner-box > ul > li {
+      list-style: none;
+      float: left;
+    }
+    #inner-box .span {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+    #inner-box .span span {
+      display: inline-block;
+      background-color: #ccc;
+      text-align: center;
+      width: 20px;
+    }
+    #inner-box .span span.active {
+      background-color: #f00589;
+    }
+    #inner-box > .click span {
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      margin-top: -20px;
+      background-color: rgba(0, 0, 0, .3);
+      font-size: 40px;
+      color: #ffffff;
+      text-align: center;
+      cursor: pointer;
+      display: none;
+    }
+
+    #inner-box:hover > .click span {
+      display: inline-block;
+    }
+
+    #inner-box > .click>.right {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <div id="inner-box">
+      <ul class="image">
+        <li><a href="#"><img src="./assets/1.png"></a></li>
+        <li><a href="#"><img src="./assets/2.jpg"></a></li>
+        <li><a href="#"><img src="./assets/3.jpg"></a></li>
+        <li><a href="#"><img src="./assets/4.jpg"></a></li>
+        <li><a href="#"><img src="./assets/5.jpg"></a></li>
+      </ul>
+      <div class="span" data-old="0">
+        <span class="active">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+      </div>
+      <div class="click">
+        <span class="right" data-type="right">&gt;</span>
+        <span class="left" data-type="left">&lt;</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    var imageul = document.querySelector("#inner-box>.image");
+    var spanDiv = document.querySelector("#inner-box>.span");
+    var spans = document.querySelectorAll("#inner-box>.span>span")
+    var INTERVAL = 10;
+    var DURATION = 1000;
+    var WIDTH = 520
+
+    spanDiv.addEventListener("click", function(e) {
+      if(this === e.target) return;
+      var index = parseInt(e.target.innerHTML) - 1;
+      var oldIndex = parseInt(spanDiv.dataset["old"])
+      if(index === oldIndex) return
+      e.target.setAttribute("class", "active")
+      spans[oldIndex].removeAttribute("class")
+      animation(imageul, -WIDTH*index, DURATION*Math.abs(oldIndex - index), INTERVAL)
+      spanDiv.dataset["old"] = index
+    })
+
+    var spanLeft = document.querySelector("#inner-box>.click>.left");
+    var spanRight = document.querySelector("#inner-box>.click>.right")
+    function runLeftOrRight(e) {
+      var type = e.target.dataset["type"]
+      var currIndex = document.querySelector("#inner-box>.span>.active").innerHTML - 1
+      var oldIndex = parseInt(spanDiv.dataset["old"])
+      if(type === "left") {
+        if(currIndex > 0) {
+          currIndex = oldIndex - 1;
+        } else {
+          currIndex = spans.length - 1
+        }
+      } else {
+        if(currIndex < spans.length - 1) {
+          currIndex = oldIndex + 1;
+        } else {
+          currIndex = 0
+        }
+      }
+      spans[currIndex].setAttribute("class", "active")
+      spans[oldIndex].removeAttribute("class")
+      animation(imageul, -WIDTH*currIndex, DURATION*Math.abs(oldIndex - currIndex), INTERVAL)
+      spanDiv.dataset["old"] = currIndex
+    }
+
+    spanLeft.addEventListener("click", runLeftOrRight)
+    spanRight.addEventListener("click", runLeftOrRight)
+
+    var SLIDEINTERVAL = 30000
+    setTimeout(function(){
+      var oldIndex = parseInt(spanDiv.dataset["old"])
+      var x =0
+      if(oldIndex < spans.length - 1) {
+        x = oldIndex + 1;
+      } else {
+        x = 0
+      }
+      spans[x].setAttribute("class", "active")
+      spans[oldIndex].removeAttribute("class")
+      animation(imageul, -WIDTH*x, DURATION*Math.abs(oldIndex - x), INTERVAL)
+      spanDiv.dataset["old"] = x
+      setTimeout(arguments.callee, SLIDEINTERVAL);
+    }, SLIDEINTERVAL);
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #trainer {
+      width: 20px;
+      height: 20px;
+      background-color: #0f0;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="trainer"></div>
+  <script>
+
+    var TOTALWIDTH = 400;
+    var STEP = 20;
+    var TIME = 100;
+    var MINITES = 30;
+    var PERIOD = Math.floor((TOTALWIDTH - STEP) / (MINITES)); 
+
+    function runRight() {
+      var trainerDiv = document.getElementById("trainer");
+      var width = trainerDiv.clientWidth;
+      if(width < TOTALWIDTH) {
+        width += PERIOD;
+        trainerDiv.style.width = width + "px";
+        setTimeout(runRight, TIME);
+      } else {
+        trainerDiv.style.width = TOTALWIDTH + "px"
+        setTimeout(changeLeft, TIME);
+      }
+    }
+
+    function changeLeft() {
+      var trainerDiv = document.getElementById("trainer");
+      var width = trainerDiv.clientWidth;
+      if(width > STEP) {
+        width -= PERIOD;
+        trainerDiv.style.width = width + "px";
+        trainerDiv.style.left = TOTALWIDTH - width + "px";
+        setTimeout(changeLeft, TIME);
+      } else {
+        trainerDiv.style.width = STEP + "px"
+      }
+    }
+
+    setTimeout(runRight, 1000);
+  </script>
+</body>
+</html>

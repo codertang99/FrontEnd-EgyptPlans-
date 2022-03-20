@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /**
+     * lazyman()
+     * sleep(time)
+     * eat()
+     * firstSleep(time)
+     * **/
+    function Task(name, args, man) {
+      this.name = name
+      this.args = args
+      this.man = man
+    }
+
+    Task.prototype.lazyMan = function(name) {
+      console.log("Hi lazyMan " + name)
+      this.man.publish()
+    }
+
+    Task.prototype.eat = function(type) {
+      console.log("eat " + type)
+      this.man.publish()
+    }
+
+    Task.prototype.sleep = function(time) {
+      setTimeout(() => {
+        console.log("sleep " + time)
+        this.man.publish()
+      }, time);
+    }
+
+    Task.prototype.firstSleep = function(time) {
+      setTimeout(() => {
+        console.log("firstSleep " + time)
+        this.man.publish()
+      }, time);
+    }
+
+    function Man() {
+      this.taskList = []
+    }
+
+    Man.prototype.lazyMan = function(name) {
+      this.subscribe("lazyMan", name)
+      return this
+    }
+
+    Man.prototype.eat = function(type) {
+      this.subscribe("eat", type)
+      return this
+    }
+
+    Man.prototype.sleep = function(time) {
+      this.subscribe("sleep", time)
+      return this
+    }
+
+    Man.prototype.firstSleep = function(time) {
+      this.subscribe("firstSleep", time)
+      return this
+    }
+
+    Man.prototype.subscribe = function() {
+      if(arguments.length < 2) {
+        console.log("params counter error!!!!!!!!")
+        return
+      }
+
+      var taskName = arguments[0]
+      var params = Array.prototype.slice.call(arguments, 1)
+      var task = new Task(taskName, params, this)
+      if(taskName === "firstSleep") {
+        this.taskList.unshift(task)
+      } else {
+        this.taskList.push(task)
+      }
+    }
+
+    Man.prototype.publish = function() {
+      if(this.taskList.length > 0) {
+        var currentTask = this.taskList.shift()
+        currentTask[currentTask.name].apply(currentTask, currentTask.args)
+      }
+    }
+
+    function lazyMan(name) {
+      var man = new Man()
+      man.subscribe("lazyMan", name)
+      setTimeout(() => {
+        man.publish()
+      }, 0);
+      return man
+    }
+
+    lazyMan("tang").sleep(1000).eat("dinner").firstSleep(2000).lazyMan("why").firstSleep(1000)
+
+  </script>
+</body>
+</html>

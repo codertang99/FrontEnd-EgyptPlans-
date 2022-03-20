@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="show"></div>
+  <script>
+    // HTML5中一种近似关系型sql数据库(底层使用B树+链表), 本地数据库, 但是它对于浏览器兼容性不好, 不建议使用 
+    var webSql = openDatabase("mydatabse", "1,0", "test", 2 * 1024 * 1024)
+    var msg = ""
+    webSql.transaction(function(tx) {
+      tx.executeSql("DROP TABLE codertang");
+    })
+
+    webSql.transaction(function(tx) {
+      tx.executeSql("CREATE TABLE codertang (id unique, name)")
+    });
+
+    webSql.transaction(function(tx) {
+      tx.executeSql("INSERT INTO codertang (id, name) VALUES (1, 'tang')")
+      tx.executeSql("INSERT INTO codertang (id, name) VALUES (2, 'lucy')")
+      tx.executeSql("INSERT INTO codertang (id, name) VALUES (3, 'wu')")
+      tx.executeSql("INSERT INTO codertang (id, name) VALUES (4, 'si')")
+    })
+
+    webSql.transaction(function(tx) {
+      tx.executeSql("SELECT * FROM codertang WHERE ID = ?", [1], function(tx, result) {
+        console.log(result.rows)
+        for(var i=0; i< result.rows.length; i++) {
+          // msg += result.rows[i].name + " " + result.rows[i].id
+          msg += JSON.stringify(result.rows[i])
+        }
+        document.querySelector(".show").innerHTML = msg
+      }, function(tx, fail) {
+        console.log(fail)
+      })
+    })
+
+
+
+  </script>
+</body>
+</html>

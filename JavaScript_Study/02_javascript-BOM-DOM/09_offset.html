@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      margin: 200px;
+      height: 200px;
+    }
+    .content {
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      margin: 40px;
+      border: 10px solid #0f0;
+      background-color: #f00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+  </div>
+
+  <script>
+    /**
+     * offsetLeft, offsetRight, offsetWidth, offsetHeight
+     * offsetLeft, offsetRight -> 据第一个定位父元素的距离
+     * offsetWidth, offsetHeight -> 盒子的宽度
+     * **/
+    var content = document.querySelector(".content")
+    console.log(content.offsetLeft)
+    console.log(content.offsetWidth)
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function concatRank(a1, a2) {
+      if(!(a1 instanceof Array) || !(a2 instanceof Array)) {
+        if(a1 == null && a2 instanceof Array) {
+          return a2
+        } else if(a1 instanceof Array && a2 == null) {
+          return a1
+        } else {
+          return []
+        }
+      }
+
+      /**
+       * 使用库函数
+       * **/
+      // var tempArr = []
+      // for(var i=0; i<a1.length; i++) {
+      //   if(typeof a1[i] === "number") {
+      //     tempArr.push(a1[i])
+      //   }
+      // }
+
+      // for(var j=0; j<a2.length; j++) {
+      //   if(typeof a2[j] === "number") {
+      //     tempArr.push(a2[j])
+      //   }
+      // }
+
+      // return tempArr.sort(function(a, b) {
+      //   return a - b;
+      // })
+
+      var i = 0, j = 0;
+      var tempArr = []
+      for(; i<a1.length && j<a2.length;) {
+        if(typeof a1[i] !== "number") {
+          i++;
+          continue;
+        }
+
+        if(typeof a2[j] !== "number") {
+          j++;
+          continue;
+        }
+
+        if(a1[i] < a2[j]) {
+          tempArr.push(a1[i])
+          i++;
+        } else {
+          tempArr.push(a2[j])
+          j++;
+        }
+
+      }
+
+      for(; i<a1.length; i++) {
+        if(typeof a1[i] === "number") {
+          tempArr.push(a1[i])
+        }
+      }
+
+      for(; j<a2.length; j++) {
+        if(typeof a2[j] === "number") {
+          tempArr.push(a2[j])
+        }
+      }
+
+      return tempArr
+    }
+
+    console.log(concatRank([1, 4, 6, 10], [5, 9, 24, 88]))
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // IndexDB HTML5中新的一种NoSql存储方式(B树 + 数组), 支持异步, 存储对象
+    var request = indexedDB.open("tang", 17)
+    var db = null
+    request.onsuccess = function(e) {
+      console.log("open successfully!!!")
+
+      // 开启事务, 对哪些store进行操作, 同时有哪些权限 read write readwrite
+      var transaction = db.transaction(["logs"], "readwrite")
+      // 获得具体的哪个store
+      var store = transaction.objectStore("logs")
+
+
+      // 这里需要注意的是, add添加任务是同步的, 而真正执行的是异步的所以要在对应的回调中获取成功结果
+      var request = store.add({id: 1, title: "a", log: "this is first log"})
+      
+      request.onsuccess = function(e) {
+        console.log("store add one data successfully!")
+
+        var request = store.add({id: 2, title: "b", log: "this is second log"})
+      
+        request.onsuccess = function(e) {
+          console.log("store add two data successfully!")
+
+          var request = store.add({id: 3, title: "a", log: "this is three log"})
+      
+          request.onsuccess = function(e) {
+            console.log("store add three data successfully!")
+
+            // 可以直接通过主键获取对应对象
+            // var request = store.get(1)
+            var request = store.index("titleIndex").get("a")
+
+            request.onsuccess = function(e) {
+              var log = e.target.result
+              console.log(log)
+              log.log = "我是第一个被修改的"
+
+              var request = store.put(log)
+
+              request.onsuccess = function(e) {
+                console.log("update store 1 object successfully!")
+                
+                /**
+                 * openCursor() 获取所有
+                 * openCursor(检索条件)
+                 *    IDBKeyRange
+                 *    IDBKeyRange.bound(最小值, 最大值, 是否开放区间, 是否开放区间)
+                 *    IDBKeyRange.only()
+                 *    IDBKeyRange.lowerBound(最小值, 是否开放区间)
+                 *    IDBKeyRange.upperBound(最大值, 是否开放区间)
+                 * openCursor(检索条件, 检索方向)
+                 * next、nextunique、prev、prevunique
+                 * **/
+                var request = store.openCursor()
+
+                request.onsuccess = function(e) {
+                  var cursor = e.target.result
+                  if(cursor) {
+                    console.log(cursor.value)
+                    cursor.continue()
+                  }
+                }
+
+              }
+
+              request.onerror = function() {
+                console.log("fail")
+              }
+
+            }
+
+            request.onerror = function() {
+              console.log("fail")
+            }
+
+          }
+          request.onerror = function(e) {
+            console.log("fail")
+          }
+
+        }
+        request.onerror = function(e) {
+          console.log("fail")
+        }
+
+      }
+      request.onerror = function(e) {
+        console.log("fail")
+      }
+    }
+
+    // 一般用作更新数据存储结构的回调, 版本更迭时回调
+    request.onupgradeneeded = function(e) {
+      console.log("onupgradeneeded")
+      db = this.result
+      if(db.objectStoreNames.contains("logs")) {
+        db.deleteObjectStore("logs")
+      }
+      // 创建存储结构并设置keypath主键
+      var objectStore = db.createObjectStore("logs", { keyPath: "id" })
+      console.log(objectStore)
+
+      objectStore.createIndex("titleIndex", "title", { unique: false })
+    }
+
+    request.onerror = function(e) {
+      console.log("error!!!")
+    }
+  </script>
+</body>
+</html>

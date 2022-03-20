@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var workers = ["./worker1.js", "./worker2.js", "./worker3.js", "./worker4.js", "./worker5.js"]
+    var currIndex = 0
+    
+    for(var i=0; i<workers.length; i++) {
+      var worker = new Worker(workers[i])
+      worker.workerName = workers[i]
+      worker.addEventListener("message", function(e) {
+        console.log(this.workerName, e.data)
+        currIndex++
+        if(currIndex === workers.length) {
+          console.log("all finish")
+        }
+      })
+      worker.postMessage(i)
+    }
+
+    console.log("main thread running");
+
+  </script>
+</body>
+</html>

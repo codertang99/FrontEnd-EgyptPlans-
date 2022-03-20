@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var num = 123, num23 = 12345, num2 = 123578122.98893;
+
+    Number.prototype.currency = function() {
+      var ret = "￥0.00"
+      if(isNaN(this)) return ret
+
+      if(!isFinite(this)) return ret
+
+      var str = this.toFixed(2).toString()
+      ret = "￥"
+      var tempValue = (str.length - 3) % 3;
+      for(var i=0; i< str.length - 3; i++) {
+        if(i !== 0 && tempValue === i % 3) {
+          ret += ","
+        }
+        
+        ret += str[i]
+      }
+
+      ret += str.substr(-3)
+
+      return ret
+    }
+
+
+    Number.prototype.currency2 = function() {
+      var ret = "￥0.00"
+      if(isNaN(this)) return ret
+
+      if(!isFinite(this)) return ret
+
+      var str = this.toFixed(2).toString()
+      ret = "￥"
+      var tempValue = (str.length - 3) % 3 || 3;
+      
+      var str1 = str.substr(0, tempValue)
+      var str2 = str.substr(str1.length, str.length -3 - str1.length)
+      var str3 = str.substr(-3)
+
+
+      ret += str1 + str2.replace(/(\d{3})/g, ",$1") + str3
+
+      return ret
+    }
+
+    console.log(num2.currency())
+    console.log(num2.currency2())
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .show {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  发送消息: <input type="text">
+  <input type="button" value="发送">
+  <div class="show"></div>
+  <input type="file">
+  <script>
+    /***
+     * wx.readyState 状态
+     *  0 -> connecting
+     *  1 -> open
+     *  2 -> closing
+     *  3 -> close
+     * **/
+    var webSocket = new WebSocket("ws://localhost:3000")
+    var show = document.querySelector(".show")
+    var btn = document.querySelector("input[type=button]")
+    var inputs = document.querySelector("input[type=text]")
+    console.log(webSocket.readyState)
+    webSocket.onopen = function() {
+      console.log(webSocket.readyState)
+      console.log("[Client] open()")
+    }
+
+    webSocket.onmessage = function(message) {
+      console.log(webSocket.readyState)
+      console.log("[Client] onmessage", message.data)
+      var str = "[Client] onmessage " + message.data + " <br/>"
+      show.innerHTML += str
+    }
+
+    webSocket.onclose = function() {
+      console.log(webSocket.readyState)
+      console.log("[Client] onclose()")
+    }
+
+    webSocket.onerror = function() {
+      console.log(webSocket.readyState)
+      console.log("[Client] onerror")
+    }
+
+    btn.addEventListener("click", function(e) {
+      var message = inputs.value
+      if(message === "close") {
+        webSocket.close()
+      } else if(message === "buffer") {
+        var buf = new Uint16Array(5)
+        buf[0] = 13
+        buf[1] = 3
+        buf[2] = 10
+        buf[3] = 45
+        buf[4] = 28
+        buf[5] = 99
+        webSocket.send(buf.buffer)
+      } else {
+        webSocket.send("[Client] send() " + message)
+      }
+    })
+
+    var files = document.querySelector("input[type=file]")
+    files.addEventListener("change", function(e) {
+      webSocket.send(this.files[0])
+    })
+
+
+
+    // setTimeout(() => {
+      // webSocket.send("hello")
+    // }, 2000);
+
+  </script>
+</body>
+</html>

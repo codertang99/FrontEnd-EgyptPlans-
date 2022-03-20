@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // 本地永久存储, html5中新出的一种存储方式, 弥补了cookie时代的很多缺点, 有更易于使用的api
+    localStorage.setItem("name", "tang")
+    console.log(localStorage.getItem("name"))
+    console.log(localStorage.key(0))
+    console.log(localStorage.length)
+    console.log(localStorage.removeItem("name"))
+    localStorage.setItem("age", 28)
+    console.log(localStorage.getItem("age"))
+    localStorage.clear()
+  </script>
+</body>
+</html>

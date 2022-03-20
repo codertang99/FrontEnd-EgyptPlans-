@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var date = new Date()
+    console.log(date)
+
+    Date.prototype.formatTime = function(fmt) {
+
+      var timerfor = {
+        "M+": this.getMonth() + 1,
+        "d+": this.getDate(),
+        "h+": this.getHours(),
+        "m+": this.getMinutes(),
+        "s+": this.getSeconds()
+      }
+
+      if(/y+/.test(fmt)) {
+        var year = this.getFullYear().toString()
+
+        if(RegExp.lastMatch.length <= year.length) {
+          year = year.substr(-RegExp.lastMatch.length)
+        }
+
+        fmt = fmt.replace(RegExp.lastMatch, year)
+      }
+
+      for(var tf in timerfor) {
+        var exp = new RegExp(tf)
+        if(exp.test(fmt)) {
+          var time = timerfor[tf].toString()
+          if(RegExp.lastMatch.length > time.length) {
+            time = "000" + time;
+            time = time.substr(RegExp.lastMatch.length)
+          }
+          fmt = fmt.replace(RegExp.lastMatch, time)
+        }
+      }
+
+      return fmt
+
+    }
+
+    console.log(date.formatTime("yyyy 年 MM 月 dd日: hh:mm:ss"))
+  </script>
+</body>
+</html>

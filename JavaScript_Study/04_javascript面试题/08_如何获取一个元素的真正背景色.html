@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .children {
+      width: 200px;
+      height: 200px;
+      background-color: rgba(283, 23, 12, 0);
+    }
+  </style>
+</head>
+<body>
+  <div class="root">
+    <div class="children" style="background-color: #0f0;"></div>
+  </div>
+  <script>
+    /**
+     * document获取computedStyle计算后的样式, 即真实的样式
+     * document.defaultView.getComputedStyle("", null).getPrototypeValue()
+     * 需要考虑 class style中的颜色, 还有透明的几种情况, transparent, opacity, rgba, visibility, overflow: hidden, 
+     * 如果存在则获取父元素的背景颜色, 知道没有
+     * **/
+    var element = document.querySelector(".children")
+    var computedStyle = document.defaultView.getComputedStyle(element, null)
+    var backgroundColor = computedStyle.getPropertyValue("background-color")
+
+    function isColors(element) {
+      var flag = false
+      var computedStyle = document.defaultView.getComputedStyle(element, null)
+      var overflow = computedStyle.getPropertyValue("overflow")
+      if(overflow === "hidden") {
+        flag = true
+      }
+
+      var visibility = computedStyle.getPropertyValue("visibility")
+      if(visibility === "hidden") {
+        flag = true
+      }
+
+      var opacity = computedStyle.getPropertyValue("opacity")
+      if(opacity === "0") {
+        flag = true
+      }
+
+      var bgColor = computedStyle.getPropertyValue("background-color")
+      // rgba(0, 0, 0, 0)
+      if(/^rgba\(\d+,\s+\d+,\s+\d+,\s+0\)$/.test(bgColor)) {
+        flag = true
+      }
+
+      return flag
+    }
+
+
+    // 注意这里的递归函数, 如果本身为透明, 循环调用知道html节点返回rgba(0, 0, 0, 0)
+    function computedBackgroundColor(element, attr) {
+      var backgroundColor = "";
+      if(element === document.documentElement) {
+        backgroundColor = "rgba(0, 0, 0, 0)"
+        return backgroundColor
+      }
+      if(isColors(element)) {
+        return computedBackgroundColor(element.parentNode, attr)
+      }
+      var computedStyle = document.defaultView.getComputedStyle(element, null)
+      backgroundColor = computedStyle.getPropertyValue(attr)
+
+      return backgroundColor
+    }
+
+    console.log(computedBackgroundColor(element, "background-color"))
+    
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var worker = new Worker("./worker.js")
+
+    worker.onmessage = function(e) {
+      console.log("[main thread] ", e.data)
+    }
+
+    worker.postMessage("importScript")
+    console.log("[main thread] running....")
+    setTimeout(() => {
+      worker.postMessage("close")
+    }, 0);
+  </script>
+</body>
+</html>

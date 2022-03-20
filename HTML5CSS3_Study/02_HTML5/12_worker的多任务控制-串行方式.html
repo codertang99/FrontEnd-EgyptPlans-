@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var workers = ["./worker1.js", "./worker2.js", "./worker3.js", "./worker4.js", "./worker5.js"]
+    var currIndex = 0
+    var worker = new Worker(workers[0])
+    worker.workerName = workers[0]
+    worker.onmessage =  function(e) {
+      console.log(this.workerName, e.data)
+      currIndex++
+      if(currIndex < workers.length) {
+        worker = new Worker(workers[currIndex])
+        worker.workerName = workers[currIndex]
+        worker.onmessage =  arguments.callee
+        worker.postMessage(currIndex)
+      } else {
+        console.log("all finish")
+      }
+    }
+    worker.postMessage(1)
+
+    console.log("main thread running");
+
+  </script>
+</body>
+</html>

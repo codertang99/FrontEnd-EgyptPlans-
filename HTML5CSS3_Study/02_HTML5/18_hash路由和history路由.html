@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="page1" class="btn1">
+  <input type="button" value="page2" class="btn2">
+  <div class="page1">page1</div>
+  <div class="page2" style="display: none;">page2</div>
+  <script>
+    // location的hash模式, 可以设置location.hash来修改hash值, 浏览器会对当前hash进行缓存
+    // 对页面进行操作
+    // 但是页面并不会随之刷新从而达到看似刷新的效果
+    // window.onload = function() {
+    //   console.log(location.hash)
+    // }
+
+    // window.onhashchange = function() {
+    //   console.log(location.hash)
+    //   showPage(location.hash)
+    // }
+
+    // document.querySelector(".btn1").onclick = function() {
+    //   location.hash = this.value
+    // }
+
+    // document.querySelector(".btn2").onclick = function() {
+    //   location.hash = this.value
+    // }
+
+    // function showPage(page) {
+    //   if(page) {
+    //     page = page.replace(/#/g, "")
+    //     var other = document.getElementsByTagName("div")
+    //     for(var i=0; i < other.length; i++) {
+    //       other[i].style["display"] = "none"
+    //     }
+    //     document.querySelector("." + page).style["display"] = "block"
+    //   }
+    // }
+
+    window.onload = function() {
+      history.replaceState({id: "page1"}, null, null)
+    }
+
+    document.querySelector(".btn1").onclick = function() {
+      history.pushState({id: "page1"}, null, null)
+      showPage("page1")
+    }
+
+    document.querySelector(".btn2").onclick = function() {
+      history.pushState({id: "page2"}, null, null)
+      showPage("page2")
+    }
+
+    window.onpopstate = function(e) {
+      console.log(e.state)
+      showPage(e.state.id)
+    }
+
+    function showPage(page) {
+      if(page) {
+        page = page.replace(/#/g, "")
+        var other = document.getElementsByTagName("div")
+        for(var i=0; i < other.length; i++) {
+          other[i].style["display"] = "none"
+        }
+        document.querySelector("." + page).style["display"] = "block"
+      }
+    }
+
+  </script>
+</body>
+</html>

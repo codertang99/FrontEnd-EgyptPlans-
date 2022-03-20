@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .skin {
+      width: 200px;
+      height: 200px;
+      margin-top: 20px;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="红色" class="red">
+  <input type="button" value="黄色" class="yellow">
+  <input type="button" value="蓝色" class="blue">
+  <div class="skin"></div>
+  <script>
+    var skinDiv = document.querySelector(".skin")
+    var redBtn = document.querySelector(".red")
+    var yellowBtn = document.querySelector(".yellow")
+    var blueBtn = document.querySelector(".blue")
+    redBtn.addEventListener("click", function() {
+      localStorage.setItem("background", "#f00")
+    })
+    yellowBtn.addEventListener("click", function() {
+      localStorage.setItem("background", "#0f0")
+    })
+    blueBtn.addEventListener("click", function() {
+      localStorage.setItem("background", "#00f")
+    })
+
+    window.addEventListener("load", function(e) {
+      var bgColor = localStorage.getItem("background")
+      if(bgColor) {
+        skinDiv.style["backgroundColor"] = bgColor
+      }
+    })
+    // 监听storage的变化
+    window.addEventListener("storage", function(e) {
+      console.log(111)
+      console.log(e)
+    })
+  </script>
+</body>
+</html>

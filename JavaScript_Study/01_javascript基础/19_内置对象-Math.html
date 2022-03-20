@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 内置对象
+    console.log(typeof Math)  // object
+
+    // 常量
+    console.log(Math.PI)  // 🥧
+    console.log(Math.E) // lim极限的值
+    console.log(Math.LN2)
+    console.log(Math.LN10)
+    console.log(Math.LOG2E)
+    console.log(Math.LOG10E)
+    console.log(Math.SQRT2) // 根号2
+    console.log(Math.SQRT1_2)
+
+    console.log("-----------")
+    // 成员函数
+    console.log(Math.abs(-10))  // 绝对值
+    console.log(Math.sin(Math.PI/3)) // 三角函数 弧度-角度-306deg
+    console.log(Math.cos(Math.PI/3))
+    console.log(Math.tan(Math.PI/3))
+    
+    console.log(Math.asin(1)) // 反三角函数 弧度值
+    console.log(Math.acos(1))
+    console.log(Math.atan(1))
+    console.log(Math.atan2(1, 1)) // (x, y)
+
+    console.log(Math.round(12.5)) // 四舍五入
+    console.log(Math.floor(1.12990901112))  // 取整
+    console.log(Math.ceil(12.4))  // 向上取整
+    console.log(Math.fround(13.4))  // 找到最接近的单精度
+    console.log(Math.exp(2))  // 指数, e
+    console.log(Math.log(25)) // 对数log, 以e为底
+    console.log(Math.pow(10, 2))  // 任意数的指数
+    console.log(Math.sqrt(4)) // 开根号
+
+    console.log(Math.max(2, 10, 1213, 123123)) // 最大数
+    console.log(Math.min(1, 0.22, 0.11111)) // 最小值
+
+    console.log(Math.random())  // 产生随机值, 0 - 1 平均分布的小数
+    console.log(Math.floor(Math.random() * 6) + 1)  // 产生离散的数, 平均分布的 6 
+
+    // 如何生成正态分布的小数 -> 百度公式会用就行
+  </script>
+</body>
+</html>
