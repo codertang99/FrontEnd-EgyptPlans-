@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #my-canvas {
+      border: 1px solid #f00;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="my-canvas" width="600px" height="400px">
+    您的浏览器不支持canvas
+  </canvas>
+  <script>
+    // canvas HTML5中一种新的处理图像或动画的方式, 画布, 可以自己编写出图形
+    var canvas = document.getElementById("my-canvas")
+    var context = canvas.getContext("2d")
+    function f1() {
+      // fillStyle 填充颜色, 默认为黑色
+      context.fillStyle = "#f00"
+      // x轴 y轴 width height, 绘制图形并填充
+      // context.fillRect(20, 20, 200,  50)
+      context.strokeStyle = "#0f0"  // 设置画笔的颜色
+      context.strokeRect(20, 20, 200, 300)
+    }
+
+    function f2() {
+
+      context.beginPath() // 开始路径
+      // 设置画笔颜色
+      context.strokeStyle = "#00f"
+      context.lineCap = "square" // 设置端点的样式 round半圆 butt默认 square每个末端添加正方形线帽
+      context.lineWidth = 20
+      // 抬笔路径
+      context.moveTo(40, 40)
+      // 从开始到目标位置路径
+      context.lineTo(300, 40)
+      
+      // 画笔并显示路径
+      context.stroke()
+      context.closePath() // 关闭路径
+
+      context.beginPath()
+      context.strokeStyle = "#000"
+      context.moveTo(40, 80)
+      context.lineTo(300, 80)
+      context.stroke()
+      context.beginPath()
+
+    }
+
+    function f3() {
+      context.beginPath()
+      // x, y, radius, startAngle, endAngle, counterclockwise顺时针或逆时针
+      context.arc(100, 100, 30, Math.PI, 0.5 * Math.PI, false)
+      context.stroke()
+      context.closePath()
+    }
+
+    window.onload = f3
+
+  </script>
+</body>
+</html>

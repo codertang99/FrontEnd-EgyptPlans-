@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <audio controls autoplay loop>
+    <source src="" type="audio/mpeg">
+    <source src="" type="audio/ogg">
+    您的浏览器不支持audio!
+  </audio>
+  <script>
+    function checkdAudio() {
+      var audioElement = document.createElement("audio")
+      console.dir(audioElement)
+      if(audioElement.canPlayType) {
+        console.log("support audio")
+        if(audioElement.canPlayType("audio/mpeg")) {
+          console.log("support audio/mpeg")
+        }
+        if(audioElement.canPlayType("audio/ogg;codecs=vorbis")) {
+          console.log("support audio/ogg;codecs='vorbis'")
+        }
+        if(audioElement.canPlayType("audio/mp4;codecs=mp4a.40.5")) {
+          console.log("support audio/mp4;codecs='mp4a.40.5'")
+        }
+      } else {
+        console.log("no support audio")
+      }
+    }
+
+    window.onload = checkdAudio
+  </script>
+</body>
+</html>

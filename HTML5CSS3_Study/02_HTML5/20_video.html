@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <title>Document</title>
+</head>
+<body>
+  <video controls autoplay loop width="600px" height="400px">
+    <source src="http://vfx.mtime.cn/Video/2019/02/04/mp4/190204084208765161.mp4" type="video/mp4">
+    您的浏览器不支持video!
+  </video>
+  <script>
+    function checkedVideo() {
+      var video = document.createElement("video")
+      
+      if(video.canPlayType) {
+        console.log("support video")
+
+        if(video.canPlayType("video/mp4;codecs=avc1.64001E")) {
+          console.log("video/mp4;codecs=avc1.64001E")
+        }
+
+        if(video.canPlayType("video/ogg;codecs=vp8")) {
+          console.log("video/ogg;codecs==vp8")
+        }
+
+        if(video.canPlayType("video/ogg;codecs=theora")) {
+          console.log("video/mp4;codecs=theora")
+        }
+
+      } else {
+        console.log("not support video")
+      }
+
+    }
+
+    window.onload = checkedVideo
+
+    var video = document.querySelector("video")
+    console.dir(video)
+
+  </script>
+</body>
+</html>
