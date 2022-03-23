@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas">
+    您的浏览器不支持canvas
+  </canvas>
+  <script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    var cw = canvas.width = window.innerWidth
+    var ch = canvas.height = window.innerHeight
+
+    // var radius = 10
+    // var x = 200
+    // var y = 200
+    // var stepX = 2
+    // var stepY = 3
+
+    function createStar() {
+      var star = {}
+      star.radius = 1
+      star.x = Math.floor(Math.random() * cw)
+      star.y = Math.floor(Math.random() * ch)
+      star.stepX = Math.floor((Math.random()>0.5 ? -1 : 1) * Math.random() * 2 + 2)
+      star.stepY = Math.floor((Math.random()>0.5 ? -1 : 1) * Math.random() * 3 + 3)
+      return star
+    }
+
+    var stars = []
+    for(var i=0; i<400; i++) {
+      stars.push(createStar())
+    }
+
+    function drawLine() {
+      ctx.strokeStyle = "#315555"
+
+      for(var i=0; i<stars.length; i++) {
+        
+        for(var j=0; j<stars.length; j++) {
+          if(Math.sqrt(Math.pow((stars[i].x - stars[j].x), 2)) + Math.pow((stars[i].y - stars[j].y), 2) <= 180) {
+            ctx.beginPath()
+            ctx.moveTo(stars[i].x, stars[i].y)
+            ctx.lineTo(stars[j].x, stars[j].y)
+            ctx.stroke()
+          }
+        }
+      }
+    }
+
+    setInterval(() => {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.4)"
+      ctx.fillRect(0, 0, cw, ch)
+
+      // ctx.beginPath()
+
+      // if(x>=cw || x<=0) {
+      //   stepX = -stepX
+      // }
+      // if(y>=ch || y<=0) {
+      //   stepY =  -stepY
+      // }
+      // x = x + stepX
+      // y = y + stepY
+
+      // ctx.fillStyle = "#f00"
+      // ctx.arc(x, y, radius, 0, Math.PI * 2)
+      // ctx.fill()
+      ctx.fillStyle = "#315555"
+      for(var i=0; i<stars.length; i++) {
+        ctx.beginPath()
+        if(stars[i].x>=cw || stars[i].x<=0) {
+          stars[i].stepX = -stars[i].stepX
+        }
+        if(stars[i].y>=ch || stars[i].y<=0) {
+          stars[i].stepY =  -stars[i].stepY
+        }
+        stars[i].x += stars[i].stepX
+        stars[i].y += stars[i].stepY
+        ctx.arc(stars[i].x, stars[i].y, stars[i].radius, 0, Math.PI * 2, true)
+        ctx.fill()
+      }
+      drawLine()
+    }, 1000/70);
+  </script>
+</body>
+</html>

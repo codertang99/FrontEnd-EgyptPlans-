@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="600px" height="400px" style="border: 1px solid #000;">
+    您的浏览器不支持canvas
+  </canvas>
+  <script>
+    var canvas = document.querySelector("#canvas")
+    var ctx = canvas.getContext("2d")
+    ctx.fillStyle = "#f00"
+    ctx.save()
+    ctx.beginPath()
+    ctx.fillRect(200, 100, 200, 200)
+
+    ctx.fillStyle = "#00f"
+    ctx.beginPath()
+    ctx.fillRect(300, 150, 200, 200)
+
+    ctx.restore()
+    ctx.beginPath()
+    ctx.fillRect(350, 250, 200, 200)
+
+    // translate(), rotate(), scale(), transform()  // 这里不再做展示了, 了解基本使用即可
+    // globalAlpha	设置或返回绘图的当前 alpha 或透明值。
+    // globalCompositeOperation	设置或返回新图像如何绘制到已有的图像上。
+    // drawImage()	向画布上绘制图像、画布或视频。
+  </script>
+</body>
+</html>

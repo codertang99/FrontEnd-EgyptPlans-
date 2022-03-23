@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="800px" height="500px" style="border: 1px solid #000;">
+    您的浏览器不支持canvas
+  </canvas>
+  <script>
+    var canvas = document.querySelector("#canvas")
+    var ctx = canvas.getContext("2d")
+
+    var canvasWidth = ctx.canvas.width
+    var canvasHeight = ctx.canvas.height
+    var space = 30
+    var triangleWidth = 20
+    var gridWidth = 20
+
+    function drawAxis() {
+      ctx.beginPath()
+      ctx.moveTo(space, canvasHeight - space)
+      ctx.lineTo(canvasWidth - space, canvasHeight - space)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(canvasWidth - space, canvasHeight - space)
+      ctx.lineTo(canvasWidth - space - triangleWidth, canvasHeight - space - triangleWidth / 2)
+      ctx.lineTo(canvasWidth - space - triangleWidth, canvasHeight - space + triangleWidth / 2)
+      ctx.fill()
+
+      ctx.beginPath()
+      ctx.moveTo(space, canvasHeight - space)
+      ctx.lineTo(space, space)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(space, space)
+      ctx.lineTo(space - triangleWidth/2, space + triangleWidth)
+      ctx.lineTo(space + triangleWidth/2, space + triangleWidth)
+      ctx.fill()
+    }
+
+    function drawGrid() {
+      var lineX = (canvasWidth - space * 2) / gridWidth
+      var lineY = (canvasHeight - space * 2) / gridWidth
+      for(var i=1; i<lineY; i++) {
+        ctx.beginPath()
+        ctx.moveTo(space, canvasHeight - space - i * gridWidth)
+        ctx.lineTo(canvasWidth - space, canvasHeight - space - i * gridWidth)
+        ctx.stroke()
+      }
+
+      for(var j=1; j<lineX; j++) {
+        ctx.beginPath()
+        ctx.moveTo(canvasWidth - space -  j * gridWidth, canvasHeight - space )
+        ctx.lineTo(canvasWidth - space - j * gridWidth, space)
+        ctx.stroke()
+      }
+    }
+
+    function drawLine() {
+      var data = [
+        {x: space, y: canvasHeight - space},
+        {x: 210, y: 210},
+        {x: 430, y: 290},
+        {x: 350, y: 90},
+        {x: 710, y: 410}
+      ]
+
+      for(var i=0; i<data.length; i++) {
+        ctx.beginPath()
+        ctx.fillStyle = "#f00"
+        ctx.arc(data[i].x, data[i].y, 5, 0, Math.PI * 2, false)
+        ctx.fill()
+        ctx.closePath()
+
+
+        ctx.beginPath()
+        if(i === 0) {
+          ctx.moveTo(data[i].x, data[i].y)
+        } else {
+          ctx.moveTo(data[i -1].x, data[i - 1].y)
+          ctx.lineTo(data[i].x, data[i].y)
+          ctx.stroke()
+        }
+      }
+    }
+
+    window.addEventListener("load", function() {
+      drawAxis()
+      drawGrid()
+      drawLine()
+    })
+
+  </script>
+</body>
+</html>

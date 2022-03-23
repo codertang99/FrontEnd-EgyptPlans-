@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="600px" height="500px" style="border: 1px solid #000;">
+    您的浏览器不支持canvas
+  </canvas>
+  <script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    function f1() {
+      ctx.beginPath()
+      ctx.moveTo(20, 30)
+      ctx.lineTo(180, 160)
+      ctx.lineTo(100, 180)
+      ctx.stroke()
+
+      // 创建二次贝塞尔曲线
+      ctx.beginPath()
+      ctx.moveTo(20, 30)
+      ctx.quadraticCurveTo(180, 160, 100, 180)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(200, 300)
+      ctx.lineTo(210, 310)
+      ctx.lineTo(300, 440)
+      ctx.lineTo(350, 420)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(200, 300)
+      ctx.bezierCurveTo(210, 310, 300, 440, 350, 420)
+      ctx.stroke()
+    }
+
+    function f2() {
+      var str = "这是世界是这么的无情"
+      ctx.font = "30px Arial"
+      ctx.textAlign = "center"
+      ctx.textBaseline = "middle" // 设置基线值
+      console.log(ctx.measureText(str).width) //可以获取文字的宽度
+      ctx.fillText(str, 200, 200)
+      ctx.closePath()
+
+      ctx.beginPath()
+      // ctx.moveTo(200, 300)
+      ctx.arc(200, 200, 5, 0, Math.PI * 2)
+      ctx.fill()
+    }
+
+    window.onload = f2
+  </script>
+</body>
+</html>

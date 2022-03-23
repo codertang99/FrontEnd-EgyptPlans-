@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <canvas id="canvas" width="800px" height="600px" style="border: 1px solid #000;">
+    您的浏览器不支持canvas
+  </canvas>
+
+  <script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+
+    var canvasWidth = ctx.canvas.width
+    var canvasHeight = ctx.canvas.height
+    var data = [
+      {
+        title: "A组销售情况",
+        number: 1000000
+      },
+      {
+        title: "B组销售情况",
+        number: 5055500
+      },
+      {
+        title: "C组销售情况",
+        number: 800000
+      },
+      {
+        title: "D组销售情况",
+        number: 3000000
+      },
+      {
+        title: "E组销售情况",
+        number: 800000
+      },
+    ]
+
+    var space = 30
+
+    function randomColor() {
+      var r = Math.floor(Math.random() * 255)
+      var g = Math.floor(Math.random() * 255)
+      var b = Math.floor(Math.random() * 255)
+
+      var rStr = ("00" + r).slice(-2)
+      var gStr = ("00" + g).slice(-2)
+      var bStr = ("00" + b).slice(-2)
+
+      return `rgb(${rStr},${gStr},${bStr})`
+    }
+
+    function formatData(data) {
+      var total = 0
+      for(var i=0; i < data.length; i++) {
+        total += data[i].number
+      }
+
+      for(var j=0; j<data.length; j++) {
+        var rato = data[j].number / total
+        var angular = rato * 2 * Math.PI
+        data[j].rato = rato
+        data[j].total = total
+        data[j].angular = angular
+      }
+
+      for(var i=0; i<data.length; i++) {
+        if(i === 0) {
+          data[i].startAngular = 0
+        } else {
+          data[i].startAngular = data[i-1].endAngular
+        }
+
+        if(i === data.length -1) {
+          data[i].endAngular = Math.PI * 2
+        } else {
+          data[i].endAngular = data[i].startAngular + data[i].angular
+        }
+
+      }
+
+    }
+    
+    function drawCircle(data) {
+      var circleX = canvasWidth / 2 + 50
+      var circleY = canvasHeight / 2
+      ctx.beginPath()
+      ctx.arc(circleX, circleY, 200, 0, Math.PI * 2, false)
+      ctx.stroke()
+
+
+      for(var i=0; i<data.length; i++) {
+        ctx.beginPath()
+        ctx.moveTo(circleX, circleY)
+        ctx.fillStyle = data[i].color = randomColor()
+        ctx.arc(circleX, circleY, 200, data[i].startAngular, data[i].endAngular, false)
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.rect(space, space * i + 10 * i + 10, space, space)
+        ctx.fill()
+
+        ctx.beginPath()
+        ctx.font = "30px Arial"
+        ctx.textAlign = "left"
+        ctx.fontBaseline = "base"
+        ctx.fillText(data[i].title, 2 * space + 10, space * i + 10 * i + 40)
+      }
+
+    }
+
+    window.onload = function() {
+      formatData(data)
+      drawCircle(data)
+    }
+  </script>
+</body>
+</html>
