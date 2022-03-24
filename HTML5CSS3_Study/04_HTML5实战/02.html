@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">
+    <div class="item"><label>昵称：<input type="text" class="nickname"></label></div>
+    <div class="item"><label>性别: <input type="radio" class="gender" name="gender" value="0" checked> 男 <input type="radio" class="gender" value="1" name="gender">女</label></div>
+    <div class="item"><label>生日: <input type="date" class="date"></label></div>
+    <div class="item"><label>个性签名: <textarea class="signatrue" cols="30" rows="10"></textarea></div>
+  </div>
+  <a href="./01.html" class="pre">上一页</a>
+  <a href="#" class="next">下一页</a>
+  <script>
+
+    var INFO = "info"
+    var nicknameInputEl = document.querySelector(".nickname")
+    var genderInputEl = document.getElementsByClassName("gender")
+    var dateInputEl = document.querySelector(".date")
+    var signatrueInputEl = document.querySelector(".signatrue")
+    var next = document.querySelector(".next")
+    next.addEventListener("click", function(e) {
+      e = e || window.event
+      e.preventDefault ? e.preventDefault() : e.defaultPrevented = true
+
+      if(!nicknameInputEl.value || !dateInputEl.value || !signatrueInputEl.value) {
+        alert("请填写相关信息")
+        return
+      }
+
+      var info = {}
+      info.name = nicknameInputEl.value
+      info.gender = genderInputEl[0].checked ? genderInputEl[0].value : genderInputEl[1].value
+      info.birth = dateInputEl.value
+      info.signatrue = signatrueInputEl.value
+      localStorage.setItem(INFO, JSON.stringify(info))
+
+      location.assign("./03.html")
+
+    })
+
+    window.onload = function() {
+      var info = JSON.parse(localStorage.getItem(INFO))
+      if(info) {
+        var nickname = info.name
+        var gender = info.gender
+        var birth = info.birth
+        var signatrue = info.signatrue
+        nicknameInputEl.value = nickname
+        if(gender == 0) {
+          genderInputEl[0].checked = true
+        } else {
+          genderInputEl[1].checked = true
+        }
+        dateInputEl.value = birth
+        signatrueInputEl.value = signatrue
+      }
+    }
+  </script>
+</body>
+</html>

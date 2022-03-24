@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">
+    兴趣爱好:
+    <label><input type="checkbox" name="interest" value="a">足球</label>
+    <label><input type="checkbox" name="interest" value="b">篮球</label>
+    <label><input type="checkbox" name="interest" value="c">排球</label>
+    <label><input type="checkbox" name="interest" value="d">乒乓球</label>
+    <label><input type="checkbox" name="interest" value="e">网球</label>
+    <label><input type="checkbox" name="interest" value="f">水球</label>
+  </div>
+  <a href="#">提交</a>
+  <script>
+    var INTEREST = "interest"
+
+    var checkInputEls = document.querySelectorAll("input")
+    var submit = document.querySelector("a")
+
+    var checks = []
+    for(var i=0; i<checkInputEls.length; i++) {
+      checkInputEls[i].onclick = (function(i) {
+        return function(e) {
+          for(var i=0; i<checks.length; i++) {
+            var index = checks.indexOf(this.value)
+            if(index !== -1) {
+              checks.splice(index, 1)
+              return
+            }
+          }
+
+          if(checks.length < 3) {
+            checks.push(this.value)
+          } else {
+            var a = checks.shift()
+            var temp = document.querySelector(`input[value=${a}]`)
+            temp.checked = false
+            checks.push(this.value)
+          }
+          console.log(checks)
+        }
+      })(i)
+    }
+
+    submit.addEventListener("click", function(e) {
+      e = e || window.event
+      e.preventDefault ? e.preventDefault() : e.defaultPrevented = true
+      if(checks.length <= 0) {
+        alert("请选择兴趣")
+        return
+      }
+
+      localStorage.setItem(INTEREST, JSON.stringify(checks))
+      alert("提交成功")
+
+    })
+
+    window.onload = function() {
+      var interest = JSON.parse(localStorage.getItem(INTEREST))
+      if(interest) {
+        checks = interest
+        for(var i=0; i<checkInputEls.length; i++) {
+          for(var j=0; j<interest.length; j++) {
+            if(interest[j] == checkInputEls[i].value) {
+              checkInputEls[i].checked = true
+            }
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
