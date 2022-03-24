@@ -30,7 +30,7 @@
 
     function createStar() {
       var star = {}
-      star.radius = 1
+      star.radius = 4
       star.x = Math.floor(Math.random() * cw)
       star.y = Math.floor(Math.random() * ch)
       star.stepX = Math.floor((Math.random()>0.5 ? -1 : 1) * Math.random() * 2 + 2)
@@ -39,7 +39,7 @@
     }
 
     var stars = []
-    for(var i=0; i<400; i++) {
+    for(var i=0; i<100; i++) {
       stars.push(createStar())
     }
 

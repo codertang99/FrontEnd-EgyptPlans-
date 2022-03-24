@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .run {
+      margin: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: #f00;
+      animation-name: run-start;
+      animation-duration: 5s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      /* animation-direction: alternate; */
+    }
+
+    @keyframes run-start {
+      from {
+
+      }
+
+      25% {
+        transform: rotate(30deg);
+      }
+
+      50% {
+        transform: translateX(1000px);
+      }
+
+      75% {
+        background-color: #00f;
+        transform: translateX(1000px);
+      }
+
+      to {
+        transform: translateX(0px) rotate(-360deg);
+        background-color: #00f;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="run"></div>
+</body>
+</html>

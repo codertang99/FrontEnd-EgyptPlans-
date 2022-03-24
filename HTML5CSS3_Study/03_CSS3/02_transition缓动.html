@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .context {
+      width: 200px;
+      height: 200px;
+      background-color: #f00;
+      margin: 20px 0;
+      /* 需要变化的属性 */
+      transition-property: width, height, background-color; 
+      /* 持续时间 */
+      transition-duration: 1s, 3s, 5s;
+      /* 缓动的速度 */
+      transition-timing-function: ease-in, ease-in-out, linear;
+      /* 停留多久开始缓动 */
+      transition-delay: 1s, 2s, 3s;
+    }
+
+    .context:hover {
+      width: 600px;
+      height: 400px;
+      background-color: #00f;
+      transform: rotate(30deg);
+      transform-origin: left top;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="context"></div>
+  <div class="context"></div>
+</body>
+</html>
