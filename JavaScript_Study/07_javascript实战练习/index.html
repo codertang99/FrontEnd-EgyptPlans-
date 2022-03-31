@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="test"></div>
+
+  <script type="module">
+    import { BaseElement } from "./base-element.js"
+    import { MyDiv } from "./my-div.js"
+
+    const myDiv = new MyDiv(200, 200, "#000000", true, "div")
+
+    myDiv.appendTo(".test")
+    console.log(myDiv);
+    setTimeout(() => {
+      myDiv.remove()
+    }, 3000);
+  </script>
+</body>
+</html>
