@@ -12,9 +12,11 @@
   <script>
     var file = document.querySelector("input[type=file]")
     file.onchange = function() {
+      console.dir(this)
       var data = this.files[0]
       console.log(data)
       var fileReader = new FileReader()
+      console.log(fileReader)
       fileReader.readAsDataURL(data)
       fileReader.onload = function() {
         console.log(this)

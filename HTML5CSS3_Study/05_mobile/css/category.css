@@ -1,0 +1,88 @@
+html, body {
+  height: 100%;
+}
+
+.jd-category {
+  /* min-width: 320px;
+  max-width: 640px; */
+  width: 100%;
+  height: 100%;
+}
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  border-bottom: 1px solid #ccc;
+  z-index: 1;
+}
+.nav a {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  padding: 12px 10px;
+  background-origin: content-box;
+  background-clip: content-box;
+}
+.nav .icon-back {
+  left: 0;
+  background-position: -20px 0;
+}
+.nav .icon-menu {
+  right: 0;
+  background-position: -60px 0;
+}
+.nav form {
+  width: 100%;
+  padding: 0 40px;
+}
+.nav form input {
+  height: 30px;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  border-radius: 4px;
+  margin-top: 7px;
+}
+
+.jd-main {
+  width: 100%;
+  height: 100%;
+  padding-top: 45px;
+}
+.jd-main .jd-left-box {
+  width: 90px;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+}
+.jd-main .jd-left-box>ul>li {
+  width: 100%;
+  height: 50px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #f3f4f5;
+}
+.jd-main .jd-left-box>ul>li>a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  line-height: 50px;
+  text-align: center;
+  font-size: 12px;
+}
+.jd-main .jd-left-box>ul>li.now {
+  background-color: #ffffff;
+  border-right: none;
+}
+.jd-main .jd-left-box>ul>li.now>a {
+  color: #f00;
+}
+
+.jd-main .jd-right-box {
+  overflow: hidden;
+  height: 100%;
+}

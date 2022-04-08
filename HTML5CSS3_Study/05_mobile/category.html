@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/category.css">
+  <script crossorigin="anonymous" integrity="sha384-+pikxCwBclp0jEfP2zSb1bxfX8oP/rW+QVNuqp3skJSCxZJh+jP6JkvhAYtFD0uf" src="//lib.baomitu.com/iScroll/5.2.0/iscroll-infinite.js"></script>
+</head>
+<body>
+  <div class="jd-category">
+    <header class="nav">
+      <a href="#" class="icon-back"></a>
+      <form>
+        <input type="text" placeholder="顶部通栏">
+      </form>
+      <a href="#" class="icon-menu"></a>
+    </header>
+    <div class="jd-main">
+      <div class="jd-left-box">
+        <ul>
+          <li><a href="javascript;">热门推荐</a></li>
+          <li class="now"><a href="javascript;">潮流女装</a></li>
+          <li><a href="javascript;">品牌男装</a></li>
+          <li><a href="javascript;">内衣配饰</a></li>
+          <li><a href="javascript;">家用电器</a></li>
+          <li><a href="javascript;">电脑办公</a></li>
+          <li><a href="javascript;">手机数码</a></li>
+          <li><a href="javascript;">母婴频道</a></li>
+          <li><a href="javascript;">图书</a></li>
+          <li><a href="javascript;">家居家纺</a></li>
+          <li><a href="javascript;">家具建材</a></li>
+          <li><a href="javascript;">热门推荐</a></li>
+          <li><a href="javascript;">潮流女装</a></li>
+          <li><a href="javascript;">品牌男装</a></li>
+          <li><a href="javascript;">内衣配饰</a></li>
+          <li><a href="javascript;">家用电器</a></li>
+          <li><a href="javascript;">电脑办公</a></li>
+          <li><a href="javascript;">手机数码</a></li>
+          <li><a href="javascript;">母婴频道</a></li>
+          <li><a href="javascript;">图书</a></li>
+          <li><a href="javascript;">家居家纺</a></li>
+          <li><a href="javascript;">家具建材</a></li>
+        </ul>
+      </div>
+      <div class="jd-right-box">111</div>
+    </div>
+  </div>
+  <script>
+    window.onload = function() {
+
+      var leftBox = document.querySelector(".jd-left-box")
+      leftBox.addEventListener("touchmove", function(e) {
+        e.preventDefault()
+      })
+      var myScroll = new IScroll(leftBox, {
+        scrollbars: true,
+        scrollX:false,
+        scrollY: true
+      });
+    }
+  </script>
+</body>
+</html>
