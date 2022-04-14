@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="button">click</button>
+
+  <script>
+    // var xmlHttp = null;
+    // if(window.XMLHttpRequest) {
+    //   xmlHttp = new XMLHttpRequest()
+    // } else if(window.ActiveXObject) {
+    //   xmlHttp = new ActiveXObject("microsoft:XMLHTTP")
+    // }
+
+    // if(xmlHttp) {
+
+    //   xmlHttp.onreadystatechange = function() {
+    //     if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+    //       var data = xmlHttp.responseText
+    //       console.log(data)
+    //     }
+    //   }
+    // 受同源策略影响ajax再不同源情况下请求会被报跨域错误
+    //   xmlHttp.open("GET", "http://127.0.0.1:9092/cross", true)
+    //   xmlHttp.send()
+    // }
+
+    function crossFn(data) {
+      console.log(JSON.parse(data), typeof data)
+    }
+
+    var button = document.querySelector("#button")
+    
+    button.onclick = function() {
+      var script = document.createElement("script")
+      script.src = "http://127.0.0.1:9092/cross?p1=1&p2=2&fn=crossFn"
+      document.body.appendChild(script)
+    }
+
+  </script>
+</body>
+</html>

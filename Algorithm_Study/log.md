@@ -38,6 +38,11 @@
       - 分类: 线性表栈, 链表栈
       - 操作: init, destroy, push, pop, getTop, isEmpty
       - 应用: 函数调用, 四则运算的表达式规约
+    * 队列(queue): 
+      - 特点: 先进先出
+      - 分类: 线性表队列, 链表队列
+      - 操作: init, destroy, enqueue, dequeue, getLength
+      - 疑难问题: 循环线性表队列, 线程安全(阻塞队列->锁, 互斥和信号量, 非阻塞队列 -> CAS)
   + 树
   + 图
   + 哈希表

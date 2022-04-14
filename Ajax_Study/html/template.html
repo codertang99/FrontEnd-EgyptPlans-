@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>template</h1>
+  <script>
+    var xmlHttp = null;
+    if(window.XMLHttpRequest) {
+      xmlHttp = new XMLHttpRequest()
+    } else if(window.ActiveXObject) {
+      xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+    }
+
+    if(xmlHttp != null) {
+      xmlHttp.onreadystatechange = function() {
+        /**
+         * readyState一共会被调用多次
+         * 1: tcp建立连接
+         * 2: 请求已接受
+         * 3: 请求处理中, tcp
+         * 4: 请求已完成
+         * **/
+        if(xmlHttp.readyState == 4) {
+          if(xmlHttp.status == 200) {
+            var data = JSON.parse(xmlHttp.responseText)
+            console.log(data)
+          }
+        }
+      }
+      xmlHttp.open("GET", "data.json", true)
+      xmlHttp.send()
+    }
+
+  </script>
+</body>
+</html>
