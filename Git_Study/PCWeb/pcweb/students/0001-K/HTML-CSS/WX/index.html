@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				background: url(img/bg.jpg) repeat-x;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			a:hover {
+				text-decoration: underline;
+				color: #333;
+			}
+			
+			.right {
+				float: right;
+			}
+			
+			.left {
+				float: left;
+			}
+			
+			.circle {
+				display: none;
+			}
+			
+			#intro>.version:hover .circle {
+				display: block;
+				width: 50px;
+				height: 50px;
+				background-color: rgba(0,0,0,.2);
+				color: rgba(255,255,255);
+				line-height: 50px;
+				text-align: center;
+				text-decoration: none;
+				font-size: 20px;
+				position: absolute;
+				top:50%;
+				margin-top: -25px;
+				text-decoration: none;
+				border-radius: 50%;				
+			}
+			
+			#intro>.version:hover .circle:hover {
+				background-color: rgba(0,0,0,.5);
+			}
+			
+			.arrow-right {
+				right: 0;
+			}
+			
+			#container {
+				width: 968px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			/* head  */
+			#head {
+				height: 75px;
+
+			}
+			
+			#head>.log {
+				float: left;
+				
+			}
+			
+			#head>.log>img {
+				width: 130px;
+				height: 44px;
+				margin-top: 14px;
+			}
+			
+			#head>.nav>ul {
+				float: right;
+				padding-top: 21px;
+			}
+			
+			#head>.nav>ul>li {
+				list-style: none;
+				float: left;
+				
+			}
+			
+			#head>.nav>ul>li>a {
+				font-size: 14px;
+				color: #fff;
+				display: inline-block;
+				height: 33px;
+				line-height: 33px;
+				padding-left: 16px;
+				margin: 0 2px;
+			}
+						
+			#head>.nav>ul>li>a>span {
+				display: inline-block;
+				height: 33px;
+				line-height: 33px;
+				padding-right: 16px;
+			}
+			
+			#head>.nav>ul>li:first-child>a {
+				font-weight: 700;
+				background: url(img/lTcb_ve.png) no-repeat;
+				
+			}
+			
+			#head>.nav>ul>li:first-child>a>span {
+				
+				background: url(img/lTcb_ve.png) no-repeat right;
+			}
+			
+			#head>.nav>ul>li:not(:first-child)>a:hover {
+				background: url(img/3w4CwHw.png) no-repeat;
+			}
+			
+			#head>.nav>ul>li:not(:first-child)>a:hover>span {
+				background: url(img/3w4CwHw.png) no-repeat right;
+			}
+			/* head  ===end===*/
+			
+			/* intro   */
+			#intro {
+				height: 424px;				
+			}
+			
+			#intro>.dlord {
+				float: left;
+			}
+			
+			#intro>.dlord>h2 {
+				font-size: 26px;
+				font-weight: 400;
+				margin-top: 50px;
+				margin-bottom: 10px;
+			}
+			
+			#intro>.dlord>p {
+				font-size: 16px;
+				color: #979797;
+				padding: 7px 0;
+			}
+			
+			#intro>.dlord>a>img {
+				width: 224px;
+				height: 64px;
+				padding: 10px 0;
+			}
+			
+			#intro>.dlord>ul>li {
+				list-style: disc;
+				margin-left: 20px;
+				color: #979797;
+				padding-bottom: 5px;
+			}
+			
+			#intro>.dlord>ul>li>a {
+				color: #609700;
+			}
+			
+			#intro>.dlord>ul>li>a:hover {
+				color: #333;
+			}
+			
+			#intro>.version {
+				height: 424px;
+				width: 490px;
+				float: right;
+				margin-right: 45px;
+				text-align: center;
+				position: relative;
+			}
+			
+			#intro>.version>img {
+				width: 490px;
+				height: 280px;
+				padding-top: 30px;
+			}
+			
+			#intro>.version>span {
+				color: #609700;
+			}
+			
+			#intro>.version>.scroll-bar {
+				overflow: hidden;
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				margin-left: -30px;
+				margin-bottom: 20px;
+			}
+			
+			#intro>.version>.scroll-bar>a {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				background-color: #eee;
+				border: 1px solid #c7c7c7;
+				border-radius: 50%;
+				margin-left: 13px;
+			}
+			
+			#intro>.version>.scroll-bar>a:hover {
+				background-color: #60c700;
+			}			
+			/* intro   ===end===*/
+			/* content */
+			#content {
+				margin-top: 45px;
+				overflow: hidden;
+			}
+			
+			#content>.c-ver {
+				width: 660px;
+				float: left;
+				overflow: hidden;
+			}
+			
+			#content>.c-ver>div {
+				float: left;
+			}
+			
+			#content>.c-ver h5,
+			#content>.c-ver p,
+			#content>.c-ver a,
+			#content>.c-ver .img{
+				font-size: 14px;
+				margin-bottom: 7px;
+			}
+			
+			#content>.c-ver h5 {
+				font-weight: 700;
+			}
+			
+			#content>.c-ver p {
+				color: #999;
+			}
+			
+			#content>.c-ver a {
+				color: #609700;
+			}
+			
+			#content>.c-ver a:hover {
+				color: #333;
+			}
+			
+			#content>.c-ver>.web>.img,
+			#content>.c-ver>.mac>.img,
+			#content>.c-ver>.win>.img {
+				width: 200px;
+				height: 113px;
+				background: url(img/plat.png) no-repeat;
+				margin-right: 17px;
+			}
+			
+			#content>.news {
+				width: 308px;
+				float: right;
+				color: #979797;
+				font-size: 14px;
+				
+			}
+			
+			#content>.news>h5 {
+				color: #000000;
+				font-weight: 700;
+				font-size: 14px
+			}
+			
+			/* #content>.news>ul, */
+			#content>.news>ul>li {
+				padding-top: 7px;
+			}
+			
+			#content>.news>ul>li>a,
+			#content>.news>a {
+				color: #609700;
+			}
+			
+			#content>.news>ul>li>a:hover,
+			#content>.news>a:hover {
+				color: #333;
+			}
+			
+			#content>.news>ul>li>a>span {
+				color: #f00;
+				font-size: 11px;
+			}
+			
+			#content>.news>ul>li>a>.right {
+				color: #979797;
+			}
+			
+			#content>.news>a {
+				display: block;
+				padding: 15px 0;
+			}
+			
+			#content>.news>.com-us>a>img {
+			vertical-align: bottom;
+			}
+			
+			#content>.news>.com-us>a>span {
+				margin: 0 10px;
+				color: #000000;
+				font-weight: 700;
+			}
+			/* content  end*/
+			/* footer */
+			#footer {
+				margin-top: 25px;
+				border-top: 1px solid #CCCCCC;
+				padding: 10px 0;
+				overflow: hidden;
+			}
+			
+			#footer>.f-nav {
+				margin-bottom: 8px;
+				overflow: hidden;
+			}
+			#footer>.f-nav>.left>ul>li,
+			#footer>.f-nav>.right>ul>li {
+				float: left;
+				list-style: none;
+				padding: 0 3px;
+				color: #888;
+				font-size: 12px;
+			}
+			
+			#footer>.copyright {
+				color: #888;
+				font-size: 12px;
+			}
+			
+			#footer>.f-nav>.left>ul>li>a,
+			#footer>.f-nav>.right>ul>li>a {
+				color: #888;
+			}
+			
+			#footer>.f-nav>.left>ul>li:hover>a,
+			#footer>.f-nav>.right>ul>li:hover>a {
+				text-decoration: underline;
+			}
+			/* footer  ===end===*/
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div id="head">
+				<div class="log">
+					<img src="img/wechat.png" >
+				</div>
+				<div class="nav">
+					<ul>
+						<li>
+							<a href="#">
+								<span>首页</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>帮助与反馈</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>公众平台</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>开放平台</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<span>微信支付</span>
+							</a>
+					
+						</li>
+						<li>
+							<a href="#">
+								<span>微信网页版</span>
+							</a>
+					
+						</li>
+						<li>
+							<a href="#">
+								<span>表情开放平台</span>
+							</a>
+					
+						</li>
+						<li>
+							<a href="#">
+								<span>微信广告</span>
+							</a>
+						</li>
+					</ul>
+				</div>				
+			</div>
+			<div id="intro">
+				<div class="dlord">
+					<h2>微信，是一种生活方式</h2>
+					<p>超过十亿人使用的手机应用</p>
+					<p>支持发送语音短信、视频、图片和文字</p>
+					<p>可以群聊，仅耗少量流量，适合大部分智能手机</p>
+					<a href="#"><img src="./img/dowmload.png" ></a>
+					<ul>
+						<li><a href="#">忘记了微信帐号或密码？</a></li>
+						<li><a href="#">自助解除登录或功能限制</a></li>
+						<li><a href="#">冻结或解冻微信帐号</a></li>
+					</ul>
+				</div>
+				<div class="version">
+					<img src="./img/pc.png" >
+					<p>微信2.6.7 for Windows发布</p>	
+					<span>Window 2.6.7</span>
+					<div class="scroll-bar">
+						<a href="#"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+					<div class="scroll-arrow">
+						<a href="#" class="circle" >&lt;</a>
+						<a href="#" class="circle arrow-right" >&gt;</a>
+					</div>
+				</div>
+				
+			</div>
+			<div id="content">
+				<div class="c-ver">
+					<div class="web">
+						<div class="img"></div>
+						<h5>微信网页版</h5>
+						<p>扫一扫二维码</p>
+						<p>就能在浏览器上使用微信</p>
+						<a href="#">了解更多</a>
+					</div>
+					<div class="mac">
+						<div class="img"></div>
+						<h5>微信 Mac 版</h5>
+						<p>极致简洁，迅捷沟通</p>
+						<a href="#">了解更多</a>
+					</div>
+					<div class="win">
+						<div class="img"></div>
+						<h5>微信 Windows 版</h5>
+						<p>让沟通更方便</p>
+						<a href="#">了解更多</a>
+					</div>
+				</div>
+				<div class="news">
+					<h5>最新消息</h5>
+					<ul>
+						<li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li><li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li><li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li><li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li><li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li><li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li><li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li><li>
+							<a href="#">
+								微信 7.0.4 for iOS 正式版发布<span>(New)</span><span class="right">05-05</span>
+							</a>
+						</li>
+					</ul>
+					<a href="#">查看更多</a>
+					<div class="com-us">
+						<a href="#">
+							<img src="./img/contact.png" ><span>联系我们</span>
+						</a>
+					</div>
+				</div>
+			
+			</div>
+			<div id="footer">
+				<div class="f-nav">
+					<div class="left">
+						<ul>
+							<li><a href="#">关于腾讯</a> |</li>
+							<li><a href="#">服务条款</a> |</li>
+							<li><a href="#">使用规范</a> |</li>
+							<li><a href="#">客服中心</a> |</li>
+							<li><a href="#">隐私保护指引</a></li>
+						</ul>
+					</div>
+					<div class="right">
+						<ul>
+							<li><a href="#">简体中文</a> |</li>
+							<li><a href="#">繁体中文</a> |</li>
+							<li><a href="#">English</a> </li>
+						</ul>
+					</div>
+				</div>
+				<div class="copyright">
+					<p>© 1998 - 2019 Tencent Inc. All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

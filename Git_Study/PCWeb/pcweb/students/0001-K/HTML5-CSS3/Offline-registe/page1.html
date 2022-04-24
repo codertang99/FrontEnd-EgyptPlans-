@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html manifest="page1.manifest">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#form {
+				margin: 0 auto;
+				margin-top: 50px;
+				width: 560px;
+				height: 207px;
+			}
+			
+			input {
+				margin-top: 19px;
+				width: 358px;
+				height: 25px;
+				position: relative;
+				left: 10px;
+				text-indent: 5px;
+				color: #9f9f9f;
+				border: 1px solid #9f9f9f;
+				border-radius: 8px;
+			}
+			
+			#form-btn {
+				margin-top: 40px;
+			}
+			
+			#form-btn #btn1,
+			#form-btn #btn2 {
+				float: left;
+				width: 156px;
+				height: 42px;
+				line-height: 42px;
+				display: block;
+				font-size: 16px;
+				color: #ffffff;
+				text-align: center;
+				background: #4375b9;
+				border-radius: 3px;
+				text-decoration: none;
+			}
+			
+			#form-btn #btn2 {
+				float: right;
+			}
+			
+
+			
+		</style>
+	</head>
+	<body>
+		<form id="form" name="form" autocomplete="of">
+			邮箱地址<input id="email" name="name" placeholder="请输入邮箱地址" type="email">&nbsp;&nbsp;&nbsp;<span></span><br>
+			手机号码<input id="phone" name="hometel" placeholder="请输入手机号码" type="tel">&nbsp;&nbsp;&nbsp;<span></span>
+			<div id="form-btn">
+				<a id="btn1" href="page2.html">下一页</a>
+			</div>
+		</form>
+		<script type="text/javascript">
+			function $(id){
+				return document.getElementById(id);
+			}
+			
+			function storeValueArrayAsJson(key, valueArry, value){
+				valueArry.push(value);
+				localStorage.setItem(key, JSON.stringify(valueArry));
+			}
+			
+			
+			function isRept(eles, spans){
+				var count = 0;
+				for(var i = 0; i < eles.length; i++){
+					var id = eles[i].id;
+					var key = id;
+					var value = $(id).value;
+					
+					if(!(/\S/.test(value))){
+						count++;
+						spans[i].innerText = '不能为空！';
+						spans[i].style.color = '#f00';
+					}else{
+						spans[i].innerText = '';
+					}
+					
+					if(localStorage.getItem(key) != null){
+						var valueArry = JSON.parse(localStorage.getItem(key));
+						var index = valueArry.indexOf(value);
+						if(index !== -1){
+							count++;
+							spans[i].innerText = '重复！';
+							spans[i].style.color = '#f00';
+						}										
+					}
+				}
+
+				return count > 0 ? true:false;
+			}
+			
+			
+			function storeInfo(ele1,ele2){			
+				var rept = isRept( inputs, spans);
+				if(!rept){
+					for(var i = 0; i < inputs.length; i++){
+						var id = inputs[i].id;
+						var key = id;
+						var value = $(id).value;
+						if(localStorage.getItem(key) != null){
+							var valueArry = JSON.parse(localStorage.getItem(key));
+							var index = valueArry.indexOf(value);
+							storeValueArrayAsJson(key, valueArry, value);					
+						}else{
+							var valueArry = [];
+							valueArry.push(value);
+							localStorage.setItem(key, JSON.stringify(valueArry));
+						}
+						
+					}
+				}else{
+					return false;
+				}
+			}
+			
+			function showStorageInfo(){
+				for(var i = 0; i < inputs.length; i++){
+					var id = inputs[i].id;
+					var key = id;
+					var valueArry = JSON.parse(localStorage.getItem(key));
+					if(valueArry != null){
+						var value = valueArry[valueArry.length - 1];
+						inputs[i].value = value;
+						if(value == 'true'){
+							radios[i-1].checked = true;
+						}
+						
+					}
+					
+				}
+			}
+			
+			var inputs = document.querySelectorAll('#form>input');
+			var spans = document.querySelectorAll('#form>span');
+			
+			$('btn1').onclick = function(){
+				return storeInfo(inputs, spans);
+			}		
+			
+			showStorageInfo();
+			
+			if(inputs[0].value !== ''){
+				inputs[0].disabled = true;
+				inputs[1].disabled = true;
+				$('btn1').onclick = function(){
+						return true;
+				}
+			}
+			
+		</script>
+	</body>
+</html>

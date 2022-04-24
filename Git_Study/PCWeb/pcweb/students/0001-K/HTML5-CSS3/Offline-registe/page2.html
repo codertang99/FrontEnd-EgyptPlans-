@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html manifest="page2.manifest">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#form {
+				margin: 0 auto;
+				margin-top: 50px;
+				width: 560px;
+				height: 207px;
+			}
+
+			
+			#name,
+			#birthday,
+			#sign {
+				margin-bottom: 10px;
+				margin-top: 10px;
+				width: 158px;
+				height: 25px;
+				text-indent: 5px;
+				color: #9f9f9f;
+				border: 1px solid #9f9f9f;
+				border-radius: 8px;
+			}
+			
+			#sign {
+				width: 460px;
+				margin-top: 0px;
+				margin-left: -14px;
+			}
+			
+			#form-btn {
+				margin-top: 40px;
+			}
+			
+			#form-btn #btn1,
+			#form-btn #btn2 {
+				float: left;
+				width: 156px;
+				height: 42px;
+				line-height: 42px;
+				display: block;
+				font-size: 16px;
+				color: #ffffff;
+				text-align: center;
+				background: #4375b9;
+				border-radius: 3px;
+				text-decoration: none;
+			}
+			
+			#form-btn #btn2 {
+				float: right;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<form id="form" name="form" autocomplete="of">
+			昵称:&nbsp;&nbsp;&nbsp;<input id="name" placeholder="请输入名字" type="text">&nbsp;&nbsp;&nbsp;<span></span><br>
+			性别:&nbsp;&nbsp;&nbsp;<input type="radio" id="male" value="false"/>男 <span></span><input type="radio" id="female" value="false"/>女&nbsp;&nbsp;&nbsp;<span id="radio-span"></span><br>
+			生日:&nbsp;&nbsp;&nbsp;<input type="date" id="birthday" />&nbsp;&nbsp;&nbsp;<span></span><br>
+			<p>个性签名:</p>&nbsp;&nbsp;&nbsp;<input id="sign" placeholder="请输入" type="text">&nbsp;&nbsp;&nbsp;<span></span>
+				
+			</textarea>
+			<div id="form-btn">
+				<a id="btn1" href="page1.html">上一页</a>
+				<a id="btn2" href="page3.html">下一页</a>
+			</div>
+		</form>
+		<script type="text/javascript">
+
+			function $(id){
+				return document.getElementById(id);
+			}
+			
+			function storeValueArrayAsJson(key, valueArry, value){
+				valueArry.push(value);
+				localStorage.setItem(key, JSON.stringify(valueArry));
+			}
+			
+				
+			function storeInfo(ele1,ele2){	
+				var empt = isEmpt(inputs,spans);
+				if(!empt){
+					for(var i = 0; i < inputs.length; i++){
+						var id = inputs[i].id;
+						var key = id;
+						var value = $(id).value;
+						if(localStorage.getItem(key) != null){
+							var valueArry = JSON.parse(localStorage.getItem(key));
+							var index = valueArry.indexOf(value);
+							storeValueArrayAsJson(key, valueArry, value);					
+						}else{
+							var valueArry = [];
+							valueArry.push(value);
+							localStorage.setItem(key, JSON.stringify(valueArry));
+						}					
+					}					
+				}else{
+					return false;
+				}
+			}
+			
+			function isEmpt(eles, spans){
+				var count = 0;
+				var spanRadio = $('radio-span');
+				for(var i = 0; i < eles.length; i++){
+					var id = eles[i].id;
+					var key = id;
+					var value = $(id).value;
+					
+					if(!(/\S/.test(value))){
+						count++;
+						spans[i].innerText = '不能为空！';
+						spans[i].style.color = '#f00';
+					}else{
+						spans[i].innerText = '';
+					}					
+				}
+				
+				if(radios[0].value == 'false' && radios[1].value == 'false'){
+					count++;
+					spanRadio.innerText = '不能为空！';
+					spanRadio.style.color = '#f00';
+				}
+			
+				return count > 0 ? true:false;
+			}
+			
+			function showStorageInfo(){				
+				for(var i = 0; i < inputs.length; i++){
+					var id = inputs[i].id;
+					var key = id;
+					var valueArry = JSON.parse(localStorage.getItem(key));
+					if(valueArry != null){
+						var value = valueArry[valueArry.length - 1];
+						inputs[i].value = value;
+						if(value == 'true'){
+							radios[i-1].checked = true;
+						}
+						
+					}
+				}
+			}
+			
+			var radios = document.querySelectorAll('input[type=radio]');
+			var tmpRadios = [];
+			for(var i = 0; i < radios.length; i++){
+				radios[i].onclick = function(){
+					for(var j = 0; j < radios.length; j++){
+						radios[j].checked = false;
+						radios[j].value = 'false';
+					}
+					this.value = 'true';
+					this.checked = true;
+				}
+			}
+			
+			
+			var inputs = document.querySelectorAll('#form>input');
+			var spans = document.querySelectorAll('#form>span');
+			
+			$('btn1').onclick = function(){
+				return storeInfo(inputs, spans);
+			}
+			
+			
+			$('btn2').onclick = function(){
+				return storeInfo(inputs, spans);
+			}
+			
+			showStorageInfo();
+		</script>
+	</body>
+</html>

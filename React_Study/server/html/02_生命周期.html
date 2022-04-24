@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+
+    class Index extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          msg: "hello world",
+          receiverMsg: []
+        }
+      }
+
+      componentWillMount() {
+        console.log("componentsWillMount");
+      }
+
+      componentDidMount() {
+        console.log("componentDidMount");
+        const xmlhttp = new XMLHttpRequest()
+        xmlhttp.open("GET", "../get", true)
+        xmlhttp.send()
+        xmlhttp.onreadystatechange = () => {
+          if(xmlhttp.readyState ===4 && xmlhttp.status === 200) {
+            this.setState({
+              receiverMsg: JSON.parse(xmlhttp.responseText)
+            })
+          }
+        }
+
+        this.refs.parentRef.addEventListener("click", (e) => {
+          // 合成事件和其它原生事件之间冒泡处理方式
+          if(e.target&&e.target.matches('input.i-click')){
+            return;
+          }
+          console.log("refs parentRef");
+        })
+
+        document.addEventListener("click", function(e) {
+          console.log("document click");
+        })
+      }
+
+      componentWillUpdate() {
+        console.log("componentWillUpdate");
+      }
+
+      componentDidUpdate() {
+        console.log("componentDidUpdate");
+      }
+
+      componentWillUnmount() {
+        console.log("componentWillUnMount");
+      }
+
+      render() {
+        return (
+          <div>
+            <h2>Hello React</h2>
+            <p>{this.state.msg}</p>
+            <p>
+              {this.state.receiverMsg.map((item, index) => {
+                return (
+                  <h4 key={item}>{item}</h4>
+                )
+              })}
+            </p>
+            <div class="par" ref="parentRef" onClick={this.parentClick.bind(this)}>
+              <input class="i-click" type="button" value="Click 点击" onClick={this.changeMsg.bind(this)}/>  
+            </div>
+            <input type="button" value="UnMount 卸载" onClick={this.changeUnmount.bind(this)} />
+          </div>
+        )
+      }
+
+      changeMsg(e) {
+        // console.log(e.nativeEvent.stopImmediatePropagation());
+        e.nativeEvent.stopImmediatePropagation()    // 解决合成事件和document原生事件的冒泡
+        e.stopPropagation() // 合成事件之间的冒泡
+        console.log("changeMsg");
+        this.setState({
+          msg: "您好呀 lucy"
+        })
+      }
+
+      changeUnmount() {
+        ReactDOM.render(<h2>123</h2>, app)
+      }
+
+      parentClick() {
+        console.log("parent click");
+      }
+
+    }
+
+    ReactDOM.render(<Index />, app)
+  </script>
+</body>
+</html>

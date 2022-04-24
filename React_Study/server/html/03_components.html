@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+    <style>
+      .content {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+      }
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+      class TabTitle extends React.Component {
+        render() {
+          return (
+            <div>
+              {this.props.tabTitleArr.map((item, index) => {
+                return (
+                  <input
+                    type="button"
+                    value={item}
+                    key={item}
+                    onClick={this.btnClick.bind(this, index)}
+                  />
+                );
+              })}
+            </div>
+          );
+        }
+
+        btnClick(index, e) {
+          this.props.changeTabIndex(index);
+        }
+      }
+
+      class TabContent extends React.Component {
+        render() {
+          const showIndex = this.props.showIndex;
+          return (
+            <div>
+              {this.props.tabContentArr.map((item, index) => {
+                return (
+                  <div
+                    className="content"
+                    style={{ display: showIndex === index ? "block" : "none" }}
+                    key={item}
+                  >
+                    {item}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        }
+      }
+
+      class Index extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            index: 0,
+          };
+          this.timer = null;
+        }
+
+        componentDidMount() {
+          this.changeIntervalIndex();
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.timer)
+        }
+
+        changeIntervalIndex() {
+          clearInterval(this.timer);
+          this.timer = setInterval(() => {
+            let indexz = this.state.index + 1;
+            indexz === this.props.data.title.length && (indexz = 0);
+            this.setState({
+              index: indexz,
+            });
+          }, this.props.data.time);
+        }
+
+        render() {
+          return (
+            <div
+              onMouseOver={this.mouseOver.bind(this)}
+              onMouseOut={this.mouseOut.bind(this)}
+            >
+              <TabTitle
+                tabTitleArr={this.props.data.title}
+                changeTabIndex={this.changeStateIndex.bind(this)}
+              />
+              <TabContent
+                tabContentArr={this.props.data.content}
+                showIndex={this.state.index}
+              />
+            </div>
+          );
+        }
+
+        mouseOver() {
+          clearInterval(this.timer);
+        }
+
+        mouseOut() {
+          this.changeIntervalIndex();
+        }
+
+        changeStateIndex(index) {
+          this.setState({
+            index,
+          });
+        }
+      }
+      ReactDOM.render(
+        <Index
+          data={{
+            title: ["中国", "瑞士", "新加坡"],
+            content: ["宇宙无敌最强", "银行第一", "环境最优美"],
+            time: 2000,
+          }}
+        />,
+        app
+      );
+    </script>
+  </body>
+</html>

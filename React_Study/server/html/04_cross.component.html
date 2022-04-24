@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/react/16.13.1/umd/react.production.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    function searchFn(json) {
+      var arr = json.g || []
+      console.log(arr)
+      var ul = document.querySelector("ul")
+      ul.innerHTML = ""
+      for(var i=0; i<arr.length; i++) {
+        ul.innerHTML += `<li>
+          <a href="https://www.baidu.com/s?tn=44004473_38_oem_dg&ie=utf-8&wd=${arr[i].q}">${arr[i].q}</a>
+          </li>`
+      }
+    }
+  </script>
+  <script type="text/babel">
+    class CrossBlock extends React.Component {
+
+      state = {
+        value: ""
+      }
+
+      componentDidMount() {
+        this.request()
+      }
+
+      request() {
+        const script = document.createElement("script")
+        script.src = `https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&wd=${this.state.value}&req=2&bs=1&csor=1&pwd=mc&cb=searchFn&_=1650021928320`
+        document.body.appendChild(script)
+        script.remove()
+      }
+
+      componentDidUpdate() {
+        this.request()
+      }
+
+      render() {
+        return (
+          <div>
+            <input type="text" value={this.state.value} onChange={this.changeInputValue.bind(this)} placeholder="请输入" />
+            <ul></ul>
+          </div>
+        )
+      }
+
+      changeInputValue(e) {
+        this.setState({
+          value: e.target.value
+        })
+      }
+      
+    }
+
+    ReactDOM.render(<CrossBlock />, app)
+  </script>
+</body>
+</html>

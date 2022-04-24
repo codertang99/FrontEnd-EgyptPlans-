@@ -1,0 +1,3126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			} 
+			/* 顶部导航栏开始 */
+			#top {
+				height: 30px;
+				border-bottom: 1px solid #DDDDDD;
+				background-color: #E3E4E5;
+			}
+			.top-nav {
+				width: 1190px;
+				height: 30px;
+				margin: 0 auto;
+			}	
+			.top-nav>ul>li {
+				list-style: none;
+				float: right;
+			}
+			.top-nav>ul>li>a,
+			#header>.header-nav>.hotword a {
+				text-decoration: none;
+				color: #999999;
+				font-size: 12px;
+				line-height: 30px;
+			}
+			.top-nav>ul>li>.red,
+			#header>.header-nav>.hotword .red,
+			#header>.header-nav>.navitems li .red,
+			.top-nav>ul>li>a:hover,
+			#header>.header-nav>.hotword a:hover,
+			#header>.header-nav>.navitems li a:hover, 
+			#content >.content-1>.menu li>a:hover, 
+			#content >.content-1>.service>.login>.login-1>a:hover {
+				color:#F10215;
+			}
+			.top-nav>ul>.spacer {
+				width: 1px;
+				height: 10px;
+				background-color: #CCCCCC;
+				margin: 10px 14px 0;
+			}
+			.top-nav>.location>p {
+				float: left;
+				font-size: 12px;
+				color: #999999;
+				line-height: 30px;
+			}
+			.top-nav>.location>p>img {
+				vertical-align:text-top;
+			}
+			/*顶部导航栏结束*/
+			/* header开始 */
+			#header {
+				height: 140px;
+				border-bottom: 1px solid #DDDDDD;
+				background-color: #FFFFFF;
+			}
+			#header>.header-nav {
+				width: 1190px;
+				height: 140px;
+				margin: 0 auto;
+				position: relative;
+			}
+			#header>.header-nav>.logo>a {
+				display: block;
+				width: 190px;
+				height: 120px;
+				background: url(../image/logo.png) no-repeat 0 10px;
+			}
+			#header>.header-nav>.form {
+				width: 550px;
+				height: 36px;
+				background-color: #6D675B;
+				position: absolute;
+				top: 25px;
+				left: 260px;
+			}
+			#header>.header-nav>.form input,
+			#header>.header-nav>.form input:nth-child(2)
+			{
+				outline: none;
+				border: 2px solid #E2231A;
+				float: left;
+			}
+			#header>.header-nav>.form input{
+				border-right-width: 0;
+				font-size: 11px;
+				color:#989898;
+			}
+			#header>.header-nav>.form input {
+				width: 490px;
+				height: 32px;
+			}
+			#header>.header-nav>.form input:nth-child(2){
+				width: 58px;
+				height: 36px;
+				background-color:#E2231A ;
+			}
+			#header>.header-nav>.form .serch {
+				background: url(../image/serch.png) no-repeat center center;
+			}
+			.hotword>p{
+				position: absolute;
+				top: 60px;
+				left: 260px;
+			}
+			#header>.header-nav>.shopping {
+				width: 130px;
+				height: 34px;
+				position: absolute;
+				top: 25px;
+				left: 830px;
+				background: url(../image/shoppingcar.png) no-repeat 15px center;
+				border: 1px solid #DDDDDD;
+			}
+			#header>.header-nav>.shopping>a {
+				text-decoration: none;
+				line-height: 35px;
+				font-size: 12px;
+				color: #E2231A;
+				padding-left: 50px;
+			}
+			#header>.header-nav>.navitems {
+				position: absolute;
+				bottom: 13px;
+				left: 214px;
+			}
+			#header>.header-nav>.navitems li {
+				list-style: none;
+				float: left;
+				margin: 0 10px;
+			}
+			#header>.header-nav>.navitems li a {
+				text-decoration: none;
+				font-size: 15px;
+				color: #333333;
+			}
+			#header>.header-nav>.navitems li .red {
+				font-weight: 700;
+			}
+			#header>.header-nav>.erweima {
+				width: 76px;
+				height: 76px;
+				position: absolute;
+				top:3px;
+				right: 0;
+			}
+			/* header结束 */
+			/* content-1开始 */
+			#content {
+				background-color: #F4F4F4;
+				overflow: hidden;
+			}
+			#content >.content-1{
+				width: 1190px;
+				height: 470px;	
+				margin: 10px auto 0;
+				overflow: hidden;
+			}
+			#content >.content-1>.menu {
+				width: 190px;
+				height: 450px; 
+				background-color: #FEFEFE;
+				padding: 10px 0;
+				float: left;
+			}
+			#content >.content-1>.menu li {
+				list-style: none;
+				padding-left: 18px;
+			}
+			#content >.content-1>.menu li:hover {
+				background-color: #D9D9D9;
+			}
+			#content >.content-1>.menu li>a {
+				text-decoration: none;
+				color: #333333;
+				height: 25px;
+				line-height: 25px;
+				font-size: 14px;
+			}
+			#content >.content-1>.menu li span {
+				color: #989898;
+				font-size: 11px;
+			}
+			#content >.content-1 .banner {
+				width: 590px;
+				height: 470px;
+				background-color: #37372D;
+				float: left;
+				margin-left: 10px;
+				position: relative;
+			}
+			#content >.content-1>.banner>.left,
+			#content >.content-1>.banner>.right,
+			#content >.content-1>.s-banner>.left,
+			#content >.content-1>.s-banner>.right {
+				position: absolute;
+				width: 25px;
+				height: 35px;
+				background: rgba(0,0,0,0.3);
+				top: 50%;
+				margin-top: -17px;
+				border-radius: 0 50% 50% 0; 
+			}
+			#content >.content-1>.banner>.right,
+			#content >.content-1>.s-banner>.right{
+				right: 0;
+				border-radius: 50% 0 0 50%; 
+			}
+			#content >.content-1>.banner>.circle>li {
+				list-style: none;
+				float: left;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background-color:#E3E4E5;
+				margin: 0 2px;
+			}
+			#content >.content-1>.banner>.circle {
+				position: absolute;
+				bottom: 19px;
+				left: 27px;
+				width: 115px;
+				height: 10px;
+			}	
+			#content >.content-1>.s-banner {
+				position: relative;
+				width: 190px;
+				height: 470px;
+				float: left;
+				margin-left: 10px;
+			}
+			#content >.content-1 .s-banner>.t1,
+			#content >.content-1 .s-banner>.t2 {
+				margin-bottom: 10px;
+			}
+			#content >.content-1>.service {
+				width: 190px;
+				height: 470px;
+				background-color:#FFFFFF; 
+				float: right;
+				margin-left: 10px;
+			}
+			#content >.content-1>.service>.login {
+				width: 190px;
+				height: 101px;
+				border-bottom: 1px solid #EEEEEE;
+			}
+			#content >.content-1>.service>.login>.login-1 {
+				width: 90px;
+				height: 53px;
+				padding-left: 52px;
+				position: relative;
+				margin: 13px 20px 0 20px;
+				
+			}
+			#content >.content-1>.service>.login>.login-1>a {
+				text-decoration: none;
+				font-size: 12px;
+				color: #333333;
+				line-height: 18px;
+			}
+			#content >.content-1>.service>.login>.login-1>.logo {
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				left: 0;
+				top: 0;
+				border-radius: 50%;
+				overflow: hidden;
+				border: 3px solid #FFFFFF;
+			}
+			#content >.content-1>.service>.login>.login-1>.logo img {
+				width: 100%;
+			}
+			#content >.content-1>.service>.login>.login-2 {
+				width: 190px;
+				height: 25px;
+				padding: 0 18px;
+				margin-top: 10px;
+			}
+			#content >.content-1>.service>.login>.login-2>a {
+				display: inline-block;
+				text-decoration: none;
+				width: 70px;
+				height: 25px;
+				border-radius: 13px;
+				font-size: 13px;
+				line-height: 25px;
+				text-align: center;
+			}
+			#content >.content-1>.service>.login>.login-2>.fl {
+				margin-right: 10px;
+				background-color: #E1251B;
+				color: #FFFFFF;
+			}
+			#content >.content-1>.service>.login>.login-2>.hy {
+				background-color: #363634;
+				color:#C3B77E;
+			}
+			#content >.content-1>.service>.login>.login-2>.fl:hover,
+			#content >.content-1>.service>.login>.login-2>.hy:hover {
+				background-color:#C81623;
+				color: #FFFFFF;
+			}
+			#content >.content-1>.service>.news {
+				width: 162px;
+				height: 100px;
+				border-bottom: 1px solid #EEEEEE;
+				padding: 14px;	
+			}
+			#content >.content-1>.service>.news>.news-t {
+				height: 25px;
+				position: relative;
+			}
+			#content >.content-1>.service>.news>.news-t>h5 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: #333333;
+				font-size: 14px;
+			}
+			#content >.content-1>.service>.news>.news-t>.more {
+				position: absolute;
+				top: 0;
+				right: 0;
+				text-decoration: none;
+				color: #999999;
+				font-size: 12px;
+			}
+			#content >.content-1>.service>.news>.news-b li {
+				list-style: none;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			#content >.content-1>.service>.news>.news-b a {
+				text-decoration: none;
+				font-size: 12px;
+				color: #666666;
+			}
+			#content >.content-1>.service>.news>.news-b .tj {
+				display: inline-block;
+				width: 35px;
+				height: 16px;
+				background-color: #FDEEED;
+				text-align: center;
+				line-height: 16px;
+				margin-right: 10px;
+				color: #E1251B;
+			}
+			#content >.content-1>.service>.expand {
+				width: 190px;
+				height: 240px;
+			}
+			#content >.content-1>.service>.expand ul {
+				margin: 10px 0;
+				
+			}
+			#content >.content-1>.service>.expand li {
+				list-style: none;
+				width: 63px;
+				height: 55px;
+				float: left;
+			}
+			#content >.content-1>.service>.expand li a {
+				display: block;
+				width: 63px;
+				height: 55px;
+				position: relative;
+				color: #333;
+			}
+			#content >.content-1>.service>.expand li>a>.t3 {
+				font-size: 12px;
+				position: absolute;
+				top: 33px;
+				left: 50%;
+				margin-left: -12px;
+			}
+			#content >.content-1>.service>.expand li a .t1 {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				margin-left: -14px;
+				z-index: 1;
+			}
+			#content >.content-1>.service>.expand li a .t2 {
+				position: absolute;
+				top: 0;
+				left:50%;
+				margin-left: -14px;
+			}
+			#content >.content-1>.service>.expand li a:hover>.t1,
+			#content >.content-1>.service>.expand li a:hover>.t3 {
+				z-index: 0;
+				color: #C81623;
+			}
+			/* content-1结束 */
+			/* content-2开始 */
+			#content >.content-2 {
+				width: 1190px;
+				height: 260px;
+				background: #FFF;
+				margin: 30px auto 0 auto;
+			}
+			#content >.content-2>.seckill {
+				display: block;
+				width: 190px;
+				height: 260px;
+				background: url(../image/jingdongmiaosha.png) no-repeat;
+				text-decoration: none;
+				color: #FFF;
+				overflow: hidden;
+				float: left;
+			}
+			#content >.content-2>.seckill>.seckill-title {
+				font-size:30px; 
+				font-weight: 700;
+				text-align: center;
+				margin-top: 38px;
+			}
+			#content >.content-2>.seckill>.seckill-time {
+				margin-top: 100px;
+				text-align: center;
+			}
+			#content >.content-2>.seckill>.seckill-time span {
+				font-weight: 900;
+				font-size: 17px;
+			}
+			#content >.content-2>.seckill-list {
+				display: block;
+				width: 800px;
+				height: 260px;
+				float: left;
+				position: relative;
+			}
+			#content >.content-2>.seckill-list>.t1, 
+			#content >.content-2>.seckill-list>.t2,
+			#content >.content-2>.seckill-list>.t3,
+			#content >.content-2>.seckill-list>.t4 {
+				width: 200px;
+				height: 260px;
+				float: left;	
+			}
+			#content >.content-2>.seckill-list>.t1 img,
+			#content >.content-2>.seckill-list>.t2 img,
+			#content >.content-2>.seckill-list>.t3 img,
+			#content >.content-2>.seckill-list>.t4 img {
+				padding: 30px 30px 0;
+			}
+			#content >.content-2>.seckill-list>.t1 h6,
+			#content >.content-2>.seckill-list>.t2 h6,
+			#content >.content-2>.seckill-list>.t3 h6,
+			#content >.content-2>.seckill-list>.t4 h6{
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				margin: 10px 12px 0;
+				color: #333;
+			}
+			#content >.content-2>.seckill-list>.t1 .seckill-item__price, 
+			#content >.content-2>.seckill-list>.t2 .seckill-item__price,
+			#content >.content-2>.seckill-list>.t3 .seckill-item__price,
+			#content >.content-2>.seckill-list>.t4 .seckill-item__price {
+				width: 154px;
+				height: 20px;
+				margin: 7px auto;
+				border: 1px solid #E1251B;
+				
+			}
+			#content >.content-2>.seckill-list>.t1 .seckill-item__price .red, 
+			#content >.content-2>.seckill-list>.t2 .seckill-item__price .red, 
+			#content >.content-2>.seckill-list>.t4 .seckill-item__price .red,
+			#content >.content-2>.seckill-list>.t3 .seckill-item__price .red {
+				width: 90px;
+				height: 100%;
+				background-color: #E1251B;
+				text-align: center;
+				font-size: 14px;
+				color: #FFF;
+				float: left;
+				font-weight: 700;
+			
+			}
+			#content >.content-2>.seckill-list>.t1 .seckill-item__price .white,
+			#content >.content-2>.seckill-list>.t2 .seckill-item__price .white,
+			#content >.content-2>.seckill-list>.t3 .seckill-item__price .white,
+			#content >.content-2>.seckill-list>.t4 .seckill-item__price .white {
+				width: 64px;
+				height: 100%;
+				background-color:#FFFFFF;
+				text-align: center;
+				font-size: 10px;
+				color: #999999;
+				float: right;
+			}
+			#content >.content-2>.seckill-list>.t1:hover h6,
+			#content >.content-2>.seckill-list>.t2:hover h6,
+			#content >.content-2>.seckill-list>.t3:hover h6,
+			#content >.content-2>.seckill-list>.t4:hover h6 {
+				color: #F10215;
+			}
+			#content >.content-2>.seckill-list>.left {
+				display: block;
+				width: 25px;
+				height: 35px;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				margin-top: -13px;
+				border-width: 0;
+				border-radius: 0 18px 18px 0;
+				
+			}
+			#content >.content-2>.seckill-list>.right {
+				display: block;
+				width: 25px;
+				height: 35px;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				margin-top: -13px;
+				border-width: 0;
+				border-radius: 18px 0 0 18px;
+			}
+			#content >.content-2>.seckill-banner {
+				display: block;
+				width: 200px;
+				height: 260px;
+				float: right;
+				text-decoration: none;
+			}
+			#content >.content-2>.seckill-banner>.t1 {
+				width: 120px;
+				height: 120px;
+				margin: 30px auto 0;
+			}
+			#content >.content-2>.seckill-banner>.seckill-banner-title {
+				color: #666;
+				text-align: center;
+				font-size: 12px;
+				margin-top: 10px;
+				line-height: 22px;
+			}
+			#content >.content-2>.seckill-banner>.seckill-banner-promo {
+				color: #666;
+				text-align: center;
+				font-weight: 700;
+				font-size: 12px;
+				line-height: 22px;
+			}
+			#content >.content-2>.seckill-banner>.seckill-banner-action {
+				width: 82px;
+				height:24px;
+				border: 1px solid #F10215;
+				border-radius: 14px;
+				background-color: #F3F5F9;
+				margin: 4px auto 0;
+				position: relative;	
+			}
+			#content >.content-2>.seckill-banner>.seckill-banner-action>.dp {
+				padding-left: 12px;
+				font-size: 12px;
+				line-height: 24px;
+				text-align: center;
+				color: #e1251b;
+				font-weight: 700;	
+			}
+			#content >.content-2>.seckill-banner>.seckill-banner-action img {
+				display:inline-block;
+				position: absolute;
+				top: 50%;
+				right: 8px;
+				margin-top: -6px;
+			}
+			#content >.content-2>.seckill-banner>.seckill-banner-action:hover,
+			#content >.content-2>.seckill-banner>.seckill-banner-action:hover .dp {
+				background-color: #F10215;
+				color: #FFFFFF;
+			}
+			/* content-2结束*/
+			/* content-3开始*/
+			#content >.content-3 {
+				width: 1190px;
+				height: 340px;	
+				margin: 20px auto;
+			}
+			#content >.content-3>.phb {
+				width: 590px;
+				height: 340px;
+				background-color: #fff;
+				position: relative;
+				float: left;
+			}	
+			#content >.content-3>.phb a {
+				text-decoration: none;
+				color:#333333;
+			}
+			#content >.content-3>.phb .phb-head {
+				width: 560px;
+				height: 60px;	
+				padding: 0 15px;
+				position: relative;
+			}
+			#content >.content-3>.phb>.phb-head  h3 {
+				font-weight: 700;
+				font-size: 24px;
+				color: #333;
+				height:60px ;
+				text-align: center;
+				line-height: 60px;
+				position: absolute;
+				top: 0;
+				left: 15px;
+			}
+			#content >.content-3>.phb>.phb-head .sprite {
+				position: absolute;
+				left: 95px;
+				top: 23px;	
+				width: 16px;
+				height: 16px;
+				background: url(../image/sprite.png) -16px 0 no-repeat;
+				
+			}
+			#content >.content-3>.phb>.phb-head a:hover .sprite {
+				background: url(../image/sprite.png) 0 0 no-repeat;
+			}
+			#content >.content-3>.phb .phb-head ul {
+				float: right;
+				height:60px ;
+				text-align: center;
+				line-height: 60px;
+			}
+			#content >.content-3>.phb .phb-head ul>li {
+				list-style: none;
+				float: left;
+				margin-left: 20px;
+			}
+			#content >.content-3>.phb .phb-head ul>li>a {
+				text-decoration: none;
+				color: #999;
+				font-weight: 700;
+				font-size: 13px;
+			}
+			#content >.content-3>.phb .phb-head ul>li>a:hover {
+				color: #F10215;
+			}
+			#content >.content-3>.phb .top1 {
+				position: absolute;
+				top: 60px;
+				left:15px;
+				width: 270px;
+				height: 180px;
+				background-color: #F8F9FA;
+			}
+			#content >.content-3>.phb>.top1 .t1 {
+				position: absolute;
+				top: 0;
+				left: 25px;
+			}
+			#content >.content-3>.phb>.top1 .t2 {
+				position: absolute;
+				top:15px;
+				left: 85px;
+			}
+			#content >.content-3>.phb>.top1 .t3 {
+				position: absolute;
+				display: block;
+				top: 126px;
+				left: 30px;
+				width: 210px;
+				height: 40px;
+				font-size: 14px;
+				line-height: 20px;
+				overflow: hidden;
+			}
+			#content >.content-3>.phb>.top1 a:hover {
+				color:#C81623
+			}
+			#content >.content-3>.phb .top2 {
+				position: absolute;
+				top:70px;
+				right:0;
+				width: 290px;
+				height: 240px;
+			}
+			#content >.content-3>.phb .top2 .list {
+				position: relative;
+				width: 270px;
+				height: 70px;
+				margin-bottom: 15px;
+			}
+			#content >.content-3>.phb .top2 .list .t1 {
+				position: absolute;
+				top: 15px;
+				left: 0;
+			}
+			#content >.content-3>.phb .top2 .list .t2 {
+				position: absolute;
+				left: 40px;
+			}
+			#content >.content-3>.phb .top2 .list .t3 {
+				position: absolute;
+				width: 150px;
+				height: 32px;
+				line-height: 16px;
+				font-size: 12px;
+				left: 118px;
+				top:50%;
+				margin-top: -16px;
+				overflow: hidden;
+			}
+			#content >.content-3>.phb .top2 a:hover .list .t3 {
+				color:#C81623
+			}
+			#content >.content-3>.phb .top3 {
+				position: absolute;
+				top:242px;
+				left:15px;
+				width: 270px;
+				height: 80px;
+			}
+			#content >.content-3>.phb .top3 .z1,
+			#content >.content-3>.phb .top3 .z2,
+			#content >.content-3>.phb .top3 .z3, 
+			#content >.content-3>.phb .top3 .z4 {
+				width: 134px;
+				height: 40px;
+				background-color: #F8F9FA;
+				text-align-last: center;
+				line-height: 40px;
+			}
+			#content >.content-3>.phb .top3 .z1,
+			#content >.content-3>.phb .top3 .z3 {
+				float: left;
+				margin-bottom: 2px;
+			}
+			#content >.content-3>.phb .top3 .z2,
+			#content >.content-3>.phb .top3 .z4 {
+				float: right;
+			}
+			#content >.content-3>.phb .top3 .z1,
+			#content >.content-3>.phb .top3 .z2 {
+				margin-bottom: 2px;
+			}
+			#content >.content-3>.phb .top3 .z1 a:hover,
+			#content >.content-3>.phb .top3 .z2 a:hover,
+			#content >.content-3>.phb .top3 .z3 a:hover, 
+			#content >.content-3>.phb .top3 .z4 a:hover {
+				color: #C81623;
+			} 
+			
+			#content >.content-3>.ppsg {
+				width: 590px;
+				height: 340px;
+				background-color: #FFFFFF;
+				float: right;
+				position: relative;
+			}
+			#content >.content-3>.ppsg>.title {
+				width: 550px;
+				height: 60px;
+				padding: 0 20px;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 60px;
+				position: relative;
+			}
+			#content >.content-3>.ppsg .title .sprite {
+				position: absolute;
+				top: 23px;
+				left:141px;
+				width: 16px;
+				height: 16px;
+				background:url(../image/sprite.png) -16px 0 no-repeat;
+			}
+			#content >.content-3>.ppsg a {
+				text-decoration: none;
+				color: #333333;
+			}
+			#content >.content-3>.ppsg>.title>a:hover>.sprite {
+				background:url(../image/sprite.png) 0 0 no-repeat;
+			}
+			#content >.content-3>.ppsg .box1 {
+				width: 270px;
+				height: 265px;
+				background-color: #F4F7F9;
+				position: absolute;
+				left: 15px;
+			}
+			#content >.content-3>.ppsg .box1 .shop-logo {
+				margin: 15px 100px 0;
+			}
+			#content >.content-3>.ppsg .box1 .shop-name {
+				text-align: center;
+				font-size: 15px;
+			}
+			#content >.content-3>.ppsg .box1 .z-box {
+				width: 270px;
+				height: 18px;
+				font-size: 13px;
+				padding-left: 68px;
+				position: relative;
+			}
+			
+			#content >.content-3>.ppsg .box1 .z2:before {
+				position: absolute;
+				left: 170x;
+				content:" ";
+				width: 3px;
+				height: 10px;
+				color: #0000FF;
+			}
+			#content >.content-3>.ppsg .box1 .t-box {
+				padding: 10px 70px;
+			}
+			#content >.content-3>.ppsg .box2 {
+				width: 270px;
+				height: 312px;
+				position: absolute;
+				right: 20px;
+				top: 20px;
+			}
+			#content >.content-3>.ppsg .box2 .t1{
+				width: 135px;
+				height: 72px;
+				text-align: center;
+				padding: 14px 0;
+				float: left;
+				
+			}
+			#content >.content-3>.ppsg .box2 .t1 h6 {
+				color: #666;
+				margin-top: 6px;
+				font-size: 12px;
+				text-align: center;
+				font-weight: 400;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			#content >.content-3>.ppsg .box2 .t1:nth-child(2n - 1):after {
+				position: absolute;
+				content: "";
+				width: 1px;
+				height: 60px;
+				right: 135px;
+				margin-top: -72px;
+				background: linear-gradient(180deg,white,#eeeeee,#eeeeee,white);
+			}
+			/* content-3结束*/
+			/* content-4开始*/
+			#content>.content-4 {
+				width: 1190px;
+				height: 260px;
+				margin: 0 auto 20px;
+			}
+			#content>.content-4>.logo a {
+				float: left;
+				width: 190px;
+				height: 260px;
+				background: url(../image/faxianhaohuo.png) no-repeat;
+				position: relative;	
+			}
+			#content>.content-4>.logo a>.logo-text {
+				position: absolute;
+				top: 15px;
+				left: 15px;
+				width: 160px;
+				height: 89px;
+				border-radius:0 0 30px;	
+				text-align: center;
+				background-color: rgba(46,49,51,.5);
+			}
+			#content>.content-4>.logo a>.logo-text img {
+				margin-top: 15px;
+			}
+			#content>.content-4>.logo a>.logo-text>.z1 {
+				padding-right: 35px;
+				font-size: 16px;
+				color: #CECECD;		
+			}
+			#content>.content-4>.logo a>.logo-text .sprite {
+				background: url(../image/sprite.png) 0 -16px  no-repeat;
+				width: 16px;
+				height: 16px;
+				position: absolute;
+				top:58px;
+				left: 110px;
+			}
+			#content>.content-4>.logo a:hover>.logo-text .sprite {
+				background: url(../image/sprite.png) 0 0  no-repeat;
+			}	
+			#content>.content-4>.goods-list {
+				width: 990px;
+				height: 260px;
+				background-color: #FFFFFF;
+				float: right;
+			}
+			#content>.content-4>.goods-list>.t1,
+			#content>.content-4>.goods-list>.t2,
+			#content>.content-4>.goods-list>.t3,
+			#content>.content-4>.goods-list>.t4, 
+			#content>.content-4>.goods-list>.t5{
+				width: 150px;
+				height: 260px;
+				float: left;
+			}
+			#content>.content-4>.goods-list>.t5 {
+				float: right;
+				margin: 50px 40px 0 0;
+			}
+			#content>.content-4>.goods-list>.t1,
+			#content>.content-4>.goods-list>.t3 {
+				margin: 50px 50px 0 0;
+			}
+			#content>.content-4>.goods-list>.t2,
+			#content>.content-4>.goods-list>.t4 {
+				margin: 20px 50px 0 0;
+			}
+			#content>.content-4>.goods-list .goods-name {
+				text-align: center;
+				font-size: 14px;
+			}
+			#content>.content-4>.goods-list a {
+				text-decoration: none;
+				color:#333;
+			}
+			#content>.content-4>.goods-list a:hover {
+				color:#F10215;
+			}
+			/* content-4结束*/
+			/* content-5开始*/
+			#content>.content-5 {
+				width: 1190px;
+				height: 340px;
+				margin: 0 auto 20px;
+			}
+			#content>.content-5>.coupon {
+				width: 290px;
+				height: 340px;
+				background-color: #FFF;
+				float: left;
+				margin-right: 10px;
+			}
+			#content>.content-5 .head {
+				width: 250px;
+				height: 36px;
+				padding: 12px 20px;
+				position: relative;
+			}
+			#content>.content-5 .head .a1 h3 {
+				font-weight: 700;
+				font-size: 24px;
+			}
+			#content>.content-5 .head .sprite {
+				width: 16px;
+				height: 16px;
+				background: url(../image/sprite.png) no-repeat -16px 0;
+			}
+			#content>.content-5 .coupon .sprite  {
+				position: absolute;
+				top: 21px;
+				left: 123px;
+			}
+			#content>.content-5 .head .a1:hover .sprite {
+				background: url(../image/sprite.png) no-repeat 0 0;
+			}
+			#content>.content-5 .head .a1 {
+				text-decoration: none;
+				color: #333;	
+			}
+			#content>.content-5 .coupon>.inner {
+				width: 290px;
+				height: 280px;
+				background: url(../image/ab4b10750f3da259165a76e30074f504.png) no-repeat;
+			}
+			#content>.content-5 .coupon>.inner a {
+				text-decoration: none;
+			}
+			#content>.content-5 .coupon>.inner .t1 {
+				width: 262px;
+				height: 82px;
+				margin-left: 15px;
+				margin-bottom: 3px;
+				position: relative;
+			}
+			#content>.content-5 .coupon>.inner .t2 {
+				width: 262px;
+				height: 82px;
+				margin-left: 15px;
+				margin-bottom: 3px;
+				position: relative;
+			}
+			#content>.content-5 .coupon>.inner .t3 {
+				width: 262px;
+				height: 82px;
+				margin-left: 15px;
+				margin-top: 3px;
+				position: relative;
+			}
+			#content>.content-5 .coupon>.inner .t1 .coupon-img,
+			#content>.content-5 .coupon>.inner .t2 .coupon-img,
+			#content>.content-5 .coupon>.inner .t3 .coupon-img {
+				width: 66px;
+				height: 66px;
+				border-radius: 50%;
+				background-color: #FFFFFF;
+				overflow: hidden;
+				position: absolute;
+				top: 7px;
+				left: 6px;
+			}
+			#content>.content-5 .coupon>.inner .coupon-img img {
+				display: block;
+				margin: 8px auto;
+			}
+			#content>.content-5 .coupon>.inner .coupon-info {
+				width: 140px;
+				height: 70px;
+				position: absolute;
+				left: 80px;
+			}
+			#content>.content-5 .coupon>.inner .coupon-price {
+				color: #E33333;
+			}
+			#content>.content-5 .coupon>.inner .coupon-price  span {
+				font-size: 28px;
+				color: #E33333;
+				font-weight: 700;
+			}
+			#content>.content-5 .coupon>.inner .coupon-limit {
+				font-size: 12px;
+				color: #999999;
+			}
+			#content>.content-5 .coupon>.inner .coupon-desc {
+				font-size: 12px;
+				color: #333333;
+				margin-top: 3px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			#content>.content-5 .coupon>.inner .coupon-more {
+				position: absolute;
+				left: 225px;
+				font-size: 12px;
+				color: #666;
+				top: 10px;
+			}
+			#content>.content-5 .coupon>.inner .coupon-more img {
+				position: absolute;
+				left: 15px;
+				top:25px;
+				width: 10px;
+				height: 10px;
+			}
+			#content>.content-5>.nice-shop {
+				width: 290px;
+				height: 340px;
+				background-color: #FFF;
+				float: left;
+				margin-right: 10px;
+			}
+			#content>.content-5 .nice-shop .sprite {
+				position: absolute;
+				top: 21px;
+				left: 100px;
+			}
+			#content>.content-5>.nice-shop .container {
+				width: 290px;
+				height: 266px;
+			
+			}
+			#content>.content-5>.nice-shop .container .container-1 {
+				width: 260px;
+				height: 128px;
+				background-color: #F0EBE9;
+				margin: 0 auto 10px;
+			} 
+			#content>.content-5>.nice-shop .container .container-2 {
+				width: 260px;
+				height: 128px;
+				background-color: #ECF1F7;
+				margin: 0 auto;
+			} 
+			#content>.content-5>.nice-shop .container .info {
+				width: 120px;
+				height: 98px;
+				float: left;
+				margin-top: 16px;
+				margin-left: 13px;
+			}
+			#content>.content-5>.nice-shop .container .info .title {
+				font-size: 14px;
+			}
+			#content>.content-5>.nice-shop .container .info .tags {
+				font-size: 12px;
+				margin-top: 5px;
+			}
+			#content>.content-5>.nice-shop .container .info .tags .color-1 {
+				border: 1px solid #642b98;
+				color: #642b98;
+				border-radius: 2px;
+			}
+			#content>.content-5>.nice-shop .container .info .tags .color-2 {
+				border: 1px solid #596fab;
+				color: #596fab;
+				border-radius: 2px;
+			}
+			#content>.content-5>.nice-shop .container .info .social {
+				font-size: 12px;
+				margin-top: 40px;
+				color: #999;
+			}
+			#content>.content-5>.nice-shop .container img {
+				float: right;
+				margin: 12px 10px 0;
+			}
+			#content>.content-5>.discover {
+				width: 290px;
+				height: 340px;
+				background-color: #FFF;
+				float: left;
+				margin-right: 10px;	
+			}
+			#content>.content-5 .discover .sprite {
+				position: absolute;
+				top: 21px;
+				left: 76px;
+			}
+			#content>.content-5 .discover .discover-item a,
+			#content>.content-5 .new-arrival a,
+			#content>.content-5 .nice-shop a {
+				text-decoration: none;
+				color: #333333;
+			}
+			#content>.content-5 .discover .discover-item {
+				width: 260px;
+				margin: 0 auto;
+				font-size: 14px;
+			}
+			#content>.content-5 .discover .discover-item .discover-item-img {
+				position: relative;
+			}
+			#content>.content-5 .discover .discover-item .discover-item-img .discover-item-tag {
+				position:absolute;
+				top: 5px;
+				left: 5px;
+				background: rgba(0,0,0,.6);
+				color: #FFFFFF;
+				border-radius: 10px;
+				width: 38px;
+				height: 20px;
+				text-align: center;	
+			}
+			#content>.content-5 .discover .discover-item .discover-item-img p {
+				margin: 20px 0;
+			}
+			#content>.content-5 .discover .discover-item .logo {
+				position: relative;
+				width: 204px;
+				height: 24px;
+				margin: 0 auto;
+			}
+			#content>.content-5 .discover .discover-item .logo .discover-item-logo {
+				width: 24px;
+				height: 24px;
+			}
+			#content>.content-5 .discover .discover-item .logo .z1 {
+				position: absolute;
+				top: 0;
+				left: 30px;
+				width: 116px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			#content>.content-5 .discover .discover-item .logo .z2 {
+				position: absolute;
+				top: 0;
+				right: 0;
+				border: 1px solid #642B98;
+				border-radius: 2px;
+				color: #642B98;
+			}
+			#content>.content-5 .discover .discover-item a:hover p,
+			#content>.content-5 .nice-shop a:hover,
+			#content>.content-5 .coupon .inner a:hover .coupon-more {
+				color: #C81623;
+			}
+			#content>.content-5>.new-arrival {
+				width: 290px;
+				height: 340px;
+				background-color: #FFF;
+				float: right;
+			}
+			#content>.content-5 .new-arrival .sprite {
+				position: absolute;
+				top: 21px;
+				left: 123px;
+			}
+			#content>.content-5 .new-arrival .wrapper {
+				width: 260px;
+				height: 160px;
+				background-color: #EBF2EA;
+				margin: 0 auto;	
+				position: relative;
+			}
+			#content>.content-5 .new-arrival .wrapper .text {
+				width: 110px;
+				height: 100px;
+				position: absolute;
+				top: 32px;
+				left: 15px;
+			}
+			#content>.content-5 .new-arrival .wrapper .img-1 {
+				border: 5px solid #fff;
+				border-radius: 4px;
+				position: absolute;
+				top: 25px;
+				right: 20px;
+			}
+			#content>.content-5 .new-arrival .wrapper .text .z1 {
+				width: 58px;
+				height: 18px;
+				border: 1px solid #e1251b;
+				color: #e1251b;
+				font-size: 12px;
+				line-height: 18px;
+				text-align: center;
+				border-radius: 2px;
+			}
+			#content>.content-5 .new-arrival .wrapper .text .z2 {
+				width: 110px;
+				height: 40px;
+				font-size: 14px;
+				overflow: hidden;
+				margin-top: 8px;
+			}
+			#content>.content-5 .new-arrival .wrapper .text .z3 {
+				display: block;
+				width: 15px;
+				height: 2px;
+				background-color: #000000;
+				margin: 8px 0;
+			}
+			#content>.content-5 .new-arrival .wrapper .text .z4 {
+				font-size: 12px;
+			}
+			#content>.content-5 .new-arrival .img-2 {
+				text-align: center;
+				margin-top: 20px;
+			}
+			#content>.content-5 .new-arrival .wrapper a:hover .z2 {
+				color: #C81623
+			}
+			/* content-5结束*/
+			/* content-6开始*/
+			#content>.content-6 {
+				width: 1190px;
+				height: 815px;
+				margin: 0 auto 20px;
+			}
+			#content>.content-6 a {
+				text-decoration: none;
+			}	
+			#content>.content-6>.channels-title,
+			#content>.content-7>.rec-title {
+				height: 65px;
+			}
+			#content>.content-6>.channels-title>h3,
+			#content>.content-7>.rec-title h3 {
+				width: 150px;
+				height: 45px;
+				margin: 0 auto;
+				font-size: 28px;
+				color: #333333;
+				text-align: center;
+				position: relative;
+			}
+			#content>.content-6>.channels-title>h3:before,
+			#content>.content-7>.rec-title h3:before {
+				content: " ";
+				background: url(../image/pindaoguangchang-sprite.png) no-repeat 0 0;
+				width: 25px;
+				height: 20px;
+				position: absolute;
+				top: 10px;
+				left: -30px;
+			}
+			#content>.content-6>.channels-title>h3:after,
+			#content>.content-7>.rec-title h3:after {
+				content: " ";
+				background: url(../image/pindaoguangchang-sprite.png) no-repeat -25px 0;
+				width: 25px;
+				height: 20px;
+				position: absolute;
+				top: 10px;
+				right: -30px;
+			}
+			#content>.content-6>.slider {
+				width: 600px;
+				height: 750px;
+				padding-left: 600px;
+				position: relative;
+			}
+			#content>.content-6>.slider .t1 {
+				width: 290px;
+				height: 370px;
+				position: absolute;
+				top: 0;
+				left: 0;	
+			}
+			#content>.content-6>.slider .t2 {
+				width: 290px;
+				height: 370px;
+				position: absolute;
+				top: 0;
+				left: 300px;
+			}	
+			#content>.content-6>.slider .t3 {
+				background-color: #fff;
+				width: 290px;
+				height: 180px;
+				position: absolute;
+				top: 380px;
+				left: 0;
+			}
+			#content>.content-6>.slider .t4 {
+				background-color: #fff;
+				width: 290px;
+				height: 180px;
+				position: absolute;
+				top: 380px;
+				left: 300px;	
+			}
+			#content>.content-6>.slider .t5 {
+				background-color: #fff;
+				width: 290px;
+				height: 180px;
+				position: absolute;
+				bottom: 0;
+				left: 0;	
+			}
+			#content>.content-6>.slider .t6 {
+				background-color: #fff;
+				width: 290px;
+				height:180px;
+				position: absolute;
+				bottom: 0;
+				left: 300px;	
+			}
+			#content>.content-6>.slider .t7,
+			#content>.content-6>.slider .t8,
+			#content>.content-6>.slider .t9,
+			#content>.content-6>.slider .t10,
+			#content>.content-6>.slider .t11,
+			#content>.content-6>.slider .t12,
+			#content>.content-6>.slider .t13,
+			#content>.content-6>.slider .t14 {
+				background-color: #fff;
+				width: 290px;
+				height: 180px;
+				display: inline-block;	
+			}
+			#content>.content-6>.slider .t7,
+			#content>.content-6>.slider .t9,
+			#content>.content-6>.slider .t11,
+			#content>.content-6>.slider .t13 {
+				margin: 0 6px 10px 0;
+			}
+			#content>.content-6>.slider>.info .z1 {
+				display: inline-block;
+				font-size: 18px;
+				font-weight: 700;
+				color: #333;
+				margin: 21px 0 15px 30px;
+			}
+			#content>.content-6>.slider>.info .z2 {
+				font-size: 14px;
+				color: #999;
+				margin-left: 5px;
+			}
+			#content>.content-6>.slider>.info img {
+				margin-left: 30px;
+			}
+			/* content-6结束*/
+			/* content-7开始*/
+			#content>.content-7 {
+				width: 1190px;
+				height: 467px;
+				margin: 0 auto;
+			}
+			#content>.content-7 a {
+				text-decoration: none;
+			}
+			#content>.content-7>.navigator {
+				width: 1190px;
+				height: 60px;
+				background-color: #fff;
+				margin-bottom: 10px;
+			}
+			#content>.content-7>.navigator>ul {
+				width: 1015px;
+				margin: 0 auto;
+			}
+			#content>.content-7>.navigator li{
+				width: 203px;
+				height: 53px;
+				padding-top: 7px;
+				float: left;
+				text-align: center;
+				list-style: none;	
+			}
+			#content>.content-7>.navigator li .z1 {
+				color: #333;
+				font-size: 16px;
+				font-weight: 700;
+				line-height: 27px;
+				height: 27px;
+			}
+			#content>.content-7>.navigator li .z2  {
+				color: #999;
+				font-size: 14px;
+			}
+			#content>.content-7>.navigator li a:hover .z1,
+			#content>.content-7>.navigator li a:hover .z2 {
+				color: #C81623
+			}
+			#content>.content-7>.image>.t1 {
+				background-color: #FFF;
+				width: 230px;
+				height: 322px;
+				text-align: center;	
+				float: left;
+				margin-right: 10px;
+			}
+			#content>.content-7>.image>.t1:last-child{
+				margin-right: 0;
+			}
+			#content>.content-7>.image>.t1 .t1-1 {
+				padding: 30px 0 20px;
+			}
+			#content>.content-7>.image>.t1 .info-name {
+				width: 190px;
+				height: 48px;
+				padding: 0 20px;
+				text-align: left;
+				line-height: 24px;	
+				word-break: break-all;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;         
+				-webkit-box-orient:vertical;     
+				-webkit-line-clamp:2;	
+				margin-bottom: 8px;
+			}
+			#content>.content-7>.image>.t1 .info-name>.z1 {
+				display: inline-block;
+				width: 24px;
+				height: 16px;
+				background-color: #E1251B;
+				color: #FFF;
+				font-size: 12px;
+				border-radius: 2px;
+				line-height: 16px;
+				padding: 0 5px;	
+			}
+			#content>.content-7>.image>.t1 .info-name>.z2 {
+				font-size: 14px;
+				color: #666;	
+			}
+			#content>.content-7>.image>.t1 .price {
+				color:#E1251B;
+				text-align: left;
+				width: 190px;
+				padding: 0 20px;
+			}
+			#content>.content-7>.image>.t1 .price>.symbol {
+				font-size: 10px;
+			}
+			#content>.content-7>.image>.t1 .price>.money {
+				font-size: 20px;
+				font-weight: 700;
+			}
+			/* content-7结束*/	
+			/* footer开始*/	
+			#footer {
+				background-color: #F4F4F4;
+				height: 600px;
+			}
+			#footer a {
+				text-decoration: none;	
+			}
+			#footer li {
+				list-style: none;
+			}
+			#footer>.footer-head {
+				height: 103px;
+				margin: 0 auto;
+				border-bottom: 1px #E1E1E1 solid;
+			}
+			#footer>.footer-head>.inner {
+				width: 1190px;
+				height: 42px;
+				margin: 0 auto;
+			}
+			#footer>.footer-head>.inner ul {
+				width: 1190px;
+				height: 42px;
+				padding: 30px 0;
+			}
+			#footer>.footer-head>.inner li {
+				float: left;
+				width: 297px;
+				height: 42px;
+				line-height: 42px;
+				font-weight: 700;
+				text-align: center;
+				font-size: 18px;
+				color: #444;
+				position: relative;
+			}
+			#footer>.footer-head>.inner li .duo {
+				background: url(../image/footer-sprit.png) no-repeat 0 -192px;
+			}
+			#footer>.footer-head>.inner li .kuai {
+				background: url(../image/footer-sprit.png) no-repeat -41px -192px;
+			}
+			#footer>.footer-head>.inner li .hao {
+				background: url(../image/footer-sprit.png) no-repeat -82px -192px;
+			}
+			#footer>.footer-head>.inner li .sheng {
+				background: url(../image/footer-sprit.png) no-repeat -123px -192px;
+			}
+			#footer>.footer-head>.inner li .location {
+				position: absolute;
+				top: 0;
+				left: 20px;
+				height: 42px;
+				width: 36px;	
+			}	
+			#footer>.help {
+				width: 1190px;
+				height: 159px;
+				margin: 0 auto;
+				border-bottom: 1px #E1E1E1 solid;
+				padding: 20px 0;
+			}
+			#footer>.help>.help-nav {
+				float: left;
+			}
+			#footer>.help>.help-cover {
+				float: right;
+			}
+			#footer>.help>.help-nav h5 {
+				font-size: 14px;
+				margin-bottom: 5px;
+				color: #666;
+			}
+			#footer>.help>.help-nav li {
+				font-size: 13px;
+				width: 197px;
+				height: 21px;
+				line-height: 22px;
+				color: #666;
+			}
+			#footer>.help>.help-nav li a {
+				color: #666;
+			}
+			#footer>.help>.help-nav li a:hover {
+				color: #F10215;
+			}
+			#footer>.help>.help-cover {
+				width: 200px;
+				height: 150px;
+				position: relative;
+			}
+			#footer>.help>.help-cover h5 {
+				font-size: 14px;
+				margin-bottom: 15px;
+				color: #666;
+				text-align: center;
+			}
+			#footer>.help>.help-cover>.info {
+				width: 180px;
+				height: 54px;
+				font-size: 12px;
+				color: #666;
+			}
+			#footer>.help>.help-cover>a>.more {
+				width: 180px;
+				height: 19px;
+				font-size: 12px;
+				color: #666;
+				text-align: right;
+			}
+			#footer>.help>.help-cover>.sprit {
+				width: 200px;
+				height: 150px;
+				background: url(../image/footer-sprit.png) no-repeat 0 0;
+				position: absolute;
+				top: 0;
+				left: -10px;
+			}
+			#footer>.copyright {
+				width: 1349px;
+				height: 265px;
+				padding: 15px 0;
+				margin: 0 auto;
+			}
+			#footer>.copyright>p {
+				width: 1190px;
+				height: 18px;
+				margin: 0 auto;
+				text-align: center;
+			}
+			#footer>.copyright>p>span {
+				margin: 0 5px;
+				color: #ccc;
+				font-size: 12px;
+			}
+			#footer>.copyright>p>a {
+				color: #666;
+				font-size: 12px;
+			}
+			#footer>.copyright>.info {
+				width: 1190px;
+				height: 60px;
+				padding: 10px 0;
+				margin: 0 auto;	
+			}
+			#footer>.copyright>.info>p {
+				font-size: 12px;
+				color: #999;
+				text-align: center;
+				line-height: 22px;
+			}
+			#footer>.copyright>.info>p>a {
+				color: #999;
+			}
+			#footer>.copyright>.info>p>a:hover,
+			#footer>.copyright>.other>.other-web>a:hover,
+			#footer>.copyright>.other>p>a:hover {
+				color:  #F10215;
+			}
+			#footer>.copyright>.info>p>span,
+			#footer>.copyright>.other span {
+				font-size: 12px;
+				margin: 0 5px;
+				color: #ccc;
+			}
+			#footer>.copyright>.other {
+				width: 1190px;
+				height: 40px;
+				margin: 0 auto;
+				text-align: center;
+				font-size: 12px;
+				color: #999;
+			}
+			#footer>.copyright>.other>.other-web {
+				height: 22px;
+			}
+			#footer>.copyright>.other>.other-web>a,
+			#footer>.copyright>.other>p a {
+				color: #999;
+			}
+			#footer>.copyright>.other>.other-web .sprit-1 {
+				background: url(../image/footer-sprit.png) no-repeat -108px -155px;
+			}
+			#footer>.copyright>.other>.other-web .sprit-2 {
+				background: url(../image/footer-sprit.png) no-repeat -168px -155px;
+			}
+			#footer>.copyright>.other>.other-web .sprit-3 {
+				background: url(../image/footer-sprit.png) no-repeat -148px -155px;
+			}
+			#footer>.copyright>.other>.other-web .sprit-4 {
+				background: url(../image/footer-sprit.png) no-repeat -128px -155px;
+			}
+			#footer>.copyright>.other>.other-web .sprit-5 {
+				background: url(../image/footer-sprit.png) no-repeat -108px -172px;
+			}
+			#footer>.copyright>.other>.other-web .change {
+				display: inline-block;
+				width: 15px;
+				height: 12px;
+			}
+			#footer>.copyright>.auth {
+				width: 1190px;
+				height: 36px;
+				margin: 20px auto 0;
+			}
+			#footer>.copyright>.auth ul {
+				width: 515px;
+				margin: 0 auto;
+			}
+			#footer>.copyright>.auth li {
+				float: left;
+				width: 103px;
+			}
+			#footer>.copyright>.auth li a {
+				display: inline-block;
+				width: 103px;
+				height: 32px;
+			}
+			#footer>.copyright>.auth li .sprit-1 {
+				background: url(../image/footer-sprit.png) no-repeat -205px -111px;
+				margin: 0 3px;
+			}
+			#footer>.copyright>.auth li .sprit-2 {
+				background: url(../image/footer-sprit.png) no-repeat -205px -74px;
+				margin: 0 3px;
+			}
+			#footer>.copyright>.auth li .sprit-3 {
+				background: url(../image/footer-sprit.png) no-repeat -205px -37px;
+				margin: 0 3px;
+			}
+			#footer>.copyright>.auth li .sprit-4 {
+				background: url(../image/footer-sprit.png) no-repeat -205px 0;
+				margin: 0 3px;
+			}
+			#footer>.copyright>.auth li .sprit-5 {
+				background: url(../image/footer-sprit.png) no-repeat 0 -155px;
+				margin: 0 3px;
+			}
+			/* footer结束*/	
+		</style>
+	</head>
+	<body>
+		<div id="top">
+			<div class="top-nav">
+				<ul>
+					<li><a href="#">手机京东</a></li>
+					<li class="spacer"></li>
+					<li><a href="#">网站导航</a></li>
+					<li class="spacer"></li>
+					<li><a href="#">客户服务</a></li>
+					<li class="spacer"></li>
+					<li><a href="#" class="red">企业采购</a></li>
+					<li class="spacer"></li>
+					<li><a href="#">京东会员</a></li>
+					<li class="spacer"></li>
+					<li><a href="#">我的京东</a></li>
+					<li class="spacer"></li>
+					<li><a href="#">我的订单</a></li>
+					<li class="spacer"></li>
+					<li><a href="#" class="red">你好，请登录</a>&nbsp;
+						<a href="#">免费注册</a>
+					</li>
+				</ul>
+				<div class="location">
+					<p><img src="../image/location.png" >&nbsp;陕西</p>
+				</div>
+			</div>
+		</div>
+		<div id="header">
+			<div class="header-nav">
+				<div class="logo">
+					<a href="#"></a>
+				</div>
+				<div class="form">
+					<input type="text"  value="矿泉水" />
+					<input type="button" class="serch"/>
+				</div>
+				<div class="hotword">
+					<p>
+						<a href="#" class="red">手机狂欢日</a>
+						<a href="#">家装建材</a>
+						<a href="#">运动户外</a>
+						<a href="#">立减3000</a>
+						<a href="#">童装童鞋</a>
+						<a href="#">5折神券</a>
+						<a href="#">iphone</a>
+						<a href="#">正品兽药</a>
+						<a href="#">全棉时代</a>
+					</p>
+				</div>
+				<div class="shopping">
+					<a href="#">我的购物车</a>
+				</div>
+				<div class="navitems">
+					<ul>
+						<li ><a href="#" class="red">秒杀</a></li>
+						<li ><a href="#" class="red">优惠券</a></li>
+						<li><a href="#">PLUS会员</a></li>
+						<li><a href="#">品牌闪购</a></li>
+						<li><a href="#">拍卖</a></li>
+						<li><a href="#">京东时尚</a></li>
+						<li><a href="#">京东超市</a></li>
+						<li><a href="#">京东生鲜</a></li>
+						<li><a href="#">海囤全球</a></li>
+						<li><a href="#">京东金融</a></li>
+					</ul>
+				</div>
+				<div class="erweima">
+					<img src="../image/erweima.png" >
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="content-1">
+				<div class="menu">
+					<ul>
+						<li>
+							<a href="#">家用电器</a>
+						</li>
+						<li>
+							<a href="#">手机</a>
+							<span>/</span>
+							<a href="#">运营商</a>
+							<span>/</span>
+							<a href="#">数码</a>
+						</li>
+						<li>
+							<a href="#">电脑</a>
+							<span>/</span>
+							<a href="#">办公</a>
+						</li>
+						<li>
+							<a href="#">家居</a>
+							<span>/</span>
+							<a href="#">家具</a>
+							<span>/</span>
+							<a href="#">家装</a>
+							<span>/</span>
+							<a href="#">厨具</a>
+						</li>
+						<li>
+							<a href="#">男装</a>
+							<span>/</span>
+							<a href="#">女装</a>
+							<span>/</span>
+							<a href="#">童装</a>
+							<span>/</span>
+							<a href="#">内衣</a>
+						</li>
+						<li>
+							<a href="#">美妆</a>
+							<span>/</span>
+							<a href="#">个护清洁</a>
+							<span>/</span>
+							<a href="#">宠物</a>
+						</li>
+						<li>
+							<a href="#">女鞋</a>
+							<span>/</span>
+							<a href="#">箱包</a>
+							<span>/</span>
+							<a href="#">钟表</a>
+							<span>/</span>
+							<a href="#">珠宝</a>
+						</li>
+						<li>
+							<a href="#">男鞋</a>
+							<span>/</span>
+							<a href="#">运动</a>
+							<span>/</span>
+							<a href="#">户外</a>
+						</li>
+						<li>
+							<a href="#">房产</a>
+							<span>/</span>
+							<a href="#">汽车</a>
+							<span>/</span>
+							<a href="#">汽车用品</a>
+						</li>
+						<li>
+							<a href="#">母婴</a>
+							<span>/</span>
+							<a href="#">玩具乐器</a>
+						</li>
+						<li>
+							<a href="#">食品</a>
+							<span>/</span>
+							<a href="#">酒类</a>
+							<span>/</span>
+							<a href="#">生鲜</a>
+							<span>/</span>
+							<a href="#">特产</a>
+						</li>
+						<li><a href="#">艺术</a>
+							<span>/</span>
+							<a href="#">礼品鲜花</a>
+							<span>/</span>
+							<a href="#">农资绿植</a>
+						</li>
+						<li>
+							<a href="#">医药保健</a>
+							<span>/</span>
+							<a href="#">计生情趣</a>
+						</li>
+						<li>
+							<a href="#">图书</a>
+							<span>/</span>
+							<a href="#">文娱</a>
+							<span>/</span>
+							<a href="#">电子书</a>
+						</li>
+						<li>
+							<a href="#">机票</a>
+							<span>/</span>
+							<a href="#">酒店</a>
+							<span>/</span>
+							<a href="#">旅游</a>
+							<span>/</span>
+							<a href="#">生活</a>
+						</li>
+						<li>
+							<a href="#">理财</a>
+							<span>/</span>
+							<a href="#">众筹</a>
+							<span>/</span>
+							<a href="#">白条</a>
+							<span>/</span>
+							<a href="#">保险</a>
+						</li>
+						<li>
+							<a href="#">安装</a>
+							<span>/</span>
+							<a href="#">维修</a>
+							<span>/</span>
+							<a href="#">清洗</a>
+							<span>/</span>
+							<a href="#">二手</a>
+						</li>
+						<li>
+							<a href="#">工业品</a>
+						</li>
+					</ul>	
+					
+				</div>
+				<div class="banner">
+					<a href="#"><img src="../image/banner.jpg" ></a>
+					<a href="#" class="left"><img src="../image/cheveron-left.png" width="25px" height="35px"></a>	
+					<a href="#" class="right"><img src="../image/cheveron-right.png" width="25px" height="35px" ></a>
+					<ul class="circle">
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				<div class="s-banner">
+					<div class="t1">
+						<a href="#"><img src="../image/s-banner.png" ></a>
+					</div>
+					<div class="t2">
+						<a href="#"><img src="../image/s-banner.png" ></a>
+					</div>
+					<div class="t3">
+						<a href="#"><img src="../image/s-banner.png" ></a>
+					</div>
+					<a href="#" class="left"><img src="../image/cheveron-left.png" width="25px" height="35px"></a>
+					<a href="#" class="right"><img src="../image/cheveron-right.png" width="25px" height="35px" ></a>
+				</div>	
+				<div class="service">
+					<div class="login">
+						<div class="login-1">
+							<a href="#">Hi~欢迎逛京东!</a><br/>
+							<a href="#">登录</a>
+								&nbsp;|&nbsp;
+							<a href="#">注册</a>
+							<a href="#" class="logo"><img src="../image/dl.png" ></a>
+						</div>
+						<div class="login-2">
+							<a href="#" class="fl">新人福利</a>
+							<a href="#" class="hy">PLUS会员</a>
+						</div>
+					</div>
+					<div class="news">
+						<div class="news-t">
+							<h5>京东快报</h5>
+							<a href="#" class="more">更多></a>	
+						</div>
+						<div class="news-b">
+							<ul>
+								<li>
+									<a href="#">
+										<span class="tj">推荐</span>代号“英伟达killer”，AMD新显卡曝光
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span class="tj">推荐</span>代号“英伟达killer”，AMD新显卡曝光
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span class="tj">推荐</span>代号“英伟达killer”，AMD新显卡曝光
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span class="tj">推荐</span>代号“英伟达killer”，AMD新显卡曝光
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="expand">
+						<ul>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/huafei.png"   width="28px" height="28px">
+									<img class="t2" src="../image/huafei1.png" width="28px" height="28px">
+									<span class="t3">话费</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/jipiao.png"   width="28px" height="28px">
+									<img class="t2" src="../image/jipiao1.png" width="28px" height="28px">
+									<span class="t3">机票</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/jiudian.png"   width="28px" height="28px">
+									<img class="t2" src="../image/jiudian2.png" width="28px" height="28px">
+									<span class="t3">酒店</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/huafei.png"   width="28px" height="28px">
+									<img class="t2" src="../image/huafei1.png" width="28px" height="28px">
+									<span class="t3">话费</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/jipiao.png"   width="28px" height="28px">
+									<img class="t2" src="../image/jipiao1.png" width="28px" height="28px">
+									<span class="t3">机票</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/jiudian.png"   width="28px" height="28px">
+									<img class="t2" src="../image/jiudian2.png" width="28px" height="28px">
+									<span class="t3">酒店</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/huafei.png"   width="28px" height="28px">
+									<img class="t2" src="../image/huafei1.png" width="28px" height="28px">
+									<span class="t3">话费</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/jipiao.png"   width="28px" height="28px">
+									<img class="t2" src="../image/jipiao1.png" width="28px" height="28px">
+									<span class="t3">机票</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/jiudian.png"   width="28px" height="28px">
+									<img class="t2" src="../image/jiudian2.png" width="28px" height="28px">
+									<span class="t3">酒店</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/huafei.png"   width="28px" height="28px">
+									<img class="t2" src="../image/huafei1.png" width="28px" height="28px">
+									<span class="t3">话费</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/jipiao.png"   width="28px" height="28px">
+									<img class="t2" src="../image/jipiao1.png" width="28px" height="28px">
+									<span class="t3">机票</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img class="t1" src="../image/jiudian.png"   width="28px" height="28px">
+									<img class="t2" src="../image/jiudian2.png" width="28px" height="28px">
+									<span class="t3">酒店</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="content-2">
+				<a class="seckill" href="#">
+					<div class="seckill-title">
+						京东秒杀
+					</div>
+					<div class="seckill-time">
+						<span>10:00</span> 点场 倒计时
+					</div>
+				</a>
+				<a class="seckill-list" href="#">
+					<div class="t1">
+						<img src="../image/tu1.png.webp" title="雅诗兰黛（Estee Lauder）DW持久粉底液/沁水粉底液 保湿遮瑕控油不脱妆 62号2C0自然偏白" width="140px" height="140px">
+						<h6>OJJ X1智能锁鹿客指纹防盗门锁智能密码锁门锁指纹锁家用防盗门X1锁耀岩黑小米米家APP控制</h6>
+						<div class="seckill-item__price">
+							<div class="red">
+								¥999.00
+							</div>
+							<div class="white">
+								<del>¥1699.00</del>
+							</div>
+						</div>
+					</div>
+					<div class="t2">
+						<img src="../image/tu2.jpg.webp" title="雅诗兰黛（Estee Lauder）DW持久粉底液/沁水粉底液 保湿遮瑕控油不脱妆 62号2C0自然偏白" width="140px" height="140px">
+						<h6>金龙珠宝 黄金手链女款 石榴石貔貅黄金转运珠 3D硬金足金女款金珠路路通手串手镯送礼物情人节 款式三【大版】（6个貔貅+3粒金珠）</h6>
+						<div class="seckill-item__price">
+							<div class="red">
+								¥749.00
+							</div>
+							<div class="white">
+								<del>¥1599.00</del>
+							</div>
+						</div>
+					</div>
+					<div class="t3">
+						<img src="../image/tu3.jpg.webp" title="雅诗兰黛（Estee Lauder）DW持久粉底液/沁水粉底液 保湿遮瑕控油不脱妆 62号2C0自然偏白" width="140px" height="140px">
+						<h6>金龙珠宝 黄金手链女款 石榴石貔貅黄金转运珠 3D硬金足金女款金珠路路通手串手镯送礼物情人节 款式三【大版】（6个貔貅+3粒金珠）</h6>
+						<div class="seckill-item__price">
+							<div class="red">
+								¥749.00
+							</div>
+							<div class="white">
+								<del>¥1599.00</del>
+							</div>
+						</div>
+					</div>	
+					<div class="t4">
+						<img src="../image/tu4.webp" title="雅诗兰黛（Estee Lauder）DW持久粉底液/沁水粉底液 保湿遮瑕控油不脱妆 62号2C0自然偏白" width="140px" height="140px">
+						<h6>金龙珠宝 黄金手链女款 石榴石貔貅黄金转运珠 3D硬金足金女款金珠路路通手串手镯送礼物情人节 款式三【大版】（6个貔貅+3粒金珠）</h6>
+						<div class="seckill-item__price">
+							<div class="red">
+								¥749.00
+							</div>
+							<div class="white">
+								<del>¥1599.00</del>
+							</div>
+						</div>
+					</div>
+					<button class="left"><img src="../image/cheveron-left.png" width="15px" height="15px" ></button>
+					<button class="right"><img src="../image/cheveron-right.png" width="15px" height="15px" ></button>
+				</a>
+				<a class="seckill-banner" href="#">
+					<div class="t1">
+						<img src="../image/watch.jpg.webp" width="120px" height="120px">
+					</div>
+					<p class="seckill-banner-title">梅花钟表专场</p>
+					<p class="seckill-banner-promo" >全场最高直降1361元</p>
+					<div class="seckill-banner-action">
+						<span class="dp">大牌闪购 </span>
+						<img src="../image/cheveron-right.png" width="13px" height="13px">	
+					</div>
+				</a>
+			</div>
+			<div class="content-3">
+				<div class="phb">
+					<div class="phb-head">
+						<a href="#">
+							<h3>排行榜</h3>
+							<div class="sprite">
+							</div>
+						</a>
+						<ul>
+							<li><a href="#">电脑组件</a></li>
+							<li><a href="#">拖鞋</a></li>
+							<li><a href="#">电脑整机</a></li>
+							<li><a href="#">运动服饰</a></li>
+							<li><a href="#">智能设备</a></li>
+						</ul>
+					</div>
+					<div class="top1">
+						<a href="#">
+							<img class="t1" src="../image/top1.png" >
+							<img class="t2" src="../image/neicuntiao.webp" >
+							<span class="t3">金士顿(Kingston) DDR4 2400 16GB(8G×2)套装 台式机内存 骇客神条 Fury雷电系列</span>
+						</a>	
+					</div>
+					<div class="top2">
+						<a href="#">
+							<div class="list">
+								<img class="t1" src="../image/top2.png" >
+								<img class="t2" src="../image/neicuntiao1.webp" >
+								<div class="t3">
+									十铨（Team） 低电压 DDR3 1600 4G 笔记本内存
+								</div>
+							</div>
+						</a>
+						<a href="#">
+							<div class="list">
+								<img class="t1" src="../image/top3.png" >
+								<img class="t2" src="../image/xijie.webp" >
+								<div class="t3">
+									希捷(Seagate)2TB 256MB 7200RPM 台式机机械硬盘 SATA接口 希捷酷鱼BarraCuda系列(ST2000DM008)
+								</div>
+							</div>
+						</a>
+						<a href="#">
+							<div class="list">
+								<img class="t1" src="../image/top4.png" >
+								<img class="t2" src="../image/jiuzhoufengshen.webp" >
+								<div class="t3">
+									九州风神（DEEPCOOL） 玄冰400 CPU散热器（多平台/支持AM4/4热管/智能温控/发蓝光/12CM风扇/附带硅脂）
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="top3">
+						<div class="z1">
+							<a href="#">
+								好物榜&nbsp;&nbsp;<img src="../image/cheveron-right.png" width="10px" >
+							</a>
+						</div>
+						<div class="z2">
+							<a href="#">
+								折扣榜&nbsp;&nbsp;<img src="../image/cheveron-right.png" width="10px" >
+							</a>
+						</div>
+						<div class="z3">
+							<a href="#">
+								店铺榜&nbsp;&nbsp;<img src="../image/cheveron-right.png" width="10px" >
+							</a>
+						</div>
+						<div class="z4">
+							<a href="#">
+								热搜榜&nbsp;&nbsp;<img src="../image/cheveron-right.png" width="10px" >
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="ppsg">
+					<div class="title">
+						<a href="#">
+							<h3>品牌闪购</h3>
+							<div class="sprite">
+							</div>	
+						</a>
+					</div>
+						<a href="#">
+							<div class="box1">
+								<div class="shop-logo">
+									<img src="../image/biaze.png" width="70px" height="35px" >
+								</div>
+								<h6 class="shop-name">毕亚兹闪购专场</h6>
+								<div class="z-box">
+									<span class="z1">部分2件8.5折</span>
+									<span class="z2">仅剩2天</span>
+								</div>
+								<div class="t-box">
+									<img src="../image/ipad.jpg" width="130px" height="130px">
+								</div>
+							</div>
+						</a>
+						<a href="#">
+							<div class="box2">
+								<div class="t1">
+									<img src="../image/langweike.png" width="100px" height="50px">
+									<h6>国潮手机配件专场</h6>
+								</div>
+								<div class="t1">
+									<img src="../image/huawei.png" width="100px" height="50px">
+									<h6>华为品牌钜惠专场</h6>
+								</div>
+								<div class="t1">
+									<img src="../image/fengyi.png" width="100px" height="50px">
+									<h6>蜂翼手机专场</h6>
+								</div>
+								<div class="t1">
+									<img src="../image/benks.png" width="100px" height="50px">
+									<h6>Benks品牌专场</h6>
+								</div>
+								<div class="t1">
+									<img src="../image/kafeile.png" width="100px" height="50px">
+									<h6>卡斐乐手配专场</h6>
+								</div>
+								<div class="t1">
+									<img src="../image/lvlian.png" width="100px" height="50px">
+									<h6>绿联品牌专场</h6>
+								</div>
+							</div>
+						</a>
+				</div>
+			</div>
+			<div class="content-4">
+				<div class="logo">
+					<a href="#">
+						<div class="logo-text">
+							<img src="../image/faxianhaohuo-title.png" >
+							<div class="z1">
+							探索新生活
+							</div>
+							<div class="sprite">
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="goods-list">
+					<div class="t1">	
+						<a href="#">
+							<div class="goods-name">
+									阿梵尼 绿幽灵手链
+								</div>
+								<div class="goods-image">
+									<img src="../image/afanni.webp" >	
+								</div>
+							</div>
+						</a>
+					<div class="t2">
+						<a href="#">
+							<div class="goods-image">
+								<img src="../image/luofeijianpan.webp" >	
+							</div>
+							<div class="goods-name">
+								洛斐 蓝牙机械键盘
+							</div>
+						</a>
+					</div>
+					<div class="t3">
+						<a href="#">
+							<div class="goods-name">
+								俄罗斯紫龙晶手链
+							</div>
+							<div class="goods-image">
+								<img src="../image/eluosi.webp" >	
+							</div>
+						</a>
+					</div>
+					<div class="t4">
+						<a href="#">
+							<div class="goods-image">
+								<img src="../image/foluolun.webp" >	
+							</div>
+							<div class="goods-name">
+								费罗伦 十二星座糖
+							</div>
+						</a>
+					</div>
+					<div class="t5">
+						<a href="#">
+							<div class="goods-name">
+								稻香村老北京糕点礼盒
+							</div>
+							<div class="goods-image">
+								<img src="../image/daoxiangcun.webp" >	
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="content-5">
+				<div class="coupon">
+					<div class="head">
+						<a class="a1" href="#">
+							<h3>领券中心</h3>
+							<div class="sprite">
+							</div>
+						</a>
+					</div>
+					<div class="inner">
+						<a href="#">
+							<div class="t1">
+								<div class="coupon-img">
+									<img src="../image/lingquanzhongxin1.webp" >
+								</div>
+								<div class="coupon-info">
+									<div class="coupon-price">
+										¥<span>50</span>
+									</div>
+									<div class="coupon-limit">
+										满99元可用
+									</div>
+									<div class="coupon-desc">
+										仅可购买个护家清部分商品
+									</div>
+								</div>
+								<div class="coupon-more">
+									更</br>多</br>好</br>券
+									<img src="../image/cheveron-right.png" >
+								</div>
+							</div>	
+						</a>
+						<a href="#">
+							<div class="t2">
+								<div class="coupon-img">
+									<img src="../image/lingquanzhongxin2.webp" >
+								</div>
+								<div class="coupon-info">
+									<div class="coupon-price">
+										¥<span>100</span>
+									</div>
+									<div class="coupon-limit">
+										满199元可用
+									</div>
+									<div class="coupon-desc">
+										仅可购买京东超市部分商品
+									</div>
+								</div>
+								<div class="coupon-more">
+									更</br>多</br>好</br>券
+									<img src="../image/cheveron-right.png" >
+								</div>
+							</div>	
+						</a>
+						<a href="#">
+							<div class="t3">
+								<div class="coupon-img">
+									<img src="../image/lingquanzhongxin3.webp" >
+								</div>
+								<div class="coupon-info">
+									<div class="coupon-price">
+										¥<span>20</span>
+									</div>
+									<div class="coupon-limit">
+										满99元可用
+									</div>
+									<div class="coupon-desc">
+										仅可购买ThinkPad自营笔记本部分商品
+									</div>
+								</div>
+								<div class="coupon-more">
+									更</br>多</br>好</br>券
+									<img src="../image/cheveron-right.png" >
+								</div>
+							</div>	
+						</a>
+					</div>
+				</div>
+				<div class="nice-shop">
+					<div class="head">
+						<a class="a1" href="#">
+							<h3>逛好店</h3>
+							<div class="sprite">
+							</div>
+						</a>
+					</div>
+					<div class="container">
+						<a href="#">
+							<div class="container-1">
+								<div class="info">
+									<div class="title">
+										京东李宁网店
+									</div>
+									<div class="tags">
+										<span class="color-1">京东好店</span>
+										<span class="color-2">随心所动</span>
+									</div>
+									<div class="social">
+										152.4万人关注
+									</div>
+								</div>
+								<img src="../image/guanghaodian1.webp" >
+							</div>
+						</a>
+						<a href="#">
+							<div class="container-2">
+								<div class="info">
+									<div class="title">
+										赛睿京东自营旗舰店
+									</div>
+									<div class="tags">
+										<span class="color-1">自营</span>
+										<span class="color-2">潮流3C</span>
+									</div>
+									<div class="social">
+										152.4万人关注
+									</div>
+								</div>
+								<img src="../image/guanghaodian2.webp" >
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="discover">
+					<div class="head">
+						<a class="a1" href="#">
+							<h3>发现</h3>
+							<div class="sprite">
+							</div>
+						</a>
+					</div>
+					<div class="discover-item">
+						<a href="#">
+							<div class="discover-item-img">
+								<img src="../image/founder1.webp" >
+								<p>在等TA的间隙，也别忘了好好宠爱自己~</p>
+								<div class="discover-item-tag">
+									穿搭
+								</div>
+							</div>
+							<div class="logo">
+								<div class="discover-item-logo">
+									<img src="../image/founder2.webp" >
+								</div>	
+								<span class="z1">丹尼尔惠灵顿京东自营旗舰店</span>
+								<span class="z2">京东好店</span>
+							</div>
+							
+						</a>
+					</div>
+				</div>
+				<div class="new-arrival">
+					<div class="head">
+						<a class="a1" href="#">
+							<h3>新品首发</h3>
+							<div class="sprite">
+							</div>
+						</a>
+					</div>
+					<div class="wrapper">
+						<a href="#">
+							<div class="text">
+								<div class="z1">
+									人气新品
+								</div>
+								<p class="z2">DJI 大疆 Osmo Action 灵眸运动相机 双彩屏 超强增稳 超清画质 裸机防水</p>
+								<span class="z3"></span>
+								<p class="z4">发现京东小魔方</p>
+							</div>
+							<div class="img-1">
+								<img src="../image/xinpinshoufa1.webp" >
+							</div>
+						</a>
+					</div>
+					<div class="img-2">
+						<a href="#">
+							<img src="../image/xinpinshoufa2.webp" >
+							<img src="../image/xinpinshoufa3.webp" >
+							<img src="../image/xinpinshoufa4.webp" >
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="content-6">
+				<div class="channels-title">
+					<h3>频道广场</h3>
+				</div>
+				<div class="slider">
+					<div class="t1" >
+						<a href="#">
+							<img src="../image/pindaoguangchang1.webp" >
+						</a>
+					</div>
+					<div class="t2" >
+						<a href="#">
+							<img src="../image/pindaoguangchang2.webp" >
+						</a>
+					</div>
+					<div class="t3 info">
+						<a href="#">
+							<span class="z1">企业购</span>
+							<span class="z2">一站式企业采购平台</span>
+							<img src="../image/qiyegou1.webp" >
+							<img src="../image/qiyegou2.webp" >
+						</a>
+					</div>
+					<div class="t4 info">
+						<a href="#">
+							<span class="z1">京东金融</span>
+							<span class="z2">会理财 懂生活</span>
+							<img src="../image/jingdongjinrong1.webp" >
+							<img src="../image/jingdongjinrong2.webp" >
+						</a>
+					</div>
+					<div class="t5 info">
+						<a href="#">
+							<span class="z1">Joy寻宝</span>
+							<span class="z2">懂你得Joy</span>
+							<img src="../image/Joy1.webp" >
+							<img src="../image/Joy2.webp" >
+						</a>
+					</div>
+					<div class="t6 info">
+						<a href="#">
+							<span class="z1">家用电器</span>
+							<span class="z2">买家电 上京东</span>
+							<img src="../image/jiayongdianqi1.webp" >
+							<img src="../image//jiayongdianqi2.webp" >
+						</a>
+					</div>
+					<div class="t7 info">
+						<a href="#">
+							<span class="z1">京东京造</span>
+							<span class="z2">京东自有品牌</span>
+							<img src="../image/jingzao1.webp" >
+							<img src="../image/jingzao2.webp" >
+						</a>
+					</div>
+					<div class="t8 info">
+						<a href="#">
+							<span class="z1">玩3C</span>
+							<span class="z2">潮流电子 炫酷来袭</span>
+							<img src="../image/3c1.webp" >
+							<img src="../image/3c2.webp" >
+						</a>
+					</div>
+					<div class="t9 info">
+						<a href="#">
+							<span class="z1">京东直播</span>
+							<span class="z2">京东直播zhobo 边看边买</span>
+							<img src="../image/zhobo1.webp" >
+							<img src="../image/zhibo2.webp" >
+						</a>
+					</div>
+					<div class="t10 info">
+						<a href="#">
+							<span class="z1">运动城</span>
+							<span class="z2">生命在于运动</span>
+							<img src="../image/yundongcheng1.webp" >
+							<img src="../image/yundongcheng2.webp" >
+						</a>
+					</div>
+					<div class="t11 info">
+						<a href="#">
+							<span class="z1">电脑办公</span>
+							<span class="z2">科技潮物 惠享不停</span>
+							<img src="../image/computer1.webp" >
+							<img src="../image/computer2.webp" >
+						</a>
+					</div>
+					<div class="t12 info">
+						<a href="#">
+							<span class="z1">智能数码</span>
+							<span class="z2">尽享玩物</span>
+							<img src="../image/zhinengshuma1.webp" >
+							<img src="../image/zhinengshuma2.webp" >
+						</a>
+					</div>
+					<div class="t13 info">
+						<a href="#">
+							<span class="z1">海囤全球</span>
+							<span class="z2">京东旗下全球直购平台</span>
+							<img src="../image/haitunquanqiu1.webp" >
+							<img src="../image/haitunquanqiu2.webp" >
+						</a>
+					</div>
+					<div class="t14 info">
+						<a href="#">
+							<span class="z1">拍拍二手</span>
+							<span class="z2">大牌1元抢</span>
+							<img src="../image/paipai1.webp" >
+							<img src="../image/paipai2.webp" >
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="content-7">
+				<div class="rec-title">
+					<h3>为你推荐</h3>
+				</div>
+				<div class="navigator">
+					<ul>
+						<li>
+							<a href="#">
+								<div class="z1">
+									精选
+								</div>
+								<span class="z2">猜你喜欢</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="z1">
+									智能先锋
+								</div>
+								<span class="z2">3C家电</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="z1">
+									居家优品
+								</div>
+								<span class="z2">居家日用</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="z1">
+									生活百货
+								</div>
+								<span class="z2">百货生鲜</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="z1">
+									时尚达人
+								</div>
+								<span class="z2">美妆穿搭</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="image">
+					<div class="t1">
+						<a href="#">
+							<div class="t1-1">
+								<img src="../image/content7-t1.webp" >
+							</div>
+							<div class="info-name">
+								<span class="z1">自营</span>
+								<span class="z2">赛睿（SteelSeries）Rival 310 游戏鼠标 RGB人体工程学鼠标 魔兽怀旧开服 电竞有线鼠标 黑色 自营</span>
+							</div>
+							<div class="price">
+								<span class="symbol">¥</span>
+								<span class="money">379.00</span>
+							</div>
+						</a>
+					</div>
+					<div class="t1">
+						<a href="#">
+							<div class="t1-1">
+								<img src="../image/content7-t1.webp" >
+							</div>
+							<div class="info-name">
+								<span class="z1">自营</span>
+								<span class="z2">赛睿（SteelSeries）Rival 310 游戏鼠标 RGB人体工程学鼠标 魔兽怀旧开服 电竞有线鼠标 黑色 自营</span>
+							</div>
+							<div class="price">
+								<span class="symbol">¥</span>
+								<span class="money">379.00</span>
+							</div>
+						</a>			
+					</div>
+					<div class="t1">
+						<a href="#">
+							<div class="t1-1">
+								<img src="../image/content7-t1.webp" >
+							</div>
+							<div class="info-name">
+								<span class="z1">自营</span>
+								<span class="z2">赛睿（SteelSeries）Rival 310 游戏鼠标 RGB人体工程学鼠标 魔兽怀旧开服 电竞有线鼠标 黑色 自营</span>
+							</div>
+							<div class="price">
+								<span class="symbol">¥</span>
+								<span class="money">379.00</span>
+							</div>
+						</a>
+					</div>
+					<div class="t1">
+						<a href="#">
+							<div class="t1-1">
+								<img src="../image/content7-t1.webp" >
+							</div>
+							<div class="info-name">
+								<span class="z1">自营</span>
+								<span class="z2">赛睿（SteelSeries）Rival 310 游戏鼠标 RGB人体工程学鼠标 魔兽怀旧开服 电竞有线鼠标 黑色 自营</span>
+							</div>
+							<div class="price">
+								<span class="symbol">¥</span>
+								<span class="money">379.00</span>
+							</div>
+						</a>
+					</div>
+					<div class="t1">
+						<a href="#">
+							<div class="t1-1">
+								<img src="../image/content7-t1.webp" >
+							</div>
+							<div class="info-name">
+								<span class="z1">自营</span>
+								<span class="z2">赛睿（SteelSeries）Rival 310 游戏鼠标 RGB人体工程学鼠标 魔兽怀旧开服 电竞有线鼠标 黑色 自营</span>
+							</div>
+							<div class="price">
+								<span class="symbol">¥</span>
+								<span class="money">379.00</span>
+							</div>
+						</a>			
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="footer-head">
+				<div class="inner">
+					<ul>
+						<li>
+							<p>品类齐全，轻松购物</p>
+							<h5 class="duo location"></h5>
+						</li>
+						<li>
+							<p>多仓直发，极速配送</p>
+							<h5 class="kuai location"></h5>
+						</li>
+						<li>
+							<p>正品行货，精致服务</p>
+							<h5 class="hao location"></h5>
+						</li>
+						<li>
+							<p>天天低价，畅选无忧</p>
+							<h5 class="sheng location"></h5>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="help">
+				<div class="help-nav">
+					<h5>购物指南</h5>
+					<ul>
+						<li>
+							<a href="#">
+								购物流程
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								会员介绍
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								生活旅行
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								常见问题
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								大家电
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								联系客服
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="help-nav">
+					<h5>配送方式</h5>
+					<ul>
+						<li>
+							<a href="#">
+								上门自提
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								211限时达
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								配送服务查询
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								配送费收取标准
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								海外配送
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="help-nav">
+					<h5>支付方式</h5>
+					<ul>
+						<li>
+							<a href="#">
+								货到付款
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								在线支付
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								分期付款
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								邮局汇款
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								公司转账
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="help-nav">
+					<h5>售后服务</h5>
+					<ul>
+						<li>
+							<a href="#">
+								售后政策
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								价格保护
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								退款说明
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								返修/退换货
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								取消订单
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="help-nav">
+					<h5>特色服务</h5>
+					<ul>
+						<li>
+							<a href="#">
+								夺宝岛
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								DIY装机
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								延保服务
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								京东E卡
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								京东通信
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								京鱼座智能
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="help-cover">
+					<h5>京东自营覆盖区县</h5>
+					<p class="info">京东已向全国2661个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+					<div class="sprit">
+						
+					</div>
+					<a href="#">
+						<div class="more">
+							查看详情
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="copyright">
+				<p class="copyright-links">
+					<a href="#">关于我们</a>
+					<span>|</span>
+					<a href="#">联系我们</a>
+					<span>|</span>
+					<a href="#">联系客服</a>
+					<span>|</span>
+					<a href="#">合作招商</a>
+					<span>|</span>
+					<a href="#">商家帮助</a>
+					<span>|</span>
+					<a href="#">营销中心</a>
+					<span>|</span>
+					<a href="#">手机京东</a>
+					<span>|</span>
+					<a href="#">友情链接</a>
+					<span>|</span>
+					<a href="#">销售联盟</a>
+					<span>|</span>
+					<a href="#">京东社区</a>
+					<span>|</span>
+					<a href="#">风险监测</a>
+					<span>|</span>
+					<a href="#">隐私政策</a>
+					<span>|</span>
+					<a href="#">京东公益</a>
+					<span>|</span>
+					<a href="#">English Site</a>
+					<span>|</span>
+					<a href="#">Media & IR</a>
+				</p>
+				<div class="info">
+					<p>
+						<a href="#">京公网安备 11000002000088号</a>
+						<span>|</span>
+						京ICP证070359号
+						<span>|</span>
+						<a href="#">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>
+						<span>|</span>
+						新出发京零&nbsp字第大120007号
+					</p>
+					<p>
+						互联网出版许可证编号新出网证(京)字150号
+						<span>|</span>
+						<a href="#">出版物经营许可证</a>
+						<span>|</span>
+						<a href="#">网络文化经营许可证京网文[2014]2148-348号</a>
+						<span>|</span>
+						违法和不良信息举报电话：4006561155
+					</p>
+					<p>
+						Copyright&nbsp;©&nbsp;2004&nbsp;-&nbsp; 
+						<span>|</span>
+						消费者维权热线：4006067733 
+						<a href="#">经营证照</a>
+						<span>|</span>
+						(京)网械平台备字(2018)第00003号
+						<span>|</span>
+						<a href="#">营业执照</a>
+					</p>
+				</div>		
+				<div class="other">
+					<div class="other-web">
+						<a href="#">
+							<span class="sprit-1 change">
+							</span>
+							Global Site
+						</a>
+						<span>|</span>
+						<a href="#">
+							<span class="sprit-2 change">
+							</span>
+							Сайт России
+						</a>
+						<span>|</span>
+						<a href="#">
+							<span class="sprit-3 change">
+							</span>
+							Situs Indonesia
+						</a>
+						<span>|</span>
+						<a href="#">
+							<span class="sprit-4 change">
+							</span>
+							Sitio de España
+						</a>
+						<span>|</span>
+						<a href="#">
+							<span class="sprit-5 change">
+							</span>
+							เว็บไซต์ประเทศไทย
+						</a>
+					</div>
+					<p>
+						京东旗下网站：
+						<a href="#">
+							京东钱包
+						</a>
+						<span>|</span>
+						<a href="#">
+							京东云
+						</a>	
+					</p>
+				</div>
+				<div class="auth">
+					<ul>
+						<li>
+							<a class="sprit-1" href="#">
+							
+							</a>
+						</li>
+						<li>
+							<a class="sprit-2" href="#">
+								
+							</a>
+						</li>
+						<li>
+							<a class="sprit-3" href="#">
+								
+							</a>
+						</li>
+						<li>
+							<a class="sprit-4" href="#">
+								
+							</a>
+						</li>
+						<li>
+							<a class="sprit-5" href="#">
+								
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

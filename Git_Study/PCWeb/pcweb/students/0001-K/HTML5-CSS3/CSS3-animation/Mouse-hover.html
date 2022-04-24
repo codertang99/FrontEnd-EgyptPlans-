@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				font-family:Futura,'Century Gothic',sans-serif;
+			}
+			
+			a {
+				color: #717171;
+				text-decoration: none;
+			}
+			
+			.box {
+				width: 100%;
+				margin:  50px 0;
+				text-align: center;
+			}
+			
+			.main {
+				width: 80%;
+				margin: 10px auto;
+				counter-reset: demo;
+			}
+			
+			.main a:not(:hover):not(:target) {
+				animation: 0s ease 0s normal none 1 none !important;
+			}
+			
+			.main>a {
+				width: 175px;
+				height: 175px;
+				line-height: 175px;
+				float: left;
+				margin: 18px;
+				background-color: #bfbfbf;
+				cursor: pointer;
+				font-size: 80px;
+				display: block;
+				position: relative;
+				box-sizing: border-box;
+				text-align: center;
+				counter-increment:demo;
+			}
+			
+			.main>a:before {
+				content: counter(demo, decimal);
+				color: #FFFFFF;
+			}
+			
+			.main>a:after {
+				content: attr(id);
+				position: absolute;
+				color: #999;
+				font-size: 14px;
+				right: 0;
+				left: 0;
+				bottom: -20px;
+				line-height: 1;	
+				text-shadow:none;
+				letter-spacing: 0px;
+				text-indent: 0px;
+			}
+			
+			/* 1 */
+			#border-radius {
+				animation: border-radius 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes border-radius{
+				from{border-radius: 0;}
+				to{border-radius: 50%;}
+			}
+			
+			/* 2 */
+			#border-radius-2 {
+				border-radius: 0 100%;
+				animation: border-radius-2 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes border-radius-2{
+				from{border-radius: 0 100%;}
+				to{border-radius: 100% 0;}
+			}
+			
+			/* 3 */
+			#border-width {
+				animation: border-width 1s ease 0s alternate none infinite;
+				border:0 ridge #000;
+			}
+			
+			@keyframes border-width{
+				from{border-width: 0;}
+				to{border-width: 80px;}
+			}
+			
+			/* 4 */
+			#border-width-2 {
+				animation: border-width-2 1s ease 0s alternate none infinite;
+				border:0 dashed #000;
+			}
+			
+			@keyframes border-width-2{
+				from{border-width: 0;}
+				to{border-width: 60px;}
+			}
+			
+			/* 5 */
+			#border-width-3 {
+				animation: border-width-3 1s ease alternate none infinite;
+				border:0 double #000;
+			}
+			
+			@keyframes border-width-3{
+				from{border-width: 0;}
+				to{border-width: 80px;}
+			}
+			
+			/* 6 */
+			#background-color {
+				animation: background-color 1s ease alternate none infinite;
+			}
+			
+			@keyframes background-color{
+				from{background-color: #bfbfbf;}
+				to{background-color: #000;}
+			}
+			
+			/* 7 */
+			#background-position {
+				background-image: linear-gradient(-45deg, transparent 25%, #000 25%, #000 50%,transparent 50%, transparent 75%, #000 75%, #000 100%);
+				background-size: 60px 60px;
+				animation: background-position 1s ease alternate none infinite;
+			}
+			
+			@keyframes background-position{
+				from{background-position: 0 0;}
+				to{background-position: 100% 100%;}
+			}
+			
+			/* 8 */
+			#background-position-2 {
+				animation: background-position-2 1s ease 0s alternate none infinite;
+				background-color:#E04332;
+				background-image:linear-gradient(-45deg, slategray 25%, transparent 25%), linear-gradient(45deg, transparent 75%, slategray 75%), linear-gradient(45deg, slategray 25%, transparent 25%), linear-gradient(-45deg, transparent 75%, slategray 75%);
+				background-size:30px 370px; 
+				background-repeat:repeat-x; 
+				background-position:10px 0, 10px 0, 20px -190px, 20px -190px;
+			}
+
+			@keyframes background-position-2{
+				 from{background-position:10px 0, 10px 0, 20px -190px, 20px -190px; } 
+				 to{ background-position:10px -70px, 10px -70px, 18px -120px, 18px -120px; }
+			}
+			
+			/* 9 */
+			#background-size {
+				animation: background-size 1s ease 0s alternate none infinite;
+				background-image: repeating-radial-gradient(transparent, transparent 9px, black 11px, black 20px);
+				background-size:5px 5px; 
+				background-position:center center;
+			}
+			
+			@keyframes background-size{
+				 from{background-size:5px 5px; } 
+				 to{ background-size:150px 150px; }
+			}
+			
+			/* 10 */
+			#text-shadow {
+				animation: text-shadow 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes text-shadow{
+				 from{text-shadow:0 0 0 #000; } 
+				 to{ text-shadow:20px 20px 10px rgba(0,0,0,.5); }
+			}
+			
+			/* 11 */
+			#text-shadow-2 {
+				animation: text-shadow-2 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes text-shadow-2{
+				 from{text-shadow:0 0 0 #000; } 
+				 to{ text-shadow:0 0 20px #fff; }
+			}
+			
+			/* 12 */
+			#text-shadow-3 {
+				animation: text-shadow-3 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes text-shadow-3{
+				 from{text-shadow:0 0 0 #fff; } 
+				 to{ text-shadow:0 0 0 #fff, -45px -45px red, -30px -30px orange, -15px -15px yellow, 15px 15px blue, 30px 30px purple, 45px 45px violet}
+			}
+			
+			/* 13 */
+			#box-shadow {
+				animation: box-shadow 1s ease 0s alternate none infinite;
+				box-shadow: 0 0 75px 75px #BFBFBF inset, 0 0 0 #BFBFBF;
+			}
+			
+			@keyframes box-shadow{
+				 from{ box-shadow: 0 0 75px 75px #BFBFBF inset, 0 0 0 #BFBFBF; } 
+				 to{ box-shadow: inset 0 0 35px 50px #ccc,0 0 75px 50px #ccc;}
+			}
+			
+			/* 14 */
+			#box-shadow-2 {
+				animation: box-shadow-2 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes box-shadow-2{
+				 from{box-shadow: 0 0 0 #000; } 
+				 to{ box-shadow: 0 150px 10px -50px rgba(0,0,0,.5);}
+			}
+			
+			/* 15 */
+			#font-size {
+				animation: font-size 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes font-size{
+				 from{font-size: 80px; } 
+				 to{ font-size: 10px;}
+			}
+			
+			/* 16 */
+			#font-size-2 {
+				animation: font-size-2 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes font-size-2{
+				 from{font-size: 80px; } 
+				 to{ font-size: 250px;}
+			}
+			
+			/* 17 */
+			#letter-spacing {
+				animation: letter-spacing 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes letter-spacing{
+				 from{letter-spacing: 0px; } 
+				 to{ letter-spacing: 90px;}
+			}
+			
+			/* 18 */
+			#text-indent {
+				animation: text-indent 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes text-indent{
+				 from{text-indent: 0px; }
+				 50%{text-indent: 100px;}
+				 to{text-indent: -100px;}
+			}
+			
+			/* 19 */
+			#height {
+				animation: height 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes height{
+				 from{height: 175px; }
+				 to{height: 10px;}
+			}
+			
+			/* 20 */
+			#line-height {
+				animation: line-height 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes line-height{
+				 from{line-height: 175px; }
+				 30%{line-height: 60px; }
+				 to{line-height: 350px;}
+			}
+			
+			/* 21 */
+			#transform {
+				animation: transform 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform{
+				 from{transform: rotate(0); }
+				 to{transform: rotate(360deg);}
+			}
+			
+			/* 22 */
+			#transform-2 {
+				animation: transform-2 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform-2{
+				 from{transform: scale(1); }
+				 to{transform: scale(2);}
+			}
+			
+			/* 23 */
+			#transform-3 {
+				animation: transform-3 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform-3{
+				 from{transform: skewX(0);}
+				 25%{transform: skewX(30deg);}
+				 50%{transform: skewX(0);}
+				 75%{transform: skewX(-30deg);}
+				 to{transform: skewX(0);}
+			}
+			
+			/* 24 */
+			#transform-4 {
+				animation: transform-4 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform-4{
+				 from{transform: rotate(0) scale(1); }
+				 to{transform: rotate(360deg) scale(.1);}
+			}
+			
+			/* 25 */
+			#transform-5 {
+				animation: transform-5 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform-5{
+				 from{transform: rotateY(0); }
+				 to{transform: rotateY(360deg);}
+			}
+			
+			/* 26 */
+			#transform-6 {
+				animation: transform-6 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform-6{
+				 from{transform: rotateX(0); }
+				 to{transform: rotateX(360deg);}
+			}
+			
+			/* 27 */
+			#transform-7 {
+				animation: transform-7 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform-7{
+				 from{transform: perspective(400px) rotateY(0); }
+				 to{transform: perspective(400px) translateZ(150px) rotateY(-180deg);}
+			}
+			
+			/* 28 */
+			#transform-8 {
+				animation: transform-8 2s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform-8{
+				 from{transform: perspective(400px) translate3d(0px, 0px, 0px); }
+				 to{transform: perspective(400px) translate3d(0px, 0px, -5000px) rotateX(720deg) rotateY(360deg) rotateZ(-360deg);}
+			}
+			
+			/* 29 */
+			#transform-9 {
+				animation: transform-9 1s ease 0s alternate none infinite;
+			}
+			
+			@keyframes transform-9{
+				 from{transform: perspective(400px) rotate3d(1,1,0,0deg); }
+				 to{transform: perspective(400px) rotate3d(1,1,0,180deg);}
+			}
+			
+			/* 30 */
+			#transform-10 {
+				animation: transform-10 1s ease 0s alternate none infinite;
+				transform-origin: right center 0; 
+			}
+			
+			@keyframes transform-10{
+				 from{transform: perspective(400px) rotate3d(0,1,0,0deg); }
+				 to{transform: perspective(400px) rotate3d(0,1,0,-180deg);}
+			}
+			
+			/* 30 */
+			#transform-origin {
+				animation: transform-origin 1s ease 0s alternate none infinite;
+			}
+			
+			/* 31 */
+			@keyframes transform-origin{
+				 from{transform-origin: center center 0;
+					transform: rotate(0deg);}
+				 to{transform-origin: 0 100% 0;
+					transform: rotate(45deg);}
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div class="box">
+		  <div class="main">
+		    <a id="border-radius"></a>
+		    <a id="border-radius-2"></a>
+		    <a id="border-width"></a>
+		    <a id="border-width-2"></a>
+		    <a id="border-width-3"></a>
+		    <a id="background-color"></a>
+		    <a id="background-position"></a>
+		    <a id="background-position-2"></a>
+		    <a id="background-size"></a>
+		    <a id="text-shadow"></a>
+		    <a id="text-shadow-2"></a>
+		    <a id="text-shadow-3"></a>
+		    <a id="box-shadow"></a>
+		    <a id="box-shadow-2"></a>
+		    <a id="font-size"></a>
+		    <a id="font-size-2"></a>
+		    <a id="letter-spacing"></a>
+		    <a id="text-indent"></a>
+		    <a id="height"></a>
+		    <a id="line-height"></a>
+		    <a id="transform"></a>
+		    <a id="transform-2"></a>
+		    <a id="transform-3"></a>
+		    <a id="transform-4"></a>
+		    <a id="transform-5"></a>
+		    <a id="transform-6"></a>
+		    <a id="transform-7"></a>
+		    <a id="transform-8"></a>
+		    <a id="transform-9"></a>
+		    <a id="transform-10"></a>
+		    <a id="transform-origin"></a>
+		    <a id=""></a>
+		  </div>
+	</body>
+</html>

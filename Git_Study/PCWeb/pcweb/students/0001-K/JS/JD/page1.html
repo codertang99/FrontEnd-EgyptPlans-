@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background-color: #fff;
+				padding: 0;
+				margin: 0;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul {
+				margin: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			.rec {
+				display: block;
+				width: 22px;
+				height: 32px;
+				background-color: rgba(0,0,0,.2);
+				color: rgba(255,255,255,.4);
+				line-height: 30px;
+				text-align: center;
+				text-decoration: none;
+				font-size: 36px;
+				position: absolute;
+				top:50%;
+				margin-top: -20px;
+				z-index: 2;
+			}
+			
+			.rec:hover {
+				background-color: rgba(0,0,0,.5);
+			}
+			
+			.arrow-right {
+				right: 0;
+			}
+			
+			.clearfix:after {
+				content: "";
+				height: 0;
+				clear: both;
+				visibility: hidden;
+				display: block;
+			}
+			
+			.left {
+				float: left;
+			}
+			
+			.right {
+				float: right;
+			}
+			
+			.clearfix {
+				*zoom: 1;
+			}
+			
+			.container {
+				width: 1190px;
+				margin: 0 auto;
+			}
+						
+			/* head */
+			#head {
+				background-color: #fff;
+				height: 230px;
+			}
+			
+			#head>.shortcut {
+				height: 30px;
+				width: 100%;				
+				background-color: #e3e4e5;
+				line-height: 30px;
+				border: 1px solid #ddd;
+			}
+
+			#head>.container {
+				height: 80px;
+				position: relative;
+			}
+			
+			#head>.container>.logo {
+				width: 250px;
+				height: 60px;
+				position: absolute;
+				left: 0;
+				padding: 20px 0;
+			}
+			
+			#head>.container>.logo>a {
+				display: inline-block;
+				width: 150px;
+				height: 60px;
+				background: url(//misc.360buyimg.com/jdf/1.0.0/unit/global-header/1.0.0/i/jdlogo-201708-@1x.png) no-repeat 0 0;
+				text-indent: -20000px;
+			}
+			
+			#head>.container>.logo>span {
+				display: inline-block;
+				color: #666;
+				font-size: 12px;
+				font-weight: 400;
+				position: relative;
+				margin-top: 13px;
+				height: 27px;
+				font-family: simsun;
+				text-align: center;
+				line-height: 27px;
+				width: 75px;
+				border: 1px solid #DFDFDF;
+				background-color: #f9f9f9;
+			}
+			
+			#head>.shortcut>.nav {				
+				margin: 0 auto;
+			}
+			
+			#head>.shortcut>.nav>.left {
+				float: left;
+				padding: 0;
+			}
+			
+			#head>.shortcut>.nav>.left>li {
+				float: left;
+				margin-right: 10px;
+			}
+				
+			/* #head>.container>.nav>.right, */
+			#head>.container>.search {
+				float: right;
+			}
+						
+			#head>.shortcut>.nav>.right>li {
+				float: left;
+				margin: 0 5px;
+				color: #999;
+			}
+			
+			#head>.shortcut>.nav>ul a {
+				color: #999;
+				font-size: 12px;
+				text-decoration: none;
+			}
+			
+			#head>.shortcut>.nav>ul a:hover {
+				color: #c81623;
+			}
+			
+			#head>.shortcut>.nav>ul span {
+				color: #f00;
+			}
+			
+			#head>.container>.search {
+				height: 60px;
+				width: 880px;
+				line-height: 60px;
+				position: relative;
+				overflow: hide;
+			}
+			
+			#head>.container>.search.fixed {
+				position: fixed;
+				top: 0;
+				z-index: 10;
+				background-color: #fff;
+				border-bottom: 2px solid #f10214;
+				width: 100%;
+				height: 48px;
+				left: -5px;
+			}
+			
+			#head>.container>.search>div.fixed {
+				left: 475px;
+				position: absolute;
+				top: 7px;
+			}
+			
+			#head>.container>.search>div.fixed>input {
+				background-color: #efefef;
+			}
+			
+			#head>.container>.search>div.fixed>div {
+				margin-top: -25px;
+			}
+			
+			#head>.container>.search.fixed>img {
+				display: none;
+			}
+			
+			
+			#head>.container>.search>div,
+			#head>.container>.hotword {
+				width: 565px;
+				height: 35px;
+				float: left;
+				overflow: hide;
+			}
+			
+			
+			#head>.container>.search>div>input {
+				width: 458px;
+				height: 30px;
+				position: absolute;
+				bottom: 0;
+				background: #fff url(image/search.png) no-repeat 430px;
+				font-size: 16px;
+				border: 2px solid #B61D1D;
+				color: #ccc;
+				bottom: 2px;
+				left: 20px;
+			}
+			
+			#head>.container>.search>div>span {
+				display: inline-block;
+				width: 52px;
+				height: 36px;
+				color: #fff;
+				background-color: #B61D1D;
+				position: absolute;
+				font-size: 12px;
+				line-height: 36px;
+				text-align: center;
+				bottom: 2px;
+				left: 482px;
+				
+			}
+			
+			#head>.container>.search>div>span:last-child {
+				left: 534px;
+				background-color: #474e5c;
+			}
+			
+			
+			#head>.container>.search>div>.createDiv {
+				position: absolute;
+				top: 60px;
+				border: 1px solid #ccc;
+			}
+			
+			#head>.container>.search>div>.createDiv>.histry {
+				width: 490px;
+				height: 30px;
+				background-color: #fff;
+				font-size: 12px;
+				padding: 0 5px;
+				line-height: 30px;
+				
+			}
+			
+			#head>.container>.search>div>.createDiv>.histry>a {
+				color: #005aa0;
+				width: 430px;
+				display: inline-block;
+				height: 30px;
+			}
+			#head>.container>.search>div>.createDiv>.histry>span {
+				float: right;
+				color: #ccc;
+			
+			}
+				
+			
+			#head>.container>.search>div img {
+				width: 50px;
+				height: 37px;
+				position: absolute;
+				bottom: 0;
+				left: 502px;
+			}
+			
+			#head>.container>.search>span {
+				display: inline-block;
+				width: 95px;
+				height: 34px;
+				border: 1px solid #DFDFDF;
+				padding: 0 20px;
+				font-size: 12px;
+				color: #666;
+				text-align: center;
+				line-height: 34px;
+				background-color: #F0F0F0;
+				position: absolute;
+				bottom: 2px;
+				right: 65px;
+			}
+			
+			
+			#head>.container>.hotword {
+				margin-left: 110px;
+				position: absolute;
+				left: 180px;
+				top: 65px;
+			}
+			
+			#head>.container>.hotword>ul>li>a {
+				float: left;
+				margin-left: 10px;
+				color: #999;
+				font-size: 12px;
+				text-decoration: none;
+			}
+			#head>.container>.hotword>ul>li>a:hover {
+				color: #c81623;
+			}
+			
+			
+			#head>.container>.hotword>ul>li span {
+				color: #f00;
+			}
+			
+			#head>.container>.subnav {
+				width: 950px;
+				height: 35px;
+				float: right;
+				line-height: 35px;
+			}
+			
+			#head>.container>.subnav>ul>li {
+				float: left;
+				margin-left: 25px;
+				font-size: 8px;
+				color: #999;
+				padding-top: 0px;
+			}
+			
+			#head>.container>.subnav>ul>li>a {
+				text-decoration: none;
+				font-size: 14px;
+				color: #000;
+			}	
+			
+			#head>.container>.subnav>ul>li>a:hover {
+				color: #c81623;
+			}
+			
+			
+			#head>.container>.subnav>img {
+				margin-top: -15px;
+			}
+			
+			#head>.bot-img {
+				margin: 0 auto;
+				width: 1920px;
+				height: 140px;
+				background: no-repeat url(image/ap.jpg) -210px;
+			}
+
+			#sub-nav,
+			#sub-nav-2 {
+				height: 40px;
+				background-color: #333333;
+				font-size: 14px;
+				margin: 0 auto;
+			}
+			
+			#sub-nav-2 {
+				background-color: #f2f2f2;
+				color: #666;
+			}
+			
+			.nav-container {
+				margin: 0 auto;
+				height: 100%;
+				position: relative;
+			}
+			
+			.nav-container>ul {
+				padding-left: 15px;
+				padding-top: 10px;
+				width: 700px;
+			}
+			
+			.nav-container>ul>li {
+				float: left;
+				margin-right: 15px;
+			}
+			
+			#sub-nav>.nav-container>ul>li>a {
+				color: #fcf9f9;
+				font-weight: 500;
+			}
+			
+			#sub-nav-2>.nav-container ul>li>a {
+				color: #666;
+			}
+			
+			#sub-nav>.nav-container>ul>li:first-child>a {
+				font-weight: 700;
+			}
+			
+			#sub-nav>.nav-container>.nav-search,
+			#sub-nav-2>.nav-container>.nav-right {
+				position: absolute;
+				right: 0;
+				bottom: 3px;
+				width: 188px;
+				height: 29px;
+			}
+			
+			#sub-nav>.nav-container>.nav-search>input {
+				width: 130px;
+				line-height: 22px;
+				height: 22px;
+				border-radius: 11px 0 0 11px;
+				padding:0 0 0 10px;
+				color: #c9c9c9;
+				vertical-align: top;
+				outline: none;
+				border: solid 1px #e1e1e1;
+			}
+			
+			#sub-nav>.nav-container>.nav-search>span {
+				margin-left: -5px;
+				padding: 0 10px;
+				height: 24px;
+				width: 20px;
+				cursor: pointer;
+				border-top-right-radius: 11px;
+				border-bottom-right-radius: 11px;
+				background: #444 url(//img13.360buyimg.com/cms/jfs/t3121/284/4170076300/1201/43e1ad98/583543d4Nc7e0c1a4.png) no-repeat center;
+				position: absolute;
+				right: 5px;
+				bottom: 5px;
+			}
+			
+			#sub-nav-2>.nav-container>.nav-right {
+				width: 470px;
+				right: 0;
+			}
+			
+			#sub-nav-2>.nav-container>.nav-right li {
+				float: left;
+				margin-right: 30px;
+			}
+			
+			#sub-nav-2>.nav-container>.nav-right li>img {
+				margin-top: 3px;
+			}
+			
+			#sub-nav-2>.nav-container>.nav-right li>span {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				position: absolute;
+				top: 3px;
+			}
+			
+			#sub-nav-2>.nav-container>.nav-right li:nth-child(3)>span {			
+				right: 193px;			
+			}
+			
+			#sub-nav-2>.nav-container>.nav-right li:nth-child(4)>span {
+				right: 105px;
+			}
+			
+			#sub-nav-2>.nav-container>.nav-right .cus-sev {
+				background: url(//static.360buyimg.com/item/unite/1.0.76/components/default/contact/i/__sprite.png) -34px -16px;
+			}
+			
+			#sub-nav-2>.nav-container>.nav-right .flow {
+				background: url(//static.360buyimg.com/item/unite/1.0.76/components/default/contact/i/__sprite.png) -34px 0;
+			}
+			/* ================================ */
+			
+			#product {
+				margin-top: 10px;
+			}
+			
+			#product>div {
+				float: left;
+			}
+			
+			#product>.product-img {
+				width: 350px;
+				height: 462px;
+				background-color: #B7BCB8;
+				border: 1px solid #DFDFDF;
+				position: relative;
+			}
+			
+			#product>.product-info {
+				width: 546px;
+				height: 828px;
+				margin: 0 30px 0 24px;
+				background-color: seashell;
+			}
+			
+			#product>.track {
+				width: 210px;
+				height: 634px;
+				background-color: cornsilk;
+			}
+			
+			#product>.product-img>.s-box {
+				position: relative;
+				cursor: all-scroll;
+			}
+			
+			#product>.product-img>.s-box img {
+				width: 350px;
+				height: 350px;
+			}
+			
+			#product>.product-img>.s-box .square {
+				position: absolute;
+				background-color: yellow;
+				opacity: 0.5;
+				display: none;
+
+			}
+			
+			#product>.product-img>.s-box .mask{
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				position: absolute;
+				top:0;
+				left:0;
+			}
+			
+			#product>.product-img>.b-box{
+				position: absolute;
+				top:0;
+				left: 100%;
+				margin-left: 2px;
+				width: 500px;
+				height: 500px;
+				border: 1px solid #ccc;
+				display: none;
+				overflow: hidden;
+				z-index: 10;
+			}
+			.b-box img {
+				position: absolute;
+			}
+			
+			.img-list {
+				position: relative;
+			}
+
+			.img-list>ul{
+				margin-top: 20px;
+				overflow: hidden;
+				padding-left: 20px;
+			}
+			.img-list>ul>li{
+				float: left;
+				padding: 0 4px;
+			}
+			.img-list img{
+				width: 50px;
+				height: 50px;
+				border: 2px solid transparent;
+			}
+			.img-list img.img-active{
+				border: 2px solid red;
+			}
+			
+			.content-head {
+				height: 38px;
+				position: relative;
+				background-color: #f7f7f7;
+				border: 1px solid #eee;
+				/* line-height: 38px; */
+				
+			}
+			
+			.content-body {
+				background-color: #FFFFFF;
+			}
+			
+			#recommend>.content-head {
+				border-bottom: 1px solid #e4393c;
+			}
+			
+			#recommend .content-head>span {
+				font-size: 14px;
+				padding: 10px 25px;
+				background-color: #e4393c;
+				color: #fff;
+				width: 56px;
+				height: 18px;
+				display: inline-block;
+			}
+			
+			#recommend>.recom-body>img {			
+				width: 160px;
+				height: 160px;
+				margin-right: 40px;
+			}
+			
+			#recommend>.recom-body>img:last-child {
+				margin: 0;
+			}
+			
+			#product-detail>div {
+				float: left;
+			}
+			
+			#product-detail>.side-info {
+				width: 210px;
+				height: 2000px;
+				background-color: salmon;
+			}
+			
+			.side-info>.side-info-1,
+			.side-info>.side-info-2 {
+				border: 1px solid #ccc;
+				margin-left: -1px;
+				margin-bottom: 15px;
+			}
+			
+			.side-info-2 .content-head {
+				border-bottom: 1px solid #e4393c;
+			}
+			
+			#product-detail>.main-detail {
+				width: 970px;
+				height: 2000px;
+				float: right;
+				background-color: cornsilk;
+			}
+			
+			.side-info-1>.content-body {
+				height: 148px;
+			}
+			
+			#product-detail .side-info-1>.content-head {
+				padding: 0 10px;
+				line-height: 38px;
+			}
+			
+			
+			#product-detail .side-info-1>.content-head>span {
+				font: 700 14px "microsoft yahei";
+				color: #666;
+			}
+			
+			/* ===============選項第一个============ */
+			.side-info-2>.content-head>span {
+				font-size: 14px;
+				padding: 10px 25px;
+				color: #666;
+				height: 18px;
+				display: inline-block;
+			}
+			
+			.side-info-2>.content-head>span.span-active {
+				color: #fff;
+				background-color: #e4393c;
+			}
+			
+			.red {
+				background-color: red;
+				display: block;
+			}
+			
+			.green {
+				background-color: green;
+			}
+			
+			.blue {
+				background-color: blue;
+			}
+			
+			.content-body-list>.content-body {
+				height: 1800px;
+				display: none;
+			}
+			
+			.content-body-list>.content-body:first-child {
+				height: 1800px;
+				display: block;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="head">
+			<div class="shortcut">
+				<div class="nav container">
+					<ul class="left">
+						<li><a href="#">京东首页</a></li>
+						<li><a href="#">某地</a></li>
+					</ul>
+					<ul class="right">					
+						<li><a href="#">你好，请登录</a>&nbsp;&nbsp;<a href="#"><span>免费注册</span></a> |</li>
+						<li><a href="#">我的订单</a> |</li> 
+						<li><a href="#">我的京东</a> |</li> 
+						<li><a href="#">京东会员</a> |</li> 
+						<li><a href="#"><span>企业采购</span></a> |</li> 
+						<li><a href="#">客服服务</a> |</li> 
+						<li><a href="#">网站导航</a> |</li> 
+						<li><a href="#">手机京东</a></li> 
+					</ul>
+				</div>
+			</div>
+				
+			<div class="container clearfix">
+				<div class="logo">
+					<a href=""></a>
+					<span>全部分类</span>
+				</div>
+				<div class="search">
+					<div>
+						<input type="text"/><span>搜全站</span><span>搜本店</span>
+						<!-- <button type="button"><img src="./image/search2.png" ></button> -->
+					</div>
+					<span>我的购物车&ensp;&ensp;&ensp;></span>
+				</div>
+				<div class="hotword">
+					<ul>
+						<li><a href="#"><span>数码家电</span></a></li>
+						<li><a href="#">数码家电</a></li>
+						<li><a href="#">数码家电</a></li>
+						<li><a href="#">数码家电</a></li>
+						<li><a href="#">数码家电</a></li>
+						<li><a href="#">数码家电</a></li>
+						<li><a href="#">数码家电</a></li>
+						<li><a href="#">数码家电</a></li>
+						<li><a href="#">数码家电</a></li>
+					</ul>
+				</div>
+
+			</div>	
+			
+			<div class="bot-img">
+				
+			</div>
+		</div>
+		<!-- head  ===end=== -->
+		<!-- ===nav=== -->
+		<div id="sub-nav">
+			<div class="nav-container container">
+				<ul class="clearfix">
+					<li><a href="">首页</a></li>
+					<li><a href="">全部分类</a></li>
+					<li><a href="">所有商品</a></li>
+					<li><a href="">宝宝玩具</a></li>
+					<li><a href="">遥控玩具</a></li>
+					<li><a href="">卡通玩具</a></li>
+					<li><a href="">户外玩具</a></li>
+					<li><a href="">首发公告</a></li>
+				</ul>
+				<div class="nav-search">
+					<input type="text" value="益智早教" /><span></span>
+				</div>
+			</div>
+		</div>
+		<div id="sub-nav-2">
+			<div class="nav-container container">
+				<ul class="clearfix">
+					<li><a href="">玩具乐器&ensp;&ensp;></a></li>
+					<li><a href="">遥控/电动&ensp;&ensp;></a></li>
+					<li><a href="">遥控飞机&ensp;&ensp;></a></li>
+					<li><a href="">宝贝星(BBS)&ensp;&ensp;></a></li>
+				</ul>
+				<div class="nav-right">
+					<ul>
+						<li><img src="//img12.360buyimg.com/devfe/jfs/t16816/30/336197495/1605/3b956398/5a6e8578N92dc73c0.png" ></li>
+						<li><a href="">宝贝星玩具旗舰店</a></li>
+						<li><span class="cus-sev"></span><a href="">联系客服</a></li>
+						<li><span class="flow"></span><a href="">关注店铺</a></li>
+					</ul>													
+				</div>
+			</div>
+		</div>
+		<!-- ======nav========== -->
+		
+		<div id="product" class="clearfix container">
+			<div class="product-img">
+				<div class="s-box">
+					<img src="./image/ap-m.jpg" >
+					<div class="square"></div>
+					<div class="mask"></div>
+				</div>
+				<div class="b-box">
+					<img src="./image/ap-b.jpg" >
+				</div>
+				<div class="img-list">
+					<ul data-index = '0'>
+						<li><img class="img-active" src="./image/ap-s.jpg" data-s = "./image/ap-m.jpg" data-b = "./image/ap-b.jpg"></li>
+						<li><img  src="./image/ap-s2.jpg" data-s = "./image/ap-m2.jpg" data-b = "./image/ap-b2.jpg"></li>
+						<li><img  src="./image/ap-s.jpg" data-s = "./image/ap-m.jpg" data-b = "./image/ap-b.jpg"></li>
+						<li><img  src="./image/ap-s2.jpg" data-s = "./image/ap-m2.jpg" data-b = "./image/ap-b2.jpg"></li>
+						<li><img  src="./image/ap-s.jpg" data-s = "./image/ap-m.jpg" data-b = "./image/ap-b.jpg"></li>
+					</ul>
+					<span class="rec arrow-left" >&lt;</span>
+					<span class="rec arrow-right" >&gt;</span>
+				</div>
+			</div>
+			<div class="product-info">
+				
+			</div>
+			<div class="track">				
+			</div>			
+		</div>
+		
+		<div id="recommend" class="container">
+			<div class="content-head">
+				<span>店长推荐</span>
+			</div>
+			<div class="recom-body">
+				<img src="image/rob.jpg">
+				<img src="image/rob.jpg">
+				<img src="image/rob.jpg">
+				<img src="image/rob.jpg">
+				<img src="image/rob.jpg">
+				<img src="image/rob.jpg">
+			</div>
+		</div>
+		
+		<div id="product-detail" class="container clearfix">
+			<div class="side-info">
+				<div class="side-info-1">
+					<div class="content-head">
+						<span>宝贝星玩具旗舰店</span>
+					</div>
+					<div class="content-body">						
+					</div>
+				</div>
+				<div class="side-info-1">
+					<div class="content-head">
+						<span>店内分类</span>
+					</div>
+					<div class="content-body">						
+					</div>
+				</div>
+			</div>
+			<div class="main-detail">
+				<div class="side-info-1">
+					<div class="content-head">
+						<span>陪伴计划·好券任领·尊享福利价</span>
+					</div>
+					<div class="content-body">						
+					</div>
+				</div>
+				<div class="side-info-2">
+					<div class="content-head">
+						<span class="span-active">商品介绍</span><span>规格与包装</span><span>售后保障</span>
+					</div>
+					<div class="content-body-list" data-index = "0">
+						<div class="content-body red"></div>
+						<div class="content-body green"></div>
+						<div class="content-body blue"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<script type="text/javascript" src="event.js"></script>		
+		<script src="animation.js" type="text/javascript" charset="utf-8"></script>		
+		<script src="event.js" type="text/javascript" charset="utf-8"></script>			
+		<script type="text/javascript">
+			var sBox = document.querySelector('#product>.product-img>.s-box');
+			var sImg = document.querySelector('#product>.product-img>.s-box img');
+			var listImgs = document.querySelectorAll('.img-list img');
+			var imgList = document.querySelector('.img-list');
+			var imgUl = document.querySelector('.img-list>ul');
+			var square = document.querySelector('#product>.product-img>.s-box .square');
+			var bBox = document.querySelector('#product>.product-img>.b-box');
+			var bImg = document.querySelector('#product>.product-img>.b-box img');
+			
+			// 鼠标移进img-list
+			imgList.addEvent('mouseover', function(){
+				var target = this.getTarget();
+				var oldI = parseInt(imgUl.dataset['index']);
+				for(var i = 0; i < listImgs.length; i++){
+					if(target === listImgs[i]){
+						if(i !== oldI){
+							changeSpans(imgUl, listImgs, oldI, i, 'img-active', 'index');							
+							bImg.src = target.getAttribute('data-b');
+							sImg.src = target.getAttribute('data-s');
+						}
+					}
+				}				
+			});
+			
+			// 鼠标移进s-box
+			
+			sBox.addEvent('mouseover', function(){
+				square.style.display ='block';
+				bBox.style.display ='block';
+				square.style.width = bBox.offsetWidth * sImg.offsetWidth / bImg.offsetWidth +'px';
+				square.style.height = bBox.offsetHeight * sImg.offsetHeight / bImg.offsetHeight +'px';
+								
+			});
+			
+			sBox.addEvent('mousemove', function(){
+				var e = e || window.event;
+				var x, y;
+				x=e.offsetX-square.offsetWidth/2;
+				y=e.offsetY-square.offsetHeight/2;
+				if(x < 0){
+					x = 0;
+				}
+				
+				if(x > sBox.offsetWidth - square.offsetWidth){
+					x = sBox.offsetWidth - square.offsetWidth;
+				}
+				
+				if(y < 0){
+					y = 0;
+				}
+				
+				if(y > sBox.offsetHeight - square.offsetHeight-4){
+					y = sBox.offsetHeight - square.offsetHeight-4;
+				}				
+				square.style.left = x + 'px';
+				square.style.top = y + 'px';				
+				bImg.style.left = -x * bImg.offsetWidth / sImg.offsetWidth + 'px';
+				bImg.style.top = -y * bImg.offsetHeight / sImg.offsetHeight + 'px';
+			});
+			
+			sBox.addEvent('mouseout', function(){
+				square.style.display ='none';
+				bBox.style.display ='none';
+			});
+			
+			function left(){
+				var oldI = parseInt(imgUl.dataset['index']);
+				if(oldI > 0){
+					var i = oldI - 1;
+					var target = listImgs[i];
+					changeSpans(imgUl, listImgs, oldI, i, 'img-active', 'index');							
+					bImg.src = target.getAttribute('data-b');
+					sImg.src = target.getAttribute('data-s');						
+				}
+			}
+			
+			function right(){
+				var oldI = parseInt(imgUl.dataset['index']);
+				if(oldI < listImgs.length - 1){
+					var i = oldI + 1;
+					var target = listImgs[i];
+					changeSpans(imgUl, listImgs, oldI, i, 'img-active', 'index');							
+					bImg.src = target.getAttribute('data-b');
+					sImg.src = target.getAttribute('data-s');
+				}
+			}
+			
+			var leftSpan = document.querySelector('.img-list>.arrow-left');
+			var rightSpan = document.querySelector('.img-list>.arrow-right');
+			
+			leftSpan.addEvent('click', function(){
+				left();
+			});
+			
+			rightSpan.addEvent('click', function(){
+				right();
+			});
+			
+			
+		</script>
+		<script type="text/javascript">
+			var conBodySpans = document.querySelectorAll('.side-info-2>.content-head>span');
+			var conBodyDivs = document.querySelectorAll('.side-info-2>.content-body-list>div');
+			var contentList = document.querySelector('.side-info-2>.content-body-list');
+			var contentHead = document.querySelector('.side-info-2>.content-head');
+			console.log(contentHead);
+			contentHead.addEvent('click', function(){
+				var target = this.getTarget();
+				var oldI = parseInt(contentList.dataset['index']);
+				for(var i = 0; i < conBodySpans.length; i++){
+					if(target === conBodySpans[i]){
+						if(i !== oldI){
+							conBodyDivs[oldI].style.display = 'none';
+							conBodyDivs[i].style.display = 'block';
+							changeSpans(contentList, conBodySpans, oldI, i, 'span-active', 'index');														
+						}
+					}
+				}				
+			});
+		</script>
+	</body>
+</html>

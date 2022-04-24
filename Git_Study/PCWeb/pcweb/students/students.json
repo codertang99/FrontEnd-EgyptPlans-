@@ -1,0 +1,31 @@
+{
+	"students": [
+		{
+			"id": "0001-K",
+			"name": "陈凯",
+			"nickName": "K",
+			"class": "一期",
+			"picUrl1": "students/0001-K/image/0001-K-690-520.jpg",
+			"picUrl2": "students/0001-K/image/0001-K.jpg",
+			"message": "人类，作为一个尝遍食物链的物种，好奇是人的天性。前端开发作为一种日新月异的技术，不进则退，推着从业者不断享受神经元创建新的连接这一痛苦但美妙的过程，即填饱了肚子又满足了学习的好奇心。这是我选择学习它的一大原因吧。"
+		},
+		{
+			"id": "0001-dinisha",
+			"name": "杨明磊",
+			"nickName": "迪妮莎",
+			"class": "一期",
+			"picUrl1": "students/0001-dinisha/image/0001-dinisha-690-520.jpg",
+			"picUrl2": "students/0001-dinisha/image/0001-dinisha.jpg",
+			"message": "为什么要成为程序员，很多人是为了喜欢这个行业，热爱可能是最好的老师，但是热爱是否能支撑自己把自己喜欢的做成一份职业。每当自己跟着老师，敲着一遍又一遍的代码时，那与世无争的感觉，很是让我心情澎湃。在学习的道路上每天可能都在debug，对技术上的概念充满着极大的好奇。希望我在入门阶段保持一颗永不磨灭的心。"
+		},
+		{
+			"id": "0004-North",
+			"name": "潘宁",
+			"nickName": "North",
+			"class": "四期",
+			"picUrl1": "students/0004-North/image/0004-North-690-520.png",
+			"picUrl2": "students/0004-North/image/0004-North.jpg",
+			"message": "学点东西总是好的！没有学习编程的时候觉得编程很神秘，很高深，现在自己也能写出京东那样的网页了，感觉编程很有趣。"
+		}
+	]
+}

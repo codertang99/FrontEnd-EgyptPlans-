@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html manifest="page3.manifest">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#form {
+				margin: 0 auto;
+				margin-top: 50px;
+				width: 560px;
+				height: 207px;
+			}
+			
+			
+			#form-btn {
+				margin-top: 40px;
+			}
+			
+			#form-btn #btn1,
+			#form-btn #btn2 {
+				float: left;
+				width: 156px;
+				height: 42px;
+				line-height: 42px;
+				display: block;
+				font-size: 16px;
+				color: #ffffff;
+				text-align: center;
+				background: #4375b9;
+				border-radius: 3px;
+				text-decoration: none;
+			}
+			
+			#form-btn #btn2 {
+				float: right;
+			}
+			
+
+			
+		</style>
+	</head>
+	<body>
+		<form id="form" name="form" autocomplete="of">
+			兴趣爱好:
+			<input type="checkbox" name="football"/>足球
+			<input type="checkbox" name="basketball"/>篮球
+			<input type="checkbox" name="fitness"/>健身
+			<input type="checkbox" name="badminton"/>羽毛球
+			<input type="checkbox" name="movie"/>电影
+			<input type="checkbox" name="reading"/>读书
+			<input type="checkbox" name="programming"/>编程
+			<div id="form-btn">
+				<a id="btn1" href="page2.html">上一页</a>
+				<a id="btn2">提交</a>
+			</div>
+		</form>
+		<script type="text/javascript">
+			function $(id){
+				return document.getElementById(id);
+			}
+			
+			function storeValueArrayAsJson(key, valueArry, value){
+				valueArry.push(value);
+				localStorage.setItem(key, JSON.stringify(valueArry));
+			}
+			
+			
+			var checkBoxes = document.getElementsByTagName('input');
+			var tmpKey = 'tmpCheckBoxes';
+			var tmpCheckBoxes = [];
+			
+			
+
+			
+			for(var i = 0; i < checkBoxes.length; i++){
+				if(checkBoxes[i].type === 'checkbox'){
+					checkBoxes[i].onclick = function(){
+						if(this.checked){
+							while(tmpCheckBoxes.length > 2){
+								var tmp = tmpCheckBoxes.shift();
+								tmp.checked = false;								
+							}														
+							tmpCheckBoxes.push(this);
+						}else{
+							for(var j = 0; j < tmpCheckBoxes.length; j++){
+								if(tmpCheckBoxes[j] === this){
+									tmpCheckBoxes.splice(j, 1);
+									break;
+								}
+							}
+						}
+						localStorage.removeItem(tmpKey);
+						var valueArry = [];
+						for(k = 0; k < tmpCheckBoxes.length; k++){
+							storeValueArrayAsJson(tmpKey, valueArry, tmpCheckBoxes[k].name);
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+			
+			function showStorageInfo(){
+				console.log(123);
+				for(var i = 0; i < inputs.length; i++){
+					var valueArry = JSON.parse(localStorage.getItem(tmpKey));
+					if(valueArry.indexOf(inputs[i].name) > -1){
+						inputs[i].checked = true;
+						tmpCheckBoxes.push(inputs[i]);
+					}					
+				}
+			}
+			
+			var inputs = document.querySelectorAll('#form>input');
+			var spans = document.querySelectorAll('#form>span');
+			
+			$('btn2').onclick = function(){
+				localStorage.clear();
+			}
+			
+			showStorageInfo();		
+			
+		</script>
+	</body>
+</html>

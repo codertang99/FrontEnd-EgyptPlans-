@@ -1,0 +1,52 @@
+        <div class="header d-flex flex-row">
+			<div class="header_content d-flex flex-row align-items-center">
+				<!-- Logo -->
+				<div class="logo_container">
+					<div class="logo">
+						<img src="images/user.png" alt="">
+						<span>隔壁王校长</span>
+					</div>
+				</div>
+
+				<!-- Main Navigation -->
+				<nav class="main_nav_container">
+					<div class="main_nav">
+						<ul class="main_nav_list">
+							<li class="main_nav_item"><a href="index.html">首页</a></li>
+							<li class="main_nav_item"><a href="courses.html">课程日历</a></li>
+							<li class="main_nav_item"><a href="student_workspace.html">学员实战</a></li>
+							<li class="main_nav_item"><a id="wx-contact" href="#">报名学习</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="header_side d-flex flex-row justify-content-center align-items-center">
+				<img src="images/phone-call.svg" alt="">
+				<span>136-4132-8455</span>
+			</div>
+
+			<!-- Hamburger -->
+			<div class="hamburger_container">
+				<i class="fas fa-bars trans_200"></i>
+			</div>
+		</div>
+		<div class="full-screen-for-wx">
+			<h1>简单一点，直接加我微信私聊</h1>
+			<img src="images/1985.jpg" width="300" height="387"/>
+			<div class="close-button">关闭</div>
+		</div>
+		<script type="text/javascript">			
+			$('#wx-contact').click(function(){
+				var $div = $('.full-screen-for-wx');
+				if($div.css('display') === 'none'){
+					$div.css('display', 'block');
+				}
+			});
+			
+			$('.close-button').click(function(){
+				var $div = $('.full-screen-for-wx');
+				if($div.css('display') != 'none'){
+					$div.css('display', 'none');
+				}
+			});
+		</script>
